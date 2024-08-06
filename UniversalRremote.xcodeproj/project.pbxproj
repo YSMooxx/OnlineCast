@@ -28,6 +28,18 @@
 		129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCA2C620F04009EBC7F /* LDBaseNavViewController.swift */; };
 		129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCD2C620FDC009EBC7F /* Transiotion.swift */; };
 		129DFDD02C6210DA009EBC7F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCF2C6210DA009EBC7F /* UIViewController+Extension.swift */; };
+		129DFDD32C62230F009EBC7F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD22C62230F009EBC7F /* FirebaseAnalytics */; };
+		129DFDD52C62230F009EBC7F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */; };
+		129DFDD72C62230F009EBC7F /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD62C62230F009EBC7F /* FirebaseInstallations */; };
+		129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDD92C62233F009EBC7F /* Analytics.swift */; };
+		129DFDDC2C622565009EBC7F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDDB2C622565009EBC7F /* CFNetwork.framework */; };
+		129DFDDE2C622570009EBC7F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDDD2C622570009EBC7F /* SystemConfiguration.framework */; };
+		129DFDE02C622578009EBC7F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDDF2C622578009EBC7F /* Security.framework */; };
+		129DFDE22C622591009EBC7F /* AmazonFling.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDE12C622591009EBC7F /* AmazonFling.xcframework */; };
+		129DFDE42C62259D009EBC7F /* Bolts.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDE32C62259D009EBC7F /* Bolts.xcframework */; };
+		129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDE82C6225E1009EBC7F /* AmazonFlingMananger.swift */; };
+		129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF02C622653009EBC7F /* XMLDictionary.m */; };
+		129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF52C62368B009EBC7F /* RemoteViewController.swift */; };
 		606ED2A4BA3C427789CEB418 /* Pods_UniversalRremoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */; };
 		8D2DAE621991705C5F2CBAAC /* Pods_UniversalRremote_UniversalRremoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92E4E1596974273C76A5D06 /* Pods_UniversalRremote_UniversalRremoteUITests.framework */; };
 		F53000A4D9957E03CE61D2AC /* Pods_UniversalRremote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */; };
@@ -79,6 +91,18 @@
 		129DFDCA2C620F04009EBC7F /* LDBaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseNavViewController.swift; sourceTree = "<group>"; };
 		129DFDCD2C620FDC009EBC7F /* Transiotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transiotion.swift; sourceTree = "<group>"; };
 		129DFDCF2C6210DA009EBC7F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		129DFDD92C62233F009EBC7F /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		129DFDDB2C622565009EBC7F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		129DFDDD2C622570009EBC7F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		129DFDDF2C622578009EBC7F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		129DFDE12C622591009EBC7F /* AmazonFling.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AmazonFling.xcframework; path = ../SDK/frameworks/AmazonFling.xcframework; sourceTree = "<group>"; };
+		129DFDE32C62259D009EBC7F /* Bolts.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Bolts.xcframework; path = ../SDK/frameworks/third_party_framework/Bolts.xcframework; sourceTree = "<group>"; };
+		129DFDE82C6225E1009EBC7F /* AmazonFlingMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonFlingMananger.swift; sourceTree = "<group>"; };
+		129DFDEB2C62263A009EBC7F /* UniversalRremote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniversalRremote-Bridging-Header.h"; sourceTree = "<group>"; };
+		129DFDEF2C622653009EBC7F /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		129DFDF02C622653009EBC7F /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		129DFDF22C622684009EBC7F /* UniversalRremote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UniversalRremote.entitlements; sourceTree = "<group>"; };
+		129DFDF52C62368B009EBC7F /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		31CD881656B99123C7767007 /* Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73EF877A07A581A7DE3862A7 /* Pods-UniversalRremoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremoteTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremoteTests/Pods-UniversalRremoteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +117,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				129DFDE42C62259D009EBC7F /* Bolts.xcframework in Frameworks */,
+				129DFDE22C622591009EBC7F /* AmazonFling.xcframework in Frameworks */,
+				129DFDE02C622578009EBC7F /* Security.framework in Frameworks */,
+				129DFDDE2C622570009EBC7F /* SystemConfiguration.framework in Frameworks */,
+				129DFDDC2C622565009EBC7F /* CFNetwork.framework in Frameworks */,
+				129DFDD52C62230F009EBC7F /* FirebaseCrashlytics in Frameworks */,
+				129DFDD32C62230F009EBC7F /* FirebaseAnalytics in Frameworks */,
 				F53000A4D9957E03CE61D2AC /* Pods_UniversalRremote.framework in Frameworks */,
+				129DFDD72C62230F009EBC7F /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +173,7 @@
 		129DFD6B2C61D4CB009EBC7F /* UniversalRremote */ = {
 			isa = PBXGroup;
 			children = (
+				129DFDF22C622684009EBC7F /* UniversalRremote.entitlements */,
 				129DFD9E2C61EE21009EBC7F /* Class */,
 				129DFD6C2C61D4CB009EBC7F /* AppDelegate.swift */,
 				129DFD702C61D4CB009EBC7F /* ViewController.swift */,
@@ -187,6 +220,7 @@
 				129DFDA52C61F19C009EBC7F /* Common */,
 				129DFDA42C61F197009EBC7F /* Class */,
 				129DFDA02C61F063009EBC7F /* Extension */,
+				129DFDEA2C622627009EBC7F /* OC */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -206,6 +240,7 @@
 		129DFDA32C61F18D009EBC7F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				129DFDF42C623673009EBC7F /* Remote */,
 				129DFDBB2C61FC63009EBC7F /* LaunchVC */,
 			);
 			path = Section;
@@ -214,6 +249,8 @@
 		129DFDA42C61F197009EBC7F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				129DFDE52C6225BF009EBC7F /* Search */,
+				129DFDD82C622337009EBC7F /* Analytics */,
 				129DFDCC2C620FCC009EBC7F /* Transition */,
 			);
 			path = Class;
@@ -286,6 +323,56 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		129DFDD82C622337009EBC7F /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				129DFDD92C62233F009EBC7F /* Analytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		129DFDE52C6225BF009EBC7F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				129DFDE72C6225D2009EBC7F /* AMZ */,
+				129DFDE62C6225CC009EBC7F /* SSDP */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		129DFDE62C6225CC009EBC7F /* SSDP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SSDP;
+			sourceTree = "<group>";
+		};
+		129DFDE72C6225D2009EBC7F /* AMZ */ = {
+			isa = PBXGroup;
+			children = (
+				129DFDE82C6225E1009EBC7F /* AmazonFlingMananger.swift */,
+			);
+			path = AMZ;
+			sourceTree = "<group>";
+		};
+		129DFDEA2C622627009EBC7F /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				129DFDEF2C622653009EBC7F /* XMLDictionary.h */,
+				129DFDF02C622653009EBC7F /* XMLDictionary.m */,
+				129DFDEB2C62263A009EBC7F /* UniversalRremote-Bridging-Header.h */,
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
+		129DFDF42C623673009EBC7F /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				129DFDF52C62368B009EBC7F /* RemoteViewController.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
 		14A5B2A12939869B4BE1C7BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +389,11 @@
 		281971FCDECCED9D35E6398A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				129DFDE32C62259D009EBC7F /* Bolts.xcframework */,
+				129DFDE12C622591009EBC7F /* AmazonFling.xcframework */,
+				129DFDDF2C622578009EBC7F /* Security.framework */,
+				129DFDDD2C622570009EBC7F /* SystemConfiguration.framework */,
+				129DFDDB2C622565009EBC7F /* CFNetwork.framework */,
 				0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */,
 				D92E4E1596974273C76A5D06 /* Pods_UniversalRremote_UniversalRremoteUITests.framework */,
 				8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */,
@@ -321,12 +413,18 @@
 				129DFD662C61D4CB009EBC7F /* Frameworks */,
 				129DFD672C61D4CB009EBC7F /* Resources */,
 				CAB8669ECA4F85BC010873CD /* [CP] Embed Pods Frameworks */,
+				129DFDF32C622F01009EBC7F /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = UniversalRremote;
+			packageProductDependencies = (
+				129DFDD22C62230F009EBC7F /* FirebaseAnalytics */,
+				129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */,
+				129DFDD62C62230F009EBC7F /* FirebaseInstallations */,
+			);
 			productName = UniversalRremote;
 			productReference = 129DFD692C61D4CB009EBC7F /* UniversalRremote.app */;
 			productType = "com.apple.product-type.application";
@@ -382,6 +480,7 @@
 				TargetAttributes = {
 					129DFD682C61D4CB009EBC7F = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 					129DFD7E2C61D4CD009EBC7F = {
 						CreatedOnToolsVersion = 15.4;
@@ -402,6 +501,9 @@
 				Base,
 			);
 			mainGroup = 129DFD602C61D4CB009EBC7F;
+			packageReferences = (
+				129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 129DFD6A2C61D4CB009EBC7F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,6 +544,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		129DFDF32C622F01009EBC7F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 		6EB683712269317A710390D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,17 +676,21 @@
 				129DFDD02C6210DA009EBC7F /* UIViewController+Extension.swift in Sources */,
 				129DFDA92C61F2BB009EBC7F /* Common.swift in Sources */,
 				129DFDC32C6201B8009EBC7F /* LDBaseNavView.swift in Sources */,
+				129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */,
 				129DFDBF2C61FCB1009EBC7F /* LDBaseViewController.swift in Sources */,
 				129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */,
 				129DFDC52C6201E3009EBC7F /* CommonType.swift in Sources */,
 				129DFDA22C61F07A009EBC7F /* UIColor+Extension.swift in Sources */,
 				129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */,
+				129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */,
+				129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */,
 				129DFDAB2C61F3AE009EBC7F /* Value+Extension.swift in Sources */,
 				129DFDBD2C61FC77009EBC7F /* LaunchVC.swift in Sources */,
 				129DFD712C61D4CB009EBC7F /* ViewController.swift in Sources */,
 				129DFDC72C6202B2009EBC7F /* UIView+Extension.swift in Sources */,
 				129DFDC92C620434009EBC7F /* UIImage+Extension.swift in Sources */,
 				129DFD6D2C61D4CB009EBC7F /* AppDelegate.swift in Sources */,
+				129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,9 +871,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UniversalRremote/UniversalRremote.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = L637U6Z5RP;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -774,6 +905,8 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UniversalRremote/Class/Tool/OC/UniversalRremote-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "";
@@ -786,6 +919,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = UniversalRremote/UniversalRremote.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -817,6 +952,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "UniversalRremote/Class/Tool/OC/UniversalRremote-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "";
@@ -943,6 +1079,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		129DFDD22C62230F009EBC7F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		129DFDD62C62230F009EBC7F /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 129DFD612C61D4CB009EBC7F /* Project object */;
 }

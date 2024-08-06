@@ -14,5 +14,13 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.green
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        super.touchesBegan(touches, with: event)
+        
+        let numbers = [0]
+       let _ = numbers[1]
+    }
 }
 

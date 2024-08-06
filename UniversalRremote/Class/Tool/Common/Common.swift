@@ -48,3 +48,13 @@ let dBackColor:String = "#241E1E"
 let blackColor:String = "#000000"
 //white
 let whiteColor:String = "#FFFFFF"
+
+
+public func Print(_ items: Any...) {
+    
+    #if DEBUG
+    print(items)
+    #else
+//    print(items)
+    #endif
+}

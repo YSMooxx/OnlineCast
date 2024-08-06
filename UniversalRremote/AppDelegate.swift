@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav:LDBaseNavViewController = LDBaseNavViewController(rootViewController: vc)
         
-        window?.rootViewController = nav
+        window?.rootViewController = ViewController()
         
         window?.makeKeyAndVisible()
         
@@ -33,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setConfig() {
         
+        FirebaseApp.configure()
         
+        logEvent(eventId: open_app)
     }
 
 }
