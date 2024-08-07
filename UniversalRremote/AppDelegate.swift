@@ -17,15 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setConfig()
         
-//        Thread.sleep(forTimeInterval: 2)
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let vc = LaunchVC()
         
-        let nav:LDBaseNavViewController = LDBaseNavViewController(rootViewController: vc)
-        
-        window?.rootViewController = ViewController()
+        window?.rootViewController = LDBaseNavViewController(rootViewController: vc)
         
         window?.makeKeyAndVisible()
         
@@ -36,7 +32,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        getDefaulHeight()
+        
         logEvent(eventId: open_app)
+    }
+    
+    func getDefaulHeight() {
+        
+        if #available(iOS 13.0, *) {
+            
+            let window = UIApplication.shared.windows.first
+            let topPadding = window?.safeAreaInsets.top ?? 0
+            statusBarHeight = topPadding > 0 ? topPadding:20
+            navHeight = navDefaultHeight + statusBarHeight
+            navCenterY = 22 + statusBarHeight
+        }else {
+            
+            statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+            navHeight = navDefaultHeight + statusBarHeight
+            navCenterY = 22 + statusBarHeight
+        }
+        
+        if #available(iOS 11.0, *) {
+            
+            safeHeight = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
+        
+        }else {
+            
+            safeHeight = 0
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -13,10 +13,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qidong_back2.png" translatesAutoresizingMaskIntoConstraints="NO" id="PuK-h6-Hcp">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universal Remote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7S-Mo-y51">
+                                <rect key="frame" x="16" y="664" width="262" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="maj-Lp-Dwh">
+                                <rect key="frame" x="16" y="551" width="101" height="101"/>
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="maj-Lp-Dwh" secondAttribute="height" id="siF-U3-Gfb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.027450980392156862" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F7S-Mo-y51" secondAttribute="bottom" constant="195" id="7sD-mB-MDl"/>
+                            <constraint firstAttribute="bottom" secondItem="PuK-h6-Hcp" secondAttribute="bottom" id="A0E-rf-Vf8"/>
+                            <constraint firstItem="PuK-h6-Hcp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BlI-Fi-4Aq"/>
+                            <constraint firstAttribute="trailing" secondItem="PuK-h6-Hcp" secondAttribute="trailing" id="Nox-6Z-13o"/>
+                            <constraint firstItem="maj-Lp-Dwh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.2346" id="RXE-nw-Bbo"/>
+                            <constraint firstItem="maj-Lp-Dwh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VG8-mM-15V"/>
+                            <constraint firstItem="F7S-Mo-y51" firstAttribute="top" secondItem="maj-Lp-Dwh" secondAttribute="bottom" constant="12" id="jVm-8h-1RL"/>
+                            <constraint firstItem="PuK-h6-Hcp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nGC-V5-xTN"/>
+                            <constraint firstItem="F7S-Mo-y51" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nns-0m-x3N"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +53,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="qidong_back2.png" width="1125" height="2436"/>
+    </resources>
 </document>

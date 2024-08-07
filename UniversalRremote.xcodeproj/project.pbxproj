@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127F36EC2C63793C00DC5642 /* qidong_back2.png in Resources */ = {isa = PBXBuildFile; fileRef = 127F36EB2C63793C00DC5642 /* qidong_back2.png */; };
+		127F36EE2C63835E00DC5642 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 127F36ED2C63835E00DC5642 /* FirebaseAnalytics */; };
+		127F36F02C63835E00DC5642 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 127F36EF2C63835E00DC5642 /* FirebaseCrashlytics */; };
+		127F36F22C63835E00DC5642 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 127F36F12C63835E00DC5642 /* FirebaseInstallations */; };
+		127F36FD2C6384A000DC5642 /* Launch_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 127F36FA2C6384A000DC5642 /* Launch_loading.json */; };
+		127F37012C63870600DC5642 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37002C63870600DC5642 /* SettingViewController.swift */; };
+		127F37032C638C3300DC5642 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37022C638C3300DC5642 /* SettingView.swift */; };
+		127F37092C63986500DC5642 /* contactus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 127F37042C63986500DC5642 /* contactus.svg */; };
+		127F370A2C63986500DC5642 /* pp.svg in Resources */ = {isa = PBXBuildFile; fileRef = 127F37052C63986500DC5642 /* pp.svg */; };
+		127F370B2C63986500DC5642 /* rateus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 127F37062C63986500DC5642 /* rateus.svg */; };
+		127F370C2C63986500DC5642 /* tou.svg in Resources */ = {isa = PBXBuildFile; fileRef = 127F37072C63986500DC5642 /* tou.svg */; };
+		127F370F2C63995300DC5642 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F370E2C63995300DC5642 /* JsonUtil.swift */; };
+		127F37112C639C2500DC5642 /* LDBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37102C639C2500DC5642 /* LDBaseWebViewController.swift */; };
+		127F37132C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37122C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift */; };
+		127F37152C639CCC00DC5642 /* TermOfUseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37142C639CCC00DC5642 /* TermOfUseWebViewController.swift */; };
 		129DFD6D2C61D4CB009EBC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFD6C2C61D4CB009EBC7F /* AppDelegate.swift */; };
 		129DFD712C61D4CB009EBC7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFD702C61D4CB009EBC7F /* ViewController.swift */; };
 		129DFD742C61D4CB009EBC7F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 129DFD732C61D4CB009EBC7F /* Base */; };
@@ -28,9 +43,6 @@
 		129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCA2C620F04009EBC7F /* LDBaseNavViewController.swift */; };
 		129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCD2C620FDC009EBC7F /* Transiotion.swift */; };
 		129DFDD02C6210DA009EBC7F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDCF2C6210DA009EBC7F /* UIViewController+Extension.swift */; };
-		129DFDD32C62230F009EBC7F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD22C62230F009EBC7F /* FirebaseAnalytics */; };
-		129DFDD52C62230F009EBC7F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */; };
-		129DFDD72C62230F009EBC7F /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 129DFDD62C62230F009EBC7F /* FirebaseInstallations */; };
 		129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDD92C62233F009EBC7F /* Analytics.swift */; };
 		129DFDDC2C622565009EBC7F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDDB2C622565009EBC7F /* CFNetwork.framework */; };
 		129DFDDE2C622570009EBC7F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129DFDDD2C622570009EBC7F /* SystemConfiguration.framework */; };
@@ -40,6 +52,20 @@
 		129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDE82C6225E1009EBC7F /* AmazonFlingMananger.swift */; };
 		129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF02C622653009EBC7F /* XMLDictionary.m */; };
 		129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF52C62368B009EBC7F /* RemoteViewController.swift */; };
+		12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE512C62FF1100CD417A /* CommonFunc.swift */; };
+		12CCDE562C6301B500CD417A /* nav_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12CCDE552C6301B500CD417A /* nav_back.svg */; };
+		12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE572C6301C600CD417A /* RemoteView.swift */; };
+		12CCDE5A2C63069E00CD417A /* RemoteNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE592C63069E00CD417A /* RemoteNavView.swift */; };
+		12CCDE5C2C63097800CD417A /* AllStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE5B2C63097800CD417A /* AllStatus.swift */; };
+		12CCDE5F2C63101300CD417A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE5E2C63101200CD417A /* Device.swift */; };
+		12CCDE612C63178100CD417A /* RemoteResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE602C63178100CD417A /* RemoteResultView.swift */; };
+		12CCDE642C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE632C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift */; };
+		12CCDE662C6327DB00CD417A /* RemoteDMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE652C6327DB00CD417A /* RemoteDMananger.swift */; };
+		12CCDE682C632ADA00CD417A /* UserDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE672C632ADA00CD417A /* UserDef.swift */; };
+		12CCDE6A2C632DC300CD417A /* RemoteDNoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE692C632DC300CD417A /* RemoteDNoResultView.swift */; };
+		12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */; };
+		12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE6D2C63523300CD417A /* RemoteDRenameView.swift */; };
+		12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE702C6363A400CD417A /* UITextFieldX.swift */; };
 		606ED2A4BA3C427789CEB418 /* Pods_UniversalRremoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */; };
 		8D2DAE621991705C5F2CBAAC /* Pods_UniversalRremote_UniversalRremoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92E4E1596974273C76A5D06 /* Pods_UniversalRremote_UniversalRremoteUITests.framework */; };
 		F53000A4D9957E03CE61D2AC /* Pods_UniversalRremote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */; };
@@ -65,6 +91,18 @@
 /* Begin PBXFileReference section */
 		0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0B2FBE0FBB73201F62D79B /* Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		127F36EB2C63793C00DC5642 /* qidong_back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qidong_back2.png; sourceTree = "<group>"; };
+		127F36FA2C6384A000DC5642 /* Launch_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Launch_loading.json; sourceTree = "<group>"; };
+		127F37002C63870600DC5642 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		127F37022C638C3300DC5642 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		127F37042C63986500DC5642 /* contactus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contactus.svg; sourceTree = "<group>"; };
+		127F37052C63986500DC5642 /* pp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pp.svg; sourceTree = "<group>"; };
+		127F37062C63986500DC5642 /* rateus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rateus.svg; sourceTree = "<group>"; };
+		127F37072C63986500DC5642 /* tou.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tou.svg; sourceTree = "<group>"; };
+		127F370E2C63995300DC5642 /* JsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
+		127F37102C639C2500DC5642 /* LDBaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseWebViewController.swift; sourceTree = "<group>"; };
+		127F37122C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyWebViewController.swift; sourceTree = "<group>"; };
+		127F37142C639CCC00DC5642 /* TermOfUseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseWebViewController.swift; sourceTree = "<group>"; };
 		129DFD692C61D4CB009EBC7F /* UniversalRremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversalRremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		129DFD6C2C61D4CB009EBC7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		129DFD702C61D4CB009EBC7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +141,20 @@
 		129DFDF02C622653009EBC7F /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		129DFDF22C622684009EBC7F /* UniversalRremote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UniversalRremote.entitlements; sourceTree = "<group>"; };
 		129DFDF52C62368B009EBC7F /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
+		12CCDE512C62FF1100CD417A /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
+		12CCDE552C6301B500CD417A /* nav_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nav_back.svg; sourceTree = "<group>"; };
+		12CCDE572C6301C600CD417A /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
+		12CCDE592C63069E00CD417A /* RemoteNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNavView.swift; sourceTree = "<group>"; };
+		12CCDE5B2C63097800CD417A /* AllStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStatus.swift; sourceTree = "<group>"; };
+		12CCDE5E2C63101200CD417A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		12CCDE602C63178100CD417A /* RemoteResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResultView.swift; sourceTree = "<group>"; };
+		12CCDE632C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWaterfallMutiSectionFlowLayout.swift; sourceTree = "<group>"; };
+		12CCDE652C6327DB00CD417A /* RemoteDMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDMananger.swift; sourceTree = "<group>"; };
+		12CCDE672C632ADA00CD417A /* UserDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDef.swift; sourceTree = "<group>"; };
+		12CCDE692C632DC300CD417A /* RemoteDNoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDNoResultView.swift; sourceTree = "<group>"; };
+		12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		12CCDE6D2C63523300CD417A /* RemoteDRenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDRenameView.swift; sourceTree = "<group>"; };
+		12CCDE702C6363A400CD417A /* UITextFieldX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
 		31CD881656B99123C7767007 /* Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73EF877A07A581A7DE3862A7 /* Pods-UniversalRremoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremoteTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremoteTests/Pods-UniversalRremoteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,15 +169,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F36EE2C63835E00DC5642 /* FirebaseAnalytics in Frameworks */,
 				129DFDE42C62259D009EBC7F /* Bolts.xcframework in Frameworks */,
 				129DFDE22C622591009EBC7F /* AmazonFling.xcframework in Frameworks */,
+				127F36F22C63835E00DC5642 /* FirebaseInstallations in Frameworks */,
 				129DFDE02C622578009EBC7F /* Security.framework in Frameworks */,
 				129DFDDE2C622570009EBC7F /* SystemConfiguration.framework in Frameworks */,
+				127F36F02C63835E00DC5642 /* FirebaseCrashlytics in Frameworks */,
 				129DFDDC2C622565009EBC7F /* CFNetwork.framework in Frameworks */,
-				129DFDD52C62230F009EBC7F /* FirebaseCrashlytics in Frameworks */,
-				129DFDD32C62230F009EBC7F /* FirebaseAnalytics in Frameworks */,
 				F53000A4D9957E03CE61D2AC /* Pods_UniversalRremote.framework in Frameworks */,
-				129DFDD72C62230F009EBC7F /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +200,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127F36F82C63841500DC5642 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				127F36FC2C6384A000DC5642 /* Launch_loading */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		127F36FC2C6384A000DC5642 /* Launch_loading */ = {
+			isa = PBXGroup;
+			children = (
+				127F36FA2C6384A000DC5642 /* Launch_loading.json */,
+			);
+			path = Launch_loading;
+			sourceTree = "<group>";
+		};
+		127F36FF2C6386F400DC5642 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				127F37002C63870600DC5642 /* SettingViewController.swift */,
+				127F37022C638C3300DC5642 /* SettingView.swift */,
+				127F37122C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift */,
+				127F37142C639CCC00DC5642 /* TermOfUseWebViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		127F37082C63986500DC5642 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				127F37042C63986500DC5642 /* contactus.svg */,
+				127F37052C63986500DC5642 /* pp.svg */,
+				127F37062C63986500DC5642 /* rateus.svg */,
+				127F37072C63986500DC5642 /* tou.svg */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		127F370D2C63993800DC5642 /* JsonUtil */ = {
+			isa = PBXGroup;
+			children = (
+				127F370E2C63995300DC5642 /* JsonUtil.swift */,
+			);
+			path = JsonUtil;
+			sourceTree = "<group>";
+		};
 		129DFD602C61D4CB009EBC7F = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +331,7 @@
 				129DFDC62C6202B2009EBC7F /* UIView+Extension.swift */,
 				129DFDC82C620434009EBC7F /* UIImage+Extension.swift */,
 				129DFDCF2C6210DA009EBC7F /* UIViewController+Extension.swift */,
+				12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -240,6 +339,7 @@
 		129DFDA32C61F18D009EBC7F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				127F36FF2C6386F400DC5642 /* Settings */,
 				129DFDF42C623673009EBC7F /* Remote */,
 				129DFDBB2C61FC63009EBC7F /* LaunchVC */,
 			);
@@ -249,6 +349,10 @@
 		129DFDA42C61F197009EBC7F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				127F370D2C63993800DC5642 /* JsonUtil */,
+				12CCDE6F2C63639C00CD417A /* UITextFieldX */,
+				12CCDE622C6317CC00CD417A /* WaterFall */,
+				12CCDE5D2C63100500CD417A /* Device */,
 				129DFDE52C6225BF009EBC7F /* Search */,
 				129DFDD82C622337009EBC7F /* Analytics */,
 				129DFDCC2C620FCC009EBC7F /* Transition */,
@@ -261,6 +365,9 @@
 			children = (
 				129DFDA82C61F2BB009EBC7F /* Common.swift */,
 				129DFDC42C6201E3009EBC7F /* CommonType.swift */,
+				12CCDE512C62FF1100CD417A /* CommonFunc.swift */,
+				12CCDE5B2C63097800CD417A /* AllStatus.swift */,
+				12CCDE672C632ADA00CD417A /* UserDef.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -277,6 +384,9 @@
 		129DFDA72C61F1B8009EBC7F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				127F36F82C63841500DC5642 /* Animation */,
+				12CCDE722C63713200CD417A /* IMG */,
+				12CCDE542C63019E00CD417A /* SVG */,
 				129DFDB82C61F9AD009EBC7F /* Plist */,
 			);
 			path = Resource;
@@ -303,6 +413,7 @@
 			children = (
 				129DFDBE2C61FCB1009EBC7F /* LDBaseViewController.swift */,
 				129DFDCA2C620F04009EBC7F /* LDBaseNavViewController.swift */,
+				127F37102C639C2500DC5642 /* LDBaseWebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -369,8 +480,63 @@
 			isa = PBXGroup;
 			children = (
 				129DFDF52C62368B009EBC7F /* RemoteViewController.swift */,
+				12CCDE572C6301C600CD417A /* RemoteView.swift */,
+				12CCDE692C632DC300CD417A /* RemoteDNoResultView.swift */,
+				12CCDE592C63069E00CD417A /* RemoteNavView.swift */,
+				12CCDE602C63178100CD417A /* RemoteResultView.swift */,
+				12CCDE652C6327DB00CD417A /* RemoteDMananger.swift */,
+				12CCDE6D2C63523300CD417A /* RemoteDRenameView.swift */,
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		12CCDE532C63019E00CD417A /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				12CCDE552C6301B500CD417A /* nav_back.svg */,
+			);
+			path = Nav;
+			sourceTree = "<group>";
+		};
+		12CCDE542C63019E00CD417A /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				127F37082C63986500DC5642 /* Setting */,
+				12CCDE532C63019E00CD417A /* Nav */,
+			);
+			path = SVG;
+			sourceTree = "<group>";
+		};
+		12CCDE5D2C63100500CD417A /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				12CCDE5E2C63101200CD417A /* Device.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		12CCDE622C6317CC00CD417A /* WaterFall */ = {
+			isa = PBXGroup;
+			children = (
+				12CCDE632C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift */,
+			);
+			path = WaterFall;
+			sourceTree = "<group>";
+		};
+		12CCDE6F2C63639C00CD417A /* UITextFieldX */ = {
+			isa = PBXGroup;
+			children = (
+				12CCDE702C6363A400CD417A /* UITextFieldX.swift */,
+			);
+			path = UITextFieldX;
+			sourceTree = "<group>";
+		};
+		12CCDE722C63713200CD417A /* IMG */ = {
+			isa = PBXGroup;
+			children = (
+				127F36EB2C63793C00DC5642 /* qidong_back2.png */,
+			);
+			path = IMG;
 			sourceTree = "<group>";
 		};
 		14A5B2A12939869B4BE1C7BA /* Pods */ = {
@@ -421,9 +587,9 @@
 			);
 			name = UniversalRremote;
 			packageProductDependencies = (
-				129DFDD22C62230F009EBC7F /* FirebaseAnalytics */,
-				129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */,
-				129DFDD62C62230F009EBC7F /* FirebaseInstallations */,
+				127F36ED2C63835E00DC5642 /* FirebaseAnalytics */,
+				127F36EF2C63835E00DC5642 /* FirebaseCrashlytics */,
+				127F36F12C63835E00DC5642 /* FirebaseInstallations */,
 			);
 			productName = UniversalRremote;
 			productReference = 129DFD692C61D4CB009EBC7F /* UniversalRremote.app */;
@@ -520,10 +686,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F370A2C63986500DC5642 /* pp.svg in Resources */,
+				127F370C2C63986500DC5642 /* tou.svg in Resources */,
 				129DFD762C61D4CD009EBC7F /* Assets.xcassets in Resources */,
+				12CCDE562C6301B500CD417A /* nav_back.svg in Resources */,
 				129DFDBA2C61FA41009EBC7F /* GoogleService-Info.plist in Resources */,
+				127F370B2C63986500DC5642 /* rateus.svg in Resources */,
+				127F36FD2C6384A000DC5642 /* Launch_loading.json in Resources */,
 				129DFD792C61D4CD009EBC7F /* Base in Resources */,
 				129DFD742C61D4CB009EBC7F /* Base in Resources */,
+				127F36EC2C63793C00DC5642 /* qidong_back2.png in Resources */,
+				127F37092C63986500DC5642 /* contactus.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,24 +846,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F37152C639CCC00DC5642 /* TermOfUseWebViewController.swift in Sources */,
 				129DFDD02C6210DA009EBC7F /* UIViewController+Extension.swift in Sources */,
+				12CCDE5A2C63069E00CD417A /* RemoteNavView.swift in Sources */,
 				129DFDA92C61F2BB009EBC7F /* Common.swift in Sources */,
 				129DFDC32C6201B8009EBC7F /* LDBaseNavView.swift in Sources */,
 				129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */,
 				129DFDBF2C61FCB1009EBC7F /* LDBaseViewController.swift in Sources */,
+				12CCDE682C632ADA00CD417A /* UserDef.swift in Sources */,
 				129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */,
 				129DFDC52C6201E3009EBC7F /* CommonType.swift in Sources */,
 				129DFDA22C61F07A009EBC7F /* UIColor+Extension.swift in Sources */,
+				127F37132C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift in Sources */,
+				12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */,
+				12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */,
 				129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */,
 				129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */,
 				129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */,
+				12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */,
 				129DFDAB2C61F3AE009EBC7F /* Value+Extension.swift in Sources */,
+				12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */,
+				12CCDE642C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift in Sources */,
+				127F37012C63870600DC5642 /* SettingViewController.swift in Sources */,
 				129DFDBD2C61FC77009EBC7F /* LaunchVC.swift in Sources */,
+				127F37032C638C3300DC5642 /* SettingView.swift in Sources */,
+				12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */,
+				127F370F2C63995300DC5642 /* JsonUtil.swift in Sources */,
 				129DFD712C61D4CB009EBC7F /* ViewController.swift in Sources */,
 				129DFDC72C6202B2009EBC7F /* UIView+Extension.swift in Sources */,
+				127F37112C639C2500DC5642 /* LDBaseWebViewController.swift in Sources */,
 				129DFDC92C620434009EBC7F /* UIImage+Extension.swift in Sources */,
+				12CCDE5C2C63097800CD417A /* AllStatus.swift in Sources */,
 				129DFD6D2C61D4CB009EBC7F /* AppDelegate.swift in Sources */,
+				12CCDE6A2C632DC300CD417A /* RemoteDNoResultView.swift in Sources */,
+				12CCDE5F2C63101300CD417A /* Device.swift in Sources */,
 				129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */,
+				12CCDE612C63178100CD417A /* RemoteResultView.swift in Sources */,
+				12CCDE662C6327DB00CD417A /* RemoteDMananger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,7 +1079,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -934,7 +1126,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1092,17 +1284,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		129DFDD22C62230F009EBC7F /* FirebaseAnalytics */ = {
+		127F36ED2C63835E00DC5642 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		129DFDD42C62230F009EBC7F /* FirebaseCrashlytics */ = {
+		127F36EF2C63835E00DC5642 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
-		129DFDD62C62230F009EBC7F /* FirebaseInstallations */ = {
+		127F36F12C63835E00DC5642 /* FirebaseInstallations */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 129DFDD12C62230F009EBC7F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseInstallations;

@@ -21,9 +21,15 @@ var safeHeight:CGFloat = 0
 
 var statusBarHeight:CGFloat = 0
 
-let navHeight:CGFloat = 44
+var navHeight:CGFloat = 44
+
+let navDefaultHeight:CGFloat = 44
+
+var navCenterY:CGFloat = 0
 
 let marginLR:CGFloat = 16.RW()
+
+let iconWH:CGFloat = 26.RW()
 
 func RScreenW() -> CGFloat {
     
@@ -43,18 +49,9 @@ func RScreenH() -> CGFloat {
  */
 
 //defaultBack
-let dBackColor:String = "#241E1E"
+let dBackColor:String = "#0F0F0F"
 //black
 let blackColor:String = "#000000"
 //white
 let whiteColor:String = "#FFFFFF"
 
-
-public func Print(_ items: Any...) {
-    
-    #if DEBUG
-    print(items)
-    #else
-//    print(items)
-    #endif
-}

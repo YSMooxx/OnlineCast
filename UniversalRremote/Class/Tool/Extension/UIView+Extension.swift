@@ -27,6 +27,15 @@ extension UIView {
         return nil
     }
     
+    func cornerCut(radius:CGFloat,corner:UIRectCorner){
+        
+        let maskPath = UIBezierPath.init(roundedRect: bounds, byRoundingCorners: corner, cornerRadii: CGSize.init(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
+    }
+    
     var x :CGFloat {
         
         get {
