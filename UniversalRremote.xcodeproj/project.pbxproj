@@ -52,6 +52,23 @@
 		129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDE82C6225E1009EBC7F /* AmazonFlingMananger.swift */; };
 		129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF02C622653009EBC7F /* XMLDictionary.m */; };
 		129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFDF52C62368B009EBC7F /* RemoteViewController.swift */; };
+		12AFAFE22C64531200E660C2 /* AllTipCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFE12C64531200E660C2 /* AllTipCheckView.swift */; };
+		12AFAFE52C645DC200E660C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFE42C645DC200E660C2 /* SearchViewController.swift */; };
+		12AFAFE72C6460EF00E660C2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFE62C6460EF00E660C2 /* SearchView.swift */; };
+		12AFAFE92C64624900E660C2 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFE82C64624900E660C2 /* SearchResultView.swift */; };
+		12AFAFEB2C64625800E660C2 /* SearchNoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFEA2C64625800E660C2 /* SearchNoResultView.swift */; };
+		12AFAFED2C64626700E660C2 /* SearchNoWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFEC2C64626700E660C2 /* SearchNoWifiView.swift */; };
+		12AFAFF02C6464DE00E660C2 /* search_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 12AFAFEE2C6464DE00E660C2 /* search_loading.json */; };
+		12AFAFF32C6472AB00E660C2 /* SSDPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFF12C6472AB00E660C2 /* SSDPService.swift */; };
+		12AFAFF42C6472AB00E660C2 /* SSDPDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFF22C6472AB00E660C2 /* SSDPDiscovery.swift */; };
+		12AFAFF62C64751E00E660C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFF52C64751E00E660C2 /* String+Extension.swift */; };
+		12AFAFF82C64788500E660C2 /* RokuDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFF72C64788500E660C2 /* RokuDevice.swift */; };
+		12AFAFFB2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFFA2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift */; };
+		12AFAFFD2C647D4600E660C2 /* TimeGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFFC2C647D4600E660C2 /* TimeGlobal.swift */; };
+		12AFAFFF2C6490C900E660C2 /* NetStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFAFFE2C6490C900E660C2 /* NetStatusManager.swift */; };
+		12AFB0022C64996C00E660C2 /* EnlargeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0012C64996C00E660C2 /* EnlargeBtn.swift */; };
+		12AFB0042C649AF600E660C2 /* FireDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0032C649AF600E660C2 /* FireDevice.swift */; };
+		12AFB0062C649B0400E660C2 /* WebOSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0052C649B0400E660C2 /* WebOSDevice.swift */; };
 		12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE512C62FF1100CD417A /* CommonFunc.swift */; };
 		12CCDE562C6301B500CD417A /* nav_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12CCDE552C6301B500CD417A /* nav_back.svg */; };
 		12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE572C6301C600CD417A /* RemoteView.swift */; };
@@ -141,6 +158,23 @@
 		129DFDF02C622653009EBC7F /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		129DFDF22C622684009EBC7F /* UniversalRremote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UniversalRremote.entitlements; sourceTree = "<group>"; };
 		129DFDF52C62368B009EBC7F /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
+		12AFAFE12C64531200E660C2 /* AllTipCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTipCheckView.swift; sourceTree = "<group>"; };
+		12AFAFE42C645DC200E660C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		12AFAFE62C6460EF00E660C2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		12AFAFE82C64624900E660C2 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		12AFAFEA2C64625800E660C2 /* SearchNoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoResultView.swift; sourceTree = "<group>"; };
+		12AFAFEC2C64626700E660C2 /* SearchNoWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoWifiView.swift; sourceTree = "<group>"; };
+		12AFAFEE2C6464DE00E660C2 /* search_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_loading.json; sourceTree = "<group>"; };
+		12AFAFF12C6472AB00E660C2 /* SSDPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDPService.swift; sourceTree = "<group>"; };
+		12AFAFF22C6472AB00E660C2 /* SSDPDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDPDiscovery.swift; sourceTree = "<group>"; };
+		12AFAFF52C64751E00E660C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		12AFAFF72C64788500E660C2 /* RokuDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuDevice.swift; sourceTree = "<group>"; };
+		12AFAFFA2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMLocalNetworkAuthorization.swift; sourceTree = "<group>"; };
+		12AFAFFC2C647D4600E660C2 /* TimeGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGlobal.swift; sourceTree = "<group>"; };
+		12AFAFFE2C6490C900E660C2 /* NetStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetStatusManager.swift; sourceTree = "<group>"; };
+		12AFB0012C64996C00E660C2 /* EnlargeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargeBtn.swift; sourceTree = "<group>"; };
+		12AFB0032C649AF600E660C2 /* FireDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDevice.swift; sourceTree = "<group>"; };
+		12AFB0052C649B0400E660C2 /* WebOSDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSDevice.swift; sourceTree = "<group>"; };
 		12CCDE512C62FF1100CD417A /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
 		12CCDE552C6301B500CD417A /* nav_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nav_back.svg; sourceTree = "<group>"; };
 		12CCDE572C6301C600CD417A /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
@@ -203,6 +237,7 @@
 		127F36F82C63841500DC5642 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				12AFAFEF2C6464DE00E660C2 /* Search_loading */,
 				127F36FC2C6384A000DC5642 /* Launch_loading */,
 			);
 			path = Animation;
@@ -332,6 +367,7 @@
 				129DFDC82C620434009EBC7F /* UIImage+Extension.swift */,
 				129DFDCF2C6210DA009EBC7F /* UIViewController+Extension.swift */,
 				12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */,
+				12AFAFF52C64751E00E660C2 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -339,6 +375,7 @@
 		129DFDA32C61F18D009EBC7F /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				12AFAFE32C645DA600E660C2 /* Search */,
 				127F36FF2C6386F400DC5642 /* Settings */,
 				129DFDF42C623673009EBC7F /* Remote */,
 				129DFDBB2C61FC63009EBC7F /* LaunchVC */,
@@ -349,6 +386,9 @@
 		129DFDA42C61F197009EBC7F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				12AFB0002C64995E00E660C2 /* EnlargeBtn */,
+				12AFAFF92C647CC200E660C2 /* Privacy */,
+				12AFAFE02C64530500E660C2 /* AllTipView */,
 				127F370D2C63993800DC5642 /* JsonUtil */,
 				12CCDE6F2C63639C00CD417A /* UITextFieldX */,
 				12CCDE622C6317CC00CD417A /* WaterFall */,
@@ -368,6 +408,7 @@
 				12CCDE512C62FF1100CD417A /* CommonFunc.swift */,
 				12CCDE5B2C63097800CD417A /* AllStatus.swift */,
 				12CCDE672C632ADA00CD417A /* UserDef.swift */,
+				12AFAFFC2C647D4600E660C2 /* TimeGlobal.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -454,6 +495,8 @@
 		129DFDE62C6225CC009EBC7F /* SSDP */ = {
 			isa = PBXGroup;
 			children = (
+				12AFAFF22C6472AB00E660C2 /* SSDPDiscovery.swift */,
+				12AFAFF12C6472AB00E660C2 /* SSDPService.swift */,
 			);
 			path = SSDP;
 			sourceTree = "<group>";
@@ -490,6 +533,51 @@
 			path = Remote;
 			sourceTree = "<group>";
 		};
+		12AFAFE02C64530500E660C2 /* AllTipView */ = {
+			isa = PBXGroup;
+			children = (
+				12AFAFE12C64531200E660C2 /* AllTipCheckView.swift */,
+			);
+			path = AllTipView;
+			sourceTree = "<group>";
+		};
+		12AFAFE32C645DA600E660C2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				12AFAFE42C645DC200E660C2 /* SearchViewController.swift */,
+				12AFAFE62C6460EF00E660C2 /* SearchView.swift */,
+				12AFAFE82C64624900E660C2 /* SearchResultView.swift */,
+				12AFAFEA2C64625800E660C2 /* SearchNoResultView.swift */,
+				12AFAFEC2C64626700E660C2 /* SearchNoWifiView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		12AFAFEF2C6464DE00E660C2 /* Search_loading */ = {
+			isa = PBXGroup;
+			children = (
+				12AFAFEE2C6464DE00E660C2 /* search_loading.json */,
+			);
+			path = Search_loading;
+			sourceTree = "<group>";
+		};
+		12AFAFF92C647CC200E660C2 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				12AFAFFA2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift */,
+				12AFAFFE2C6490C900E660C2 /* NetStatusManager.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		12AFB0002C64995E00E660C2 /* EnlargeBtn */ = {
+			isa = PBXGroup;
+			children = (
+				12AFB0012C64996C00E660C2 /* EnlargeBtn.swift */,
+			);
+			path = EnlargeBtn;
+			sourceTree = "<group>";
+		};
 		12CCDE532C63019E00CD417A /* Nav */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +599,9 @@
 			isa = PBXGroup;
 			children = (
 				12CCDE5E2C63101200CD417A /* Device.swift */,
+				12AFAFF72C64788500E660C2 /* RokuDevice.swift */,
+				12AFB0032C649AF600E660C2 /* FireDevice.swift */,
+				12AFB0052C649B0400E660C2 /* WebOSDevice.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -688,6 +779,7 @@
 			files = (
 				127F370A2C63986500DC5642 /* pp.svg in Resources */,
 				127F370C2C63986500DC5642 /* tou.svg in Resources */,
+				12AFAFF02C6464DE00E660C2 /* search_loading.json in Resources */,
 				129DFD762C61D4CD009EBC7F /* Assets.xcassets in Resources */,
 				12CCDE562C6301B500CD417A /* nav_back.svg in Resources */,
 				129DFDBA2C61FA41009EBC7F /* GoogleService-Info.plist in Resources */,
@@ -846,9 +938,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AFB0022C64996C00E660C2 /* EnlargeBtn.swift in Sources */,
 				127F37152C639CCC00DC5642 /* TermOfUseWebViewController.swift in Sources */,
 				129DFDD02C6210DA009EBC7F /* UIViewController+Extension.swift in Sources */,
 				12CCDE5A2C63069E00CD417A /* RemoteNavView.swift in Sources */,
+				12AFAFF32C6472AB00E660C2 /* SSDPService.swift in Sources */,
 				129DFDA92C61F2BB009EBC7F /* Common.swift in Sources */,
 				129DFDC32C6201B8009EBC7F /* LDBaseNavView.swift in Sources */,
 				129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */,
@@ -856,19 +950,32 @@
 				12CCDE682C632ADA00CD417A /* UserDef.swift in Sources */,
 				129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */,
 				129DFDC52C6201E3009EBC7F /* CommonType.swift in Sources */,
+				12AFAFEB2C64625800E660C2 /* SearchNoResultView.swift in Sources */,
+				12AFAFF62C64751E00E660C2 /* String+Extension.swift in Sources */,
 				129DFDA22C61F07A009EBC7F /* UIColor+Extension.swift in Sources */,
 				127F37132C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift in Sources */,
 				12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */,
+				12AFAFE22C64531200E660C2 /* AllTipCheckView.swift in Sources */,
+				12AFAFE92C64624900E660C2 /* SearchResultView.swift in Sources */,
+				12AFAFED2C64626700E660C2 /* SearchNoWifiView.swift in Sources */,
 				12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */,
 				129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */,
 				129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */,
 				129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */,
+				12AFAFFF2C6490C900E660C2 /* NetStatusManager.swift in Sources */,
 				12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */,
+				12AFAFFD2C647D4600E660C2 /* TimeGlobal.swift in Sources */,
+				12AFAFF82C64788500E660C2 /* RokuDevice.swift in Sources */,
 				129DFDAB2C61F3AE009EBC7F /* Value+Extension.swift in Sources */,
+				12AFAFE72C6460EF00E660C2 /* SearchView.swift in Sources */,
 				12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */,
+				12AFAFE52C645DC200E660C2 /* SearchViewController.swift in Sources */,
+				12AFAFF42C6472AB00E660C2 /* SSDPDiscovery.swift in Sources */,
+				12AFB0042C649AF600E660C2 /* FireDevice.swift in Sources */,
 				12CCDE642C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift in Sources */,
 				127F37012C63870600DC5642 /* SettingViewController.swift in Sources */,
 				129DFDBD2C61FC77009EBC7F /* LaunchVC.swift in Sources */,
+				12AFAFFB2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift in Sources */,
 				127F37032C638C3300DC5642 /* SettingView.swift in Sources */,
 				12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */,
 				127F370F2C63995300DC5642 /* JsonUtil.swift in Sources */,
@@ -881,6 +988,7 @@
 				12CCDE6A2C632DC300CD417A /* RemoteDNoResultView.swift in Sources */,
 				12CCDE5F2C63101300CD417A /* Device.swift in Sources */,
 				129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */,
+				12AFB0062C649B0400E660C2 /* WebOSDevice.swift in Sources */,
 				12CCDE612C63178100CD417A /* RemoteResultView.swift in Sources */,
 				12CCDE662C6327DB00CD417A /* RemoteDMananger.swift in Sources */,
 			);

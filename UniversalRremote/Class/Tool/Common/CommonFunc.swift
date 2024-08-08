@@ -29,3 +29,14 @@ public func Print(_ items: Any...) {
 //    print(items)
     #endif
 }
+
+let set_wifi:String = "App-Prefs:root=WIFI"
+
+func gotoSettings(url:String) {
+    
+    if let url = URL(string: UIApplication.openSettingsURLString) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+}

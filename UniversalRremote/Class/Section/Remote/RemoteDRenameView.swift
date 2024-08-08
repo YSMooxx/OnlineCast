@@ -115,7 +115,7 @@ class RemoteDRenameView:UIView {
         sview.height = 44.RW()
         sview.x = cancelBtn.x + cancelBtn.width + 31.RW()
         sview.y = textFieldX.y + textFieldX.height + 24.RW()
-        sview.backgroundColor = UIColor.colorWithHex(hexStr: "#7F33FF")
+        sview.backgroundColor = UIColor.colorWithHex(hexStr: mColor)
         sview.titleLabel?.font = UIFont.systemFont(ofSize: 16.RW(), weight: .medium)
         sview.setTitle("Save", for: .normal)
         sview.setTitleColor(UIColor.colorWithHex(hexStr: whiteColor), for: .normal)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingViewController:LDBaseViewController {
     
@@ -23,13 +24,24 @@ class SettingViewController:LDBaseViewController {
     
     lazy var listArray:[settingListModel] = {
         
-        let array = [["icon":"contactus","title":"Contact Us"],["icon":"rateus","title":"Rate Us"],["icon":"pp","title":"Privacy Policy"],["icon":"tou","title":"Terms of Use"]]
+        let array = [["icon":"contactus","title":"Contact Us"],["icon":"pp","title":"Privacy Policy"],["icon":"tou","title":"Terms of Use"]]
         
         let arrayStr = JsonUtil.getJSONStringFromArray(array: array)
         
         let modelArray:[settingListModel] = JsonUtil.jsonArrayToModel(arrayStr, settingListModel.self) as? [settingListModel] ?? []
         
         return modelArray
+    }()
+    
+    lazy var emailTipView:AllTipCheckView = {
+        
+        let tipModel:AllTipCheckViewModel = AllTipCheckViewModel()
+        tipModel.tip = "Please install an email application before trying again."
+        tipModel.noTipCheck = "Cancel"
+        tipModel.yesTipCheck = "Go To Setting"
+        let tipView:AllTipCheckView = AllTipCheckView(frame: view.bounds, model: tipModel)
+        
+        return tipView
     }()
     
     override func viewDidLoad() {
@@ -79,16 +91,13 @@ class SettingViewController:LDBaseViewController {
         
         if cIndex == 0 {
             
-            
+            sendEmail()
         }else if cIndex == 1 {
-            
-            
-        }else if cIndex == 2 {
             let vc:PrivacyPolicyWebViewController = PrivacyPolicyWebViewController()
             vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
             
-        }else if cIndex == 3 {
+        }else if cIndex == 2 {
             
             let vc:TermOfUseWebViewController = TermOfUseWebViewController()
             vc.hidesBottomBarWhenPushed = true
@@ -97,4 +106,42 @@ class SettingViewController:LDBaseViewController {
         
     }
     
+    
+    func sendEmail() {
+        // 检查设备是否支持邮件功能
+        if MFMailComposeViewController.canSendMail() {
+            
+            let infoDic = Bundle.main.infoDictionary
+            
+            let systemVersion:String = UIDevice.current.systemVersion
+            let appVersion:String = infoDic?["CFBundleShortVersionString"] as? String ?? ""
+            
+            let messageBody:String = "App version：V" + appVersion + "\n" + "Device version：iOS" + systemVersion + "\n" + "Your problem："
+            
+            DispatchQueue.main.async {[weak self] in
+                
+                let mailComposer = MFMailComposeViewController()
+                mailComposer.mailComposeDelegate = self
+                mailComposer.setToRecipients(["cs@ldyt.online.com"]) // 设置收件人
+                mailComposer.setSubject("Universal Remote") // 设置邮件主题
+                
+                mailComposer.setMessageBody(messageBody, isHTML: false) // 设置邮件内容，isHTML 参数表示内容是否为 HTML
+                
+                // 拉起邮件应用
+                self?.present(mailComposer, animated: true, completion: nil)
+            }
+            
+        } else {
+            
+            emailTipView.showView()
+        }
+    }
+    
+}
+
+extension SettingViewController:MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+        }
 }

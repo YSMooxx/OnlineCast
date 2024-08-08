@@ -49,8 +49,8 @@ class LaunchVC:LDBaseViewController {
         
         let animationView = Lottie.AnimationView(name: "Launch_loading")
             
-        animationView.width = 213.RW()
-        animationView.height = 51.RW()
+        animationView.width = 100.RW()
+        animationView.height = 100.RW()
         animationView.x = 16
         animationView.y = titleLabel.y + titleLabel.height + 0
         animationView.loopMode = .loop

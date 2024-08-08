@@ -20,6 +20,10 @@ class RemoteViewController:LDBaseViewController {
                 let nav:LDBaseNavViewController = LDBaseNavViewController(isAnimation:.overRightToLeft,rootViewController: vc)
                 nav.modalPresentationStyle = .overFullScreen
                 self?.navigationController?.present(nav, animated: true)
+            }else if text == "add" {
+                
+                let vc:SearchViewController = SearchViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
         }
         

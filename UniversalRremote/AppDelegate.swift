@@ -28,13 +28,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        if LMLocalNetworkAuthorization.mananger.currentStatus != nil {
+            
+            LMLocalNetworkAuthorization.mananger.requestAuthorization { text in
+                
+                LMLocalNetworkAuthorization.mananger.currentStatus = text
+            }
+        }
+    }
+    
     func setConfig() {
+        
+        startNetStatus()
         
         FirebaseApp.configure()
         
         getDefaulHeight()
         
         logEvent(eventId: open_app)
+    }
+    
+    func startNetStatus() {
+        
+        NetStatusManager.manager.startNet { status in
+            
+            NotificationCenter.default.post(name:  Notification.Name("NetWork_Change"), object: nil, userInfo: ["status":status])
+        }
+            
     }
     
     func getDefaulHeight() {

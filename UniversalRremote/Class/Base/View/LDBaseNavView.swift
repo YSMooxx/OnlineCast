@@ -44,13 +44,13 @@ class LDBaseNavView:UIView {
         return titleLabel
     }()
     
-    lazy var backBtn:UIButton = {
+    lazy var backBtn:EnlargeBtn = {
         
-        let sview:UIButton = UIButton()
-        sview.setImage(UIImage.svgWithName(name: "nav_back", size: CGSize(width: 44, height: 44)), for: .normal)
-        sview.height = 44
-        sview.width = 44
-        sview.x = 0
+        let sview:EnlargeBtn = EnlargeBtn(frame: CGRect(x: 0, y: 0, width: iconWH, height: iconWH))
+        sview.setImage(UIImage.svgWithName(name: "nav_back", size: CGSize(width: iconWH, height: iconWH)), for: .normal)
+        sview.height = iconWH
+        sview.width = iconWH
+        sview.x = 8.RW()
         sview.centerY = (height - statusBarHeight) / 2 + statusBarHeight
         sview.addTarget(self, action: #selector(backBtnClick(btn:)), for: .touchUpInside)
         

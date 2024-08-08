@@ -11,9 +11,9 @@ class RemoteNavView:UIView {
     
     var callBack:callBack = {text in}
     
-    lazy var settingsBtn:UIButton = {
+    lazy var settingsBtn:EnlargeBtn = {
         
-        let sview:UIButton = UIButton()
+        let sview:EnlargeBtn = EnlargeBtn(frame: CGRect(x: 0, y: navCenterY, width: iconWH, height: iconWH))
         sview.width = iconWH
         sview.height = iconWH
         sview.x = marginLR
@@ -37,9 +37,9 @@ class RemoteNavView:UIView {
         return sview
     }()
     
-    lazy var addBtn:UIButton = {
+    lazy var addBtn:EnlargeBtn = {
         
-        let sview:UIButton = UIButton()
+        let sview:EnlargeBtn = EnlargeBtn(frame: CGRect(x: 0, y: navCenterY, width: iconWH, height: iconWH))
         sview.width = iconWH
         sview.height = iconWH
         sview.x = width - sview.width - marginLR

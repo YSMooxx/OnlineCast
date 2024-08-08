@@ -38,7 +38,8 @@ class RemoteView:UIView {
                 self?.callBack(text)
             }else if text == "add" {
                 
-                self?.addDevice()
+//                self?.addDevice()
+                self?.callBack(text)
             }
         }
         
@@ -71,7 +72,8 @@ class RemoteView:UIView {
             
             if text == "add" {
                 
-                self?.addDevice()
+//                self?.addDevice()
+                self?.callBack(text)
             }
         }
         

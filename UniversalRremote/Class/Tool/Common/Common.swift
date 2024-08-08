@@ -48,6 +48,8 @@ func RScreenH() -> CGFloat {
  *Color
  */
 
+//mColor
+let mColor:String = "#7F33FF"
 //defaultBack
 let dBackColor:String = "#0F0F0F"
 //black

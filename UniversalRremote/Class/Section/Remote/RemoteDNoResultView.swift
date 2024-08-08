@@ -16,7 +16,7 @@ class RemoteDNoResultView:UIView {
         let sview:UIButton = UIButton()
         sview.height = 104.RW()
         sview.width = width
-        sview.y = 16.RW()
+        sview.centerY = (height - navHeight) / 2
         sview.centerX = width / 2
         sview.setBackgroundImage(UIImage(named: "remoteD_add_back"), for: .normal)
         sview.setImage(UIImage(named: "remoteD_add_icon"), for: .normal)
