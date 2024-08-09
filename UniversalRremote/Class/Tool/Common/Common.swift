@@ -56,4 +56,6 @@ let dBackColor:String = "#0F0F0F"
 let blackColor:String = "#000000"
 //white
 let whiteColor:String = "#FFFFFF"
+//gray
+let grayColor:String = "#666666"
 

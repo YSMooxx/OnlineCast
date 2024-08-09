@@ -36,6 +36,25 @@ extension UIView {
         layer.mask = maskLayer
     }
     
+    func setShadow(
+        cornerRadius:CGFloat = 4.RW(),
+        sColor:UIColor = UIColor.colorWithHex(hexStr: blackColor, alpha: 0.08),
+        offset:CGSize = CGSize(width: 0, height: 0),
+        opacity:Float = 1,
+        radius:CGFloat = 8.RW()
+    ) {
+        //设置阴影颜色
+        self.layer.shadowColor = sColor.cgColor
+        //设置透明度
+        self.layer.shadowOpacity = opacity
+        //设置阴影半径
+        self.layer.shadowRadius = radius
+        //设置阴影偏移量
+        self.layer.shadowOffset = offset
+        //
+        self.layer.cornerRadius = cornerRadius
+    }
+    
     var x :CGFloat {
         
         get {

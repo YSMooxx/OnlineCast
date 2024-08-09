@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AudioToolbox
 
 let cWindow:UIWindow? = {
     
@@ -39,4 +39,17 @@ func gotoSettings(url:String) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
+}
+
+func shock() {
+    
+    if UserDef.shard.isShock {
+     
+        DispatchQueue.main.async {
+            
+            AudioServicesPlayAlertSound(1520)
+        }
+        
+    }
+
 }

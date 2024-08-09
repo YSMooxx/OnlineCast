@@ -113,8 +113,8 @@ class searchDeviceCell:UITableViewCell {
         
         let sview:UIImageView = UIImageView()
         
-        sview.width = 32.RW()
-        sview.height = 32.RW()
+        sview.width = 44.RW()
+        sview.height = 44.RW()
         sview.x = marginLR
         sview.centerY = backView.height / 2
         

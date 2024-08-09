@@ -11,6 +11,8 @@ class RemoteView:UIView {
     
     var callBack:callBack = {text in}
     
+    var clickCallBack:(_ device:Device) -> () = {device in}
+    
     lazy var model:RemoteViewModel = {
         
         let smodel:RemoteViewModel = RemoteViewModel()
@@ -53,9 +55,11 @@ class RemoteView:UIView {
         
         let sview:RemoteResultView = RemoteResultView(frame: CGRect(x: marginLR, y: cY, width: cW, height: height - cY))
         
-        sview.indexCallBack = {oper,index,model in
+        sview.clickCallBack = {[weak self] model in
             
+            guard let self, let smodel = model else {return}
             
+            self.clickCallBack(smodel)
         }
         
         return sview

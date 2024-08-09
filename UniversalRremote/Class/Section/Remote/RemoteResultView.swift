@@ -11,7 +11,7 @@ class RemoteResultView:UIView {
     
     let footerID:String = "SearchResulViewControllerFooterID"
     
-    var indexCallBack:(_ oper:String,_ index:Int,_ model:RemoteDListCollectionCellModel) -> () = {oper,index,model in}
+    var clickCallBack:(_ device:Device?) -> () = {device in}
     
     var deviceModelArray:[RemoteDListCollectionCellModel] = [] {
         
@@ -193,6 +193,14 @@ extension RemoteResultView:WaterfallMutiSectionDelegate,UICollectionViewDataSour
             return 0
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row < deviceModelArray.count {
+            
+            clickCallBack(deviceModelArray[indexPath.row].smodel)
+        }
     }
     
     func lineSpacing(collectionView collection: UICollectionView, layout: WaterfallMutiSectionFlowLayout, section: Int) -> CGFloat {

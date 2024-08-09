@@ -46,9 +46,32 @@ class RemoteDMananger {
                             
                             guard let data = data1 as? Data else { break }
                             
-                            let user = try decoder.decode(Device.self, from: data )
+                            var user = try decoder.decode(Device.self, from: data )
+                            var deivce:Device?
                             
-                            modelArray.append(user)
+                            if user.type == Roku {
+                                
+                                deivce = RokuDevice(url: user.url, ip: user.ip)
+
+                            }else if user.type == Fire {
+                                
+                                deivce = FireDevice(url: user.url, ip: user.ip)
+                            }else if user.type == WebOS {
+                                
+                                deivce = WebOSDevice(url: user.url, ip: user.ip)
+                            }
+                            
+                            deivce?.reName = user.reName
+                            deivce?.friendlyName = user.friendlyName
+                            deivce?.url = user.url
+                            deivce?.ip = user.ip
+                            deivce?.type = user.type
+                            deivce?.port = user.port
+                            deivce?.UDN = user.UDN
+                            
+                            guard let cDevice = deivce else {break}
+                            
+                            modelArray.append(cDevice)
                             
                         }catch {
                             

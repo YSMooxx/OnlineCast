@@ -77,6 +77,8 @@ class LDBaseNavView:UIView {
         titleLabel.centerX = width / 2
         titleLabel.centerY = (height - statusBarHeight) / 2 + statusBarHeight
         
+        titleLabel.isHidden = model.titleHidden
+        
         if model.titleLabelX != 0{
             
             titleLabel.x = backBtn.x + backBtn.width + model.titleLabelX
@@ -130,6 +132,14 @@ class LDBaseNavViewModel {
         didSet {
             
             callBack("titleLabelX")
+        }
+    }
+    
+    var titleHidden:Bool = false {
+        
+        didSet {
+            
+            callBack("titleHidden")
         }
     }
     

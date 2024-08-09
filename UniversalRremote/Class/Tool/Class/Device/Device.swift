@@ -23,7 +23,7 @@ class Device:Codable {
     var reName:String = ""
     
     enum CodingKeys: String, CodingKey{
-        case friendlyName,UDN,url,ip,type,reName
+        case friendlyName,UDN,url,ip,type,reName,port
     }
     
     init(url:String,ip:String) {

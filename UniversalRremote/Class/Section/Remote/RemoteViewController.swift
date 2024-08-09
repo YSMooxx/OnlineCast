@@ -27,6 +27,21 @@ class RemoteViewController:LDBaseViewController {
             }
         }
         
+        sview.clickCallBack = {[weak self] device in
+            
+            DispatchQueue.main.async {[weak self] in
+                guard let self else {return}
+                
+                if device.type == Roku {
+                    
+                    let vc:RokuViewController = RokuViewController(model: device)
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            
+        }
+        
         return sview
     }()
     

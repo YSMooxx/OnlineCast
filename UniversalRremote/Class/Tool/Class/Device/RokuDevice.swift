@@ -33,6 +33,10 @@ class RokuDevice: Device {
         case VolumeMute = "VolumeMute"
     }
     
+    enum CodingKeys: String, CodingKey{
+        case friendlyName,UDN,url,ip,type,reName
+    }
+    
     override init(url: String, ip: String) {
         
         super.init(url: url, ip: ip)
@@ -41,7 +45,7 @@ class RokuDevice: Device {
     }
     
     required init(from decoder: any Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+        try super.init(from: decoder)
     }
     
     let httpHeader:String = "http://"

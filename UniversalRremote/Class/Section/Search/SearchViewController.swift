@@ -118,11 +118,6 @@ class SearchViewController:LDBaseViewController {
         titleView.addSubview(refreshBtn)
     }
     
-    override func close(animation: Bool = true) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     func addDevice() {
         
         var deviceArray:[Device] = []
@@ -254,6 +249,8 @@ class SearchViewController:LDBaseViewController {
     
     func rokuClick(rokuModel:RokuDevice) {
         
+        AllTipLoadingView.loadingShared.showView()
+        
         rokuModel.connectDevice { suc in
             
             if suc == Load_suc {
@@ -263,6 +260,15 @@ class SearchViewController:LDBaseViewController {
                 
                 
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                
+                AllTipLoadingView.loadingShared.dissMiss()
+                
+                let vc:RokuViewController = RokuViewController(model: rokuModel)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
         }
     }
     
