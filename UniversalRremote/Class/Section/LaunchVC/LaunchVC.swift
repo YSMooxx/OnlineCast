@@ -36,7 +36,7 @@ class LaunchVC:LDBaseViewController {
     lazy var logView:UIImageView = {
         
         let sview:UIImageView = UIImageView()
-        sview.backgroundColor = UIColor.colorWithHex(hexStr: "#D9D9D9")
+        sview.image = UIImage(named: "logo_default")
         sview.width = 88.RW()
         sview.height = 88.RW()
         sview.x = titleLabel.x

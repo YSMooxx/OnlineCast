@@ -56,7 +56,7 @@ class SearchViewController:LDBaseViewController {
             
             guard let self else {return}
             
-            self.clickModel(smodel: model)
+            self.clickModel(model: model)
         }
         
         return sview
@@ -237,17 +237,33 @@ class SearchViewController:LDBaseViewController {
         checkStatus()
     }
     
-    func clickModel(smodel:Device) {
+    func clickModel(model:searchDeviceCellModel) {
+        
+        guard let smodel = model.smodel else {return}
         
         if smodel.type == Roku {
             
             guard let rokuDevice = smodel as? RokuDevice else {return}
             
-            self.rokuClick(rokuModel: rokuDevice)
+            self.rokuClick(rokuModel: rokuDevice) {[weak self] text in
+                
+                guard let self else {return}
+                if text == Load_suc {
+                    
+                    for smodel in self.searchView.resultView.deviceModelArray {
+                        
+                        smodel.isConnect = false
+                    }
+                    
+                    model.isConnect = true
+                    
+                    self.searchView.resultView.tableView.reloadData()
+                }
+            }
         }
     }
     
-    func rokuClick(rokuModel:RokuDevice) {
+    func rokuClick(rokuModel:RokuDevice,sucstatus:@escaping callBack = {status in}) {
         
         AllTipLoadingView.loadingShared.showView()
         
@@ -256,19 +272,27 @@ class SearchViewController:LDBaseViewController {
             if suc == Load_suc {
                 
                 RemoteDMananger.mananger.addDeviceArray(device: rokuModel)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    
+                    sucstatus(Load_suc)
+                    AllTipLoadingView.loadingShared.dissMiss()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                        
+                        let vc:RokuViewController = RokuViewController(model: rokuModel)
+                        
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    
+                })
+                
             }else {
                 
-                
+                sucstatus(Load_fail)
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                
-                AllTipLoadingView.loadingShared.dissMiss()
-                
-                let vc:RokuViewController = RokuViewController(model: rokuModel)
-                
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
+           
         }
     }
     

@@ -9,6 +9,8 @@ import UIKit
 
 class DeviceListBtn:UIButton {
     
+    var modelCallBack:(_ model:DeviceListbtnModel?) -> () = {model in}
+    
     var model:DeviceListbtnModel? {
         
         didSet {
@@ -44,6 +46,9 @@ class DeviceListBtn:UIButton {
     }
     
     @objc func buttonTouchDown(_ sender: UIButton) {
+        
+        modelCallBack(model)
+        
         sender.isHighlighted = true
     }
         

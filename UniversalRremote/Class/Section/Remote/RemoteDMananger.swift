@@ -95,7 +95,7 @@ class RemoteDMananger {
     func addDeviceArray(device:Device) {
         
         
-        self.deviceArray.append(device)
+        self.deviceArray.insert(device, at: 0)
         self.deviceArray = self.deviceArray
         var DeviceArray:[Any] = []
         

@@ -58,4 +58,5 @@ let blackColor:String = "#000000"
 let whiteColor:String = "#FFFFFF"
 //gray
 let grayColor:String = "#666666"
-
+//cell
+let cellBackColor:String = "#292929"

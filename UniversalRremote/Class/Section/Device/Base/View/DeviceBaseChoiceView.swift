@@ -94,7 +94,7 @@ class DeviceBaseChoiceView:UIView {
     @objc func listBtnClick(btn:UIButton) {
         
         var index:Int?
-        var title:String = btn.titleLabel?.text ?? ""
+        let title:String = btn.titleLabel?.text ?? ""
         
         for (i,text) in titleArray.enumerated() {
             

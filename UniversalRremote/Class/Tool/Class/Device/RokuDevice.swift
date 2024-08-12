@@ -75,6 +75,97 @@ class RokuDevice: Device {
         }
     }
     
+    func getALlChannel(suc: @escaping ([[String : Any]]) -> () = { arr in }) {
+        
+        guard let url = URL(string:  httpHeader + self.ip + ":" + port + "/query/apps") else {suc([]); return }
+        
+        sessionManager.request(url, method: HTTPMethod.get).responseString {[weak self] response in
+            
+            switch response.result {
+                case .success(let xmlString):
+                guard let self else {return}
+                guard let dic =  NSDictionary.init(xmlString: xmlString) as? [String:Any] else {suc([]); return}
+                guard let apps = dic["app"] as? [[String:Any]] else {suc([]); return }
+                
+                
+                var array:[[String : Any]] = []
+                
+                for subString in apps {
+                    
+                    guard let name = subString["__text"] as? String,let id = subString["_id"] as? String else { break}
+                    
+                    let otherDic = ["id":id,"name":name,"imageUrl":self.httpHeader + self.ip + ":" + self.port + "/query/icon/" + id]
+                    
+                    array.append(otherDic)
+                }
+                
+                suc(array)
+                
+                case .failure(_):
+                suc([])
+            }
+        }
+        
+    }
+    
+    func sendKey(key:String,suc:@escaping callBack = {status in}) {
+        
+        guard let url = URL(string: httpHeader + self.ip + ":" + port + "/keypress/" + key) else { return }
+        
+        connectDevice {[weak self] (text) in
+            
+            if text == Load_suc {
+                
+                self?.sessionManager.request(url, method: HTTPMethod.post).responseData {[weak self] response in
+                    
+                    switch response.result {
+                        
+                    case .success(let success):
+                        suc(Load_suc)
+                    case .failure(let error):
+                        
+                        self?.checkStatus(error: error, suc: { status in
+                            suc(status)
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
+    func checkStatus(error:Error,suc:@escaping callBack = {status in}) {
+        
+        if let afError = error.asAFError {
+            switch afError {
+            case .responseSerializationFailed(let reason):
+                switch reason {
+                case .inputDataNilOrZeroLength:
+
+                    suc(Load_suc)
+                default:
+                    suc(Load_fail)
+                }
+            default:
+                suc(Load_fail)
+            }
+        } else {
+            suc(Load_fail)
+        }
+    }
+    
+    func changeChannel(id:String) {
+        
+        guard let url = URL(string: httpHeader + self.ip + ":" + port + "/launch/\(id)?contentID=xxx&MediaType=movie") else { return }
+        
+        sessionManager.request(url, method: HTTPMethod.post).responseString { response in
+            
+            switch response.result {
+                case .success(_):break
+                case .failure(_):break
+            }
+        }
+    }
+    
     /*
     override func getIcon(suc:@escaping () -> Void = { }) {
         

@@ -6,10 +6,26 @@
 //
 
 import UIKit
+import Lottie
+
+enum connectStatusType {
+    
+    case startConnect
+    case sucConnect
+    case failConnect
+}
 
 class DeviceBaseViewController:LDBaseViewController {
     
     var model:DeviceBaseViewModel = DeviceBaseViewModel()
+    
+    var connectStatus:connectStatusType? {
+        
+        didSet {
+            
+            changeConnectStatus()
+        }
+    }
     
     lazy var titleBtn:SelectableButton = {
         
@@ -44,6 +60,19 @@ class DeviceBaseViewController:LDBaseViewController {
         return sview
     }()
     
+    lazy var loadingAnimation:AnimationView = {
+        
+        let animationView = Lottie.AnimationView(name: "All_loading")
+            
+        animationView.width = titleBtn.imageView?.width ?? 0
+        animationView.height = titleBtn.imageView?.width ?? 0
+        animationView.centerX = titleBtn.imageView?.centerX ?? 0
+        animationView.centerY = titleBtn.imageView?.centerY ?? 0
+        animationView.loopMode = .loop
+        animationView.play()
+        return animationView
+    }()
+    
     init(model:Device) {
         
         self.model.smodel = model
@@ -68,6 +97,9 @@ class DeviceBaseViewController:LDBaseViewController {
         
         titleView.addSubview(titleBtn)
         titleView.addSubview(settingsBtn)
+        titleBtn.addSubview(loadingAnimation)
+        
+        titleBtn.imageView?.isHidden = true
     }
     
     @objc func titleBtnClick(btn:UIButton) {
@@ -93,7 +125,45 @@ class DeviceBaseViewController:LDBaseViewController {
         }
         
         titleBtn.isSelected = isSelected
+    }
+    
+    func changeConnectStatus() {
         
+        DispatchQueue.main.async(execute: {[weak self] in
+            
+            guard let self else {return}
+            
+            switch self.connectStatus {
+                
+            case .startConnect:
+                titleBtn.imageView?.isHidden = true
+                loadingAnimation.isHidden = false
+                loadingAnimation.play()
+            case .failConnect:
+                
+                titleBtn.imageView?.isHidden = false
+                loadingAnimation.isHidden = true
+                loadingAnimation.pause()
+                setTitleString()
+                
+            case .sucConnect:
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                    
+                    guard let self else {return}
+                    
+                    self.titleBtn.imageView?.isHidden = false
+                    self.loadingAnimation.isHidden = true
+                    self.loadingAnimation.pause()
+                    self.setTitleString(text: model.smodel?.reName ?? "", isSelected: true)
+                })
+                
+            default:
+                break
+            }
+            
+        })
+
     }
     
     override func close(animation: Bool = true) {

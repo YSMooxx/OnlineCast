@@ -7,54 +7,43 @@
 
 import UIKit
 
-class RokuView:UIView {
+class RokuView:DeivceBaseView {
     
-    lazy var titleArray:[String] = ["Remote","Channel","Mirror"]
-    
-    lazy var choiceView:DeviceBaseChoiceView = {
-        
-        let sview:DeviceBaseChoiceView = DeviceBaseChoiceView(frame: CGRect(x: marginLR, y: marginLR, width: width - 2 * marginLR, height: 52.RW()), titleArray: titleArray)
-        
-        sview.indexCallBack = {[weak self] index in
-            
-            guard let self else {return}
-            if  index == 0 {
-                self.scrollView.scrollRectToVisible(self.remoteView.frame, animated: true)
-            }else if index == 1 {
-                
-                self.scrollView.scrollRectToVisible(self.channelView.frame, animated: true)
-            }else if index == 2 {
-                
-                self.scrollView.scrollRectToVisible(self.mirrorView.frame, animated: true)
-            }
-            
-        }
-        
-        return sview
-    }()
-    
-    lazy var scrollView:UIScrollView = {
-        
-        let cY:CGFloat = choiceView.y + choiceView.height
-        let sview:UIScrollView = UIScrollView(frame: CGRect(x: 0, y: cY, width: width, height: height - cY))
-        sview.contentSize = CGSize(width: CGFloat(titleArray.count) * width, height: sview.height)
-        sview.showsHorizontalScrollIndicator = false
-        sview.isPagingEnabled = true
-        sview.delegate = self
-        return sview
-    }()
+    var channelIDCallBacl:callBack = {id in}
     
     lazy var remoteView:RokuRemoteView = {
         
         let sview:RokuRemoteView = RokuRemoteView(frame: scrollView.bounds)
+        
+        sview.callBack = {[weak self] text in
+            
+            shock()
+            
+            if text == "volumup" {
+                
+                self?.callBack(RokuDevice.RokuEventKey.volumeUp.rawValue)
+            }else if text == "volumdown" {
+                
+                self?.callBack(RokuDevice.RokuEventKey.VolumeDown.rawValue)
+            }else {
+                
+                self?.callBack(text)
+            }
+        }
         
         return sview
     }()
     
     lazy var channelView:RokuChannelView = {
         
-        let sview:RokuChannelView = RokuChannelView(frame: scrollView.bounds)
+        let sview:RokuChannelView = RokuChannelView(frame: scrollView.bounds, model: self.deviceModel)
         sview.x = 1 * scrollView.width
+        
+        sview.channelIDCallBacl = {[weak self] (text) in
+            
+            self?.channelIDCallBacl(text)
+        }
+        
         return sview
     }()
     
@@ -65,71 +54,28 @@ class RokuView:UIView {
         return sview
     }()
     
-    override init(frame: CGRect) {
+    override func addViews() {
         
-        super.init(frame: frame)
+        super.addViews()
         
-        setupUI()
-        addViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupUI() {
-        
-        backgroundColor = .clear
-    }
-    
-    func addViews() {
-        
-        addSubview(choiceView)
-        addSubview(scrollView)
         scrollView.addSubview(remoteView)
         scrollView.addSubview(channelView)
         scrollView.addSubview(mirrorView)
     }
     
-    func scrollViewDidEnd(contentOffsetX: CGFloat) {
+    override func changeConnectStatus() {
         
-        let index:Int = Int(contentOffsetX / scrollView.width)
-        choiceView.currentIndex = index
-    }
-}
-
-extension RokuView:UIScrollViewDelegate {
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        super.changeConnectStatus()
         
-        let scroend:Bool = (scrollView.isTracking) || (scrollView.isDragging) || (scrollView.isDecelerating)
+        switch connectStatus {
         
-        if scroend == false {
-            
-            let x:CGFloat = scrollView.contentOffset.x
-            scrollViewDidEnd(contentOffsetX: x)
-        }
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        let scroend:Bool = (scrollView.isTracking) || (scrollView.isDragging) || (scrollView.isDecelerating)
-        
-        if scroend == false {
-            
-            let x:CGFloat = scrollView.contentOffset.x
-            scrollViewDidEnd(contentOffsetX: x)
-        }
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        
-        let scroend:Bool = (scrollView.isTracking) || (scrollView.isDragging) || (scrollView.isDecelerating)
-        
-        if scroend == false {
-            
-            let x:CGFloat = scrollView.contentOffset.x
-            scrollViewDidEnd(contentOffsetX: x)
+        case .failConnect:
+            self.channelView.resultView.model.changeModelArray = []
+            self.channelView.setWithArray()
+        case .sucConnect:
+            channelView.loadData()
+        default:
+            break
         }
     }
 }

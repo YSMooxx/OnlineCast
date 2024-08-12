@@ -62,7 +62,6 @@
 		12AC08032C65E35D00593844 /* RokuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC08022C65E35D00593844 /* RokuView.swift */; };
 		12AC08072C65E51F00593844 /* DeviceBaseSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC08062C65E51F00593844 /* DeviceBaseSettingViewController.swift */; };
 		12AC08092C65E89700593844 /* DeviceBaseChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC08082C65E89600593844 /* DeviceBaseChoiceView.swift */; };
-		12AC080B2C65F4E900593844 /* RokuRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC080A2C65F4E900593844 /* RokuRemoteView.swift */; };
 		12AC080D2C65F52400593844 /* RokuChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC080C2C65F52400593844 /* RokuChannelView.swift */; };
 		12AC080F2C65F54C00593844 /* RokuMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC080E2C65F54C00593844 /* RokuMirrorView.swift */; };
 		12AC08112C65F92800593844 /* DeviceTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AC08102C65F92800593844 /* DeviceTouchView.swift */; };
@@ -96,6 +95,17 @@
 		12AFB0022C64996C00E660C2 /* EnlargeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0012C64996C00E660C2 /* EnlargeBtn.swift */; };
 		12AFB0042C649AF600E660C2 /* FireDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0032C649AF600E660C2 /* FireDevice.swift */; };
 		12AFB0062C649B0400E660C2 /* WebOSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AFB0052C649B0400E660C2 /* WebOSDevice.swift */; };
+		12B078C82C6996C400CB3276 /* logo_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12B078C72C6996C300CB3276 /* logo_1.png */; };
+		12B078CA2C69A71200CB3276 /* DeivceRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078C92C69A71200CB3276 /* DeivceRemoteView.swift */; };
+		12B078CC2C69A89800CB3276 /* RokuRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078CB2C69A89800CB3276 /* RokuRemoteView.swift */; };
+		12B078CE2C69ACB800CB3276 /* DeviceConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078CD2C69ACB800CB3276 /* DeviceConnectingView.swift */; };
+		12B078D12C69B34100CB3276 /* DeivceBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078D02C69B34100CB3276 /* DeivceBaseView.swift */; };
+		12B078D72C69E3CC00CB3276 /* DeviceChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078D62C69E3CC00CB3276 /* DeviceChannelView.swift */; };
+		12B078D92C69E40200CB3276 /* DeviceChannelResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078D82C69E40200CB3276 /* DeviceChannelResultView.swift */; };
+		12B078DB2C69E41800CB3276 /* DeviceChannelSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078DA2C69E41800CB3276 /* DeviceChannelSearchView.swift */; };
+		12B078DD2C69EAB900CB3276 /* DeviceChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078DC2C69EAB900CB3276 /* DeviceChannelCell.swift */; };
+		12B078E02C69F19600CB3276 /* RokuChannelMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */; };
+		12B078E32C6A2E8500CB3276 /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078E22C6A2E8500CB3276 /* FireViewController.swift */; };
 		12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE512C62FF1100CD417A /* CommonFunc.swift */; };
 		12CCDE562C6301B500CD417A /* nav_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12CCDE552C6301B500CD417A /* nav_back.svg */; };
 		12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE572C6301C600CD417A /* RemoteView.swift */; };
@@ -195,7 +205,6 @@
 		12AC08022C65E35D00593844 /* RokuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuView.swift; sourceTree = "<group>"; };
 		12AC08062C65E51F00593844 /* DeviceBaseSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBaseSettingViewController.swift; sourceTree = "<group>"; };
 		12AC08082C65E89600593844 /* DeviceBaseChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBaseChoiceView.swift; sourceTree = "<group>"; };
-		12AC080A2C65F4E900593844 /* RokuRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuRemoteView.swift; sourceTree = "<group>"; };
 		12AC080C2C65F52400593844 /* RokuChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuChannelView.swift; sourceTree = "<group>"; };
 		12AC080E2C65F54C00593844 /* RokuMirrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuMirrorView.swift; sourceTree = "<group>"; };
 		12AC08102C65F92800593844 /* DeviceTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTouchView.swift; sourceTree = "<group>"; };
@@ -229,6 +238,17 @@
 		12AFB0012C64996C00E660C2 /* EnlargeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargeBtn.swift; sourceTree = "<group>"; };
 		12AFB0032C649AF600E660C2 /* FireDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDevice.swift; sourceTree = "<group>"; };
 		12AFB0052C649B0400E660C2 /* WebOSDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSDevice.swift; sourceTree = "<group>"; };
+		12B078C72C6996C300CB3276 /* logo_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_1.png; sourceTree = "<group>"; };
+		12B078C92C69A71200CB3276 /* DeivceRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeivceRemoteView.swift; sourceTree = "<group>"; };
+		12B078CB2C69A89800CB3276 /* RokuRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuRemoteView.swift; sourceTree = "<group>"; };
+		12B078CD2C69ACB800CB3276 /* DeviceConnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectingView.swift; sourceTree = "<group>"; };
+		12B078D02C69B34100CB3276 /* DeivceBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeivceBaseView.swift; sourceTree = "<group>"; };
+		12B078D62C69E3CC00CB3276 /* DeviceChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceChannelView.swift; sourceTree = "<group>"; };
+		12B078D82C69E40200CB3276 /* DeviceChannelResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceChannelResultView.swift; sourceTree = "<group>"; };
+		12B078DA2C69E41800CB3276 /* DeviceChannelSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceChannelSearchView.swift; sourceTree = "<group>"; };
+		12B078DC2C69EAB900CB3276 /* DeviceChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceChannelCell.swift; sourceTree = "<group>"; };
+		12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuChannelMananger.swift; sourceTree = "<group>"; };
+		12B078E22C6A2E8500CB3276 /* FireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
 		12CCDE512C62FF1100CD417A /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
 		12CCDE552C6301B500CD417A /* nav_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nav_back.svg; sourceTree = "<group>"; };
 		12CCDE572C6301C600CD417A /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
@@ -600,13 +620,10 @@
 		12AC07F42C65B6C600593844 /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				12AC07F92C65BA0B00593844 /* DeviceBaseViewController.swift */,
-				12AC07FB2C65BB9C00593844 /* DeviceBaseNavView.swift */,
-				12AC08062C65E51F00593844 /* DeviceBaseSettingViewController.swift */,
-				12AC08082C65E89600593844 /* DeviceBaseChoiceView.swift */,
-				12AC08102C65F92800593844 /* DeviceTouchView.swift */,
-				12AC08162C66002300593844 /* DeviceListBtn.swift */,
+				12B078DE2C69F17300CB3276 /* Channel */,
+				12B078CF2C69ACBE00CB3276 /* Base */,
 				12AC07F52C65B6CD00593844 /* RokuDevice */,
+				12B078E12C6A2E4200CB3276 /* FireDeivce */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -616,7 +633,7 @@
 			children = (
 				12AC07F72C65B6E500593844 /* RokuViewController.swift */,
 				12AC08022C65E35D00593844 /* RokuView.swift */,
-				12AC080A2C65F4E900593844 /* RokuRemoteView.swift */,
+				12B078CB2C69A89800CB3276 /* RokuRemoteView.swift */,
 				12AC080C2C65F52400593844 /* RokuChannelView.swift */,
 				12AC080E2C65F54C00593844 /* RokuMirrorView.swift */,
 			);
@@ -698,6 +715,74 @@
 			path = EnlargeBtn;
 			sourceTree = "<group>";
 		};
+		12B078CF2C69ACBE00CB3276 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				12B078D22C69E34200CB3276 /* ViewController */,
+				12B078D32C69E35500CB3276 /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		12B078D22C69E34200CB3276 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				12AC07F92C65BA0B00593844 /* DeviceBaseViewController.swift */,
+				12AC08062C65E51F00593844 /* DeviceBaseSettingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		12B078D32C69E35500CB3276 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12B078D02C69B34100CB3276 /* DeivceBaseView.swift */,
+				12AC07FB2C65BB9C00593844 /* DeviceBaseNavView.swift */,
+				12AC08082C65E89600593844 /* DeviceBaseChoiceView.swift */,
+				12B078CD2C69ACB800CB3276 /* DeviceConnectingView.swift */,
+				12B078D42C69E38600CB3276 /* RemoteView */,
+				12B078D52C69E3AC00CB3276 /* ChannelView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		12B078D42C69E38600CB3276 /* RemoteView */ = {
+			isa = PBXGroup;
+			children = (
+				12AC08162C66002300593844 /* DeviceListBtn.swift */,
+				12AC08102C65F92800593844 /* DeviceTouchView.swift */,
+				12B078C92C69A71200CB3276 /* DeivceRemoteView.swift */,
+			);
+			path = RemoteView;
+			sourceTree = "<group>";
+		};
+		12B078D52C69E3AC00CB3276 /* ChannelView */ = {
+			isa = PBXGroup;
+			children = (
+				12B078D62C69E3CC00CB3276 /* DeviceChannelView.swift */,
+				12B078D82C69E40200CB3276 /* DeviceChannelResultView.swift */,
+				12B078DA2C69E41800CB3276 /* DeviceChannelSearchView.swift */,
+				12B078DC2C69EAB900CB3276 /* DeviceChannelCell.swift */,
+			);
+			path = ChannelView;
+			sourceTree = "<group>";
+		};
+		12B078DE2C69F17300CB3276 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		12B078E12C6A2E4200CB3276 /* FireDeivce */ = {
+			isa = PBXGroup;
+			children = (
+				12B078E22C6A2E8500CB3276 /* FireViewController.swift */,
+			);
+			path = FireDeivce;
+			sourceTree = "<group>";
+		};
 		12CCDE532C63019E00CD417A /* Nav */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +831,7 @@
 		12CCDE722C63713200CD417A /* IMG */ = {
 			isa = PBXGroup;
 			children = (
+				12B078C72C6996C300CB3276 /* logo_1.png */,
 				127F36EB2C63793C00DC5642 /* qidong_back2.png */,
 			);
 			path = IMG;
@@ -904,6 +990,7 @@
 				12AFAFF02C6464DE00E660C2 /* search_loading.json in Resources */,
 				12AC08002C65C27000593844 /* deviceVC_client_sel_tip.svg in Resources */,
 				12AC082C2C6617E800593844 /* roku_mute.svg in Resources */,
+				12B078C82C6996C400CB3276 /* logo_1.png in Resources */,
 				12AC081A2C6603D400593844 /* roku_power.svg in Resources */,
 				12AC08152C65FCFE00593844 /* deviceVC_touch.svg in Resources */,
 				12AC07F32C65AD1400593844 /* All_loading.json in Resources */,
@@ -1112,32 +1199,41 @@
 				12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */,
 				12AFAFFD2C647D4600E660C2 /* TimeGlobal.swift in Sources */,
 				12AFAFF82C64788500E660C2 /* RokuDevice.swift in Sources */,
+				12B078DB2C69E41800CB3276 /* DeviceChannelSearchView.swift in Sources */,
 				129DFDAB2C61F3AE009EBC7F /* Value+Extension.swift in Sources */,
 				12AFAFE72C6460EF00E660C2 /* SearchView.swift in Sources */,
 				12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */,
+				12B078E32C6A2E8500CB3276 /* FireViewController.swift in Sources */,
+				12B078D12C69B34100CB3276 /* DeivceBaseView.swift in Sources */,
 				12AFAFE52C645DC200E660C2 /* SearchViewController.swift in Sources */,
 				12AFAFF42C6472AB00E660C2 /* SSDPDiscovery.swift in Sources */,
 				12AFB0042C649AF600E660C2 /* FireDevice.swift in Sources */,
 				12CCDE642C6317EC00CD417A /* FileWaterfallMutiSectionFlowLayout.swift in Sources */,
 				127F37012C63870600DC5642 /* SettingViewController.swift in Sources */,
-				12AC080B2C65F4E900593844 /* RokuRemoteView.swift in Sources */,
+				12B078CC2C69A89800CB3276 /* RokuRemoteView.swift in Sources */,
 				129DFDBD2C61FC77009EBC7F /* LaunchVC.swift in Sources */,
 				12AFAFFB2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift in Sources */,
+				12B078DD2C69EAB900CB3276 /* DeviceChannelCell.swift in Sources */,
 				127F37032C638C3300DC5642 /* SettingView.swift in Sources */,
 				12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */,
 				127F370F2C63995300DC5642 /* JsonUtil.swift in Sources */,
+				12B078CE2C69ACB800CB3276 /* DeviceConnectingView.swift in Sources */,
 				129DFD712C61D4CB009EBC7F /* ViewController.swift in Sources */,
 				129DFDC72C6202B2009EBC7F /* UIView+Extension.swift in Sources */,
 				127F37112C639C2500DC5642 /* LDBaseWebViewController.swift in Sources */,
+				12B078D72C69E3CC00CB3276 /* DeviceChannelView.swift in Sources */,
 				129DFDC92C620434009EBC7F /* UIImage+Extension.swift in Sources */,
+				12B078D92C69E40200CB3276 /* DeviceChannelResultView.swift in Sources */,
 				12CCDE5C2C63097800CD417A /* AllStatus.swift in Sources */,
 				129DFD6D2C61D4CB009EBC7F /* AppDelegate.swift in Sources */,
 				12CCDE6A2C632DC300CD417A /* RemoteDNoResultView.swift in Sources */,
 				12CCDE5F2C63101300CD417A /* Device.swift in Sources */,
+				12B078CA2C69A71200CB3276 /* DeivceRemoteView.swift in Sources */,
 				12AC07F02C65AB8400593844 /* AllTipLoadingView.swift in Sources */,
 				129DFDF12C622653009EBC7F /* XMLDictionary.m in Sources */,
 				12AFB0062C649B0400E660C2 /* WebOSDevice.swift in Sources */,
 				12CCDE612C63178100CD417A /* RemoteResultView.swift in Sources */,
+				12B078E02C69F19600CB3276 /* RokuChannelMananger.swift in Sources */,
 				12CCDE662C6327DB00CD417A /* RemoteDMananger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

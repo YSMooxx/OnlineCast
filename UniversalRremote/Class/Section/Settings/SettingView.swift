@@ -26,7 +26,7 @@ class SettingView:UIView {
         sview.height = 100.RW()
         sview.y = 50.RW()
         sview.x = 32.RW()
-        sview.backgroundColor = UIColor.colorWithHex(hexStr: "#D9D9D9")
+        sview.image = UIImage(named: "logo_default")
         sview.cornerCut(radius: 16.RW(), corner: .allCorners)
         
         return sview

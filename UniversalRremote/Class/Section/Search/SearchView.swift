@@ -12,7 +12,7 @@ class SearchView:UIView {
     
     var callBack:callBack = {text in}
     
-    var modelCallBack:(_ model:Device) -> () = {model in}
+    var modelCallBack:(_ model:searchDeviceCellModel) -> () = {model in}
     
     lazy var model:SearchViewModel = {
         

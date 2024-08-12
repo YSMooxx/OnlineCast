@@ -9,7 +9,7 @@ import UIKit
 
 class SearchResultView:UIView {
     
-    var modelCallBack:(_ model:Device?) -> () = {model in}
+    var modelCallBack:(_ model:searchDeviceCellModel?) -> () = {model in}
     
     var deviceModelArray:[searchDeviceCellModel] = [] {
         
@@ -91,7 +91,7 @@ extension SearchResultView:UITableViewDelegate,UITableViewDataSource {
         
         if indexPath.row < deviceModelArray.count {
             
-            modelCallBack(deviceModelArray[indexPath.row].smodel ?? nil)
+            modelCallBack(deviceModelArray[indexPath.row])
         }
     }
     
@@ -127,7 +127,48 @@ class searchDeviceCell:UITableViewCell {
         sview.font = UIFont.systemFont(ofSize: 16.RW(), weight: .medium)
         sview.textColor = UIColor.colorWithHex(hexStr: whiteColor)
         sview.x = iconImage.x + iconImage.width + 12.RW()
+        sview.numberOfLines = 1
+        sview.width = connectSucIcon.x - sview.x - marginLR
+        return sview
+    }()
+    
+    lazy var connectSucIcon:UIImageView = {
         
+        let sview:UIImageView = UIImageView(image: UIImage(named: "searcch_connect_suc_icon"))
+        
+        sview.width = 24.RW()
+        sview.height = 24.RW()
+        sview.centerY = backView.height / 2
+        sview.x = backView.width - marginLR - sview.width
+        sview.isHidden = true
+        return sview
+    }()
+    
+    lazy var connectSucView:UIView = {
+        
+        let sview:UIView = UIView()
+        
+        sview.width = 4.RW()
+        sview.height = 4.RW()
+        sview.y = iconImage.y + 12.RW()
+        sview.x = iconImage.x + iconImage.width + 12.RW()
+        sview.backgroundColor = UIColor.colorWithHex(hexStr: "#3AE875")
+        sview.cornerCut(radius: sview.height / 2, corner: .allCorners)
+        sview.isHidden = true
+        return sview
+    }()
+    
+    lazy var connectSucLabel:UILabel = {
+        
+        let sview:UILabel = UILabel()
+        
+        sview.text = "Connected"
+        sview.textColor = UIColor.colorWithHex(hexStr: "#3AE875")
+        sview.font = UIFont.systemFont(ofSize: 14.RW(), weight: .medium)
+        sview.sizeToFit()
+        sview.centerY = connectSucView.centerY
+        sview.x = connectSucView.x + connectSucView.width + 2.RW()
+        sview.isHidden = true
         return sview
     }()
     
@@ -154,6 +195,9 @@ class searchDeviceCell:UITableViewCell {
         contentView.addSubview(backView)
         backView.addSubview(iconImage)
         backView.addSubview(titleLabel)
+        backView.addSubview(connectSucIcon)
+        backView.addSubview(connectSucView)
+        backView.addSubview(connectSucLabel)
     }
     
     var model:searchDeviceCellModel? {
@@ -173,7 +217,18 @@ class searchDeviceCell:UITableViewCell {
             
             titleLabel.text = model?.smodel?.friendlyName
             titleLabel.sizeToFit()
-            titleLabel.centerY = backView.height / 2
+            titleLabel.width = connectSucIcon.x - titleLabel.x - marginLR
+            
+            if (model?.isConnect ?? false) {
+                
+                titleLabel.y = backView.height - titleLabel.height - 8.RW()
+            }else {
+                
+                titleLabel.centerY = backView.height / 2
+            }
+            connectSucIcon.isHidden = !(model?.isConnect ?? false)
+            connectSucView.isHidden = !(model?.isConnect ?? false)
+            connectSucLabel.isHidden = !(model?.isConnect ?? false)
         }
     }
 }
@@ -182,4 +237,5 @@ class searchDeviceCellModel {
     
     var smodel:Device?
     var height:CGFloat = 72.RW()
+    var isConnect:Bool = false
 }

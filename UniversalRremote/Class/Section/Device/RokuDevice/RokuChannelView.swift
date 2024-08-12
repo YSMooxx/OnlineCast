@@ -7,27 +7,57 @@
 
 import UIKit
 
-class RokuChannelView:UIView {
+class RokuChannelView:DeviceChannelView {
     
-    override init(frame: CGRect) {
+    override func loadData() {
         
-        super.init(frame: frame)
+        guard let smodel = self.deviceModel as? RokuDevice else {return}
         
-        setupUI()
-        addViews()
+        smodel.getALlChannel {[weak self] arr in
+            
+            let arrString = JsonUtil.getJSONStringFromArray(array: arr)
+            let modelArray = JsonUtil.jsonArrayToModel(arrString, RokuChannelResultListDataModel.self) as? [RokuChannelResultListDataModel]
+            
+            var channelModelArray:[ChannelResultListModel] = []
+            
+            for subModel in modelArray ?? [] {
+                
+                let model:ChannelResultListModel = ChannelResultListModel()
+                
+                subModel.isCollect = false
+                
+                model.model = subModel
+                
+                channelModelArray.append(model)
+            }
+            
+            self?.resultView.model.changeModelArray = channelModelArray
+            self?.searchView.model.allChangeModelArray = channelModelArray
+            self?.setWithArray()
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupUI() {
+    func setWithArray() {
         
-        backgroundColor = .green
-    }
-    
-    func addViews() {
+        var collectModelArray:[ChannelResultListModel] = []
         
+        for smodel in RokuChannelMananger.mananger.collectionArray {
+            
+            let model:ChannelResultListModel = ChannelResultListModel()
+            smodel.isCollect = true
+            model.model = smodel
+            
+            for cmodel in  self.resultView.model.changeModelArray{
+                
+                if smodel.id == cmodel.model?.id {
+                    
+                    cmodel.model?.isCollect = true
+                }
+            }
+            
+            collectModelArray.append(model)
+        }
         
+        self.resultView.model.collectModelArray = collectModelArray
     }
 }

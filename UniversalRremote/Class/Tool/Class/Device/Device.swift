@@ -21,6 +21,7 @@ class Device:Codable {
     var url:String = ""
     var ip:String = ""
     var reName:String = ""
+    var token:String = ""
     
     enum CodingKeys: String, CodingKey{
         case friendlyName,UDN,url,ip,type,reName,port
