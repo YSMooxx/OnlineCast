@@ -112,49 +112,104 @@ class DeviceChannelResultView:UIView {
         
         cell.callBack = {[weak self] text in
             
-            guard let self else {return}
+            guard let self,let smodel1 = smodel else {return}
             
-            if text == "collect" {
+            if smodel?.model != nil {
                 
-                if smodel?.model?.isCollect ?? false {
-                    
-                    RokuChannelMananger.mananger.addChannelArray(channel: smodel?.model ?? RokuChannelResultListDataModel())
-                }else {
-                    
-                    var index:Int?
-                    
-                    for (i,model) in model.collectModelArray.enumerated() {
-                        
-                        if model.model?.id == smodel?.model?.id {
-                            
-                            index = i
-                        }
-                    }
-                    
-                    guard let cIndex = index else { return }
-                    
-                    model.collectModelArray.remove(at: cIndex)
-                    
-                    var smodelArray:[RokuChannelResultListDataModel] = []
-                    
-                    for model in model.collectModelArray {
-                        
-                        if model.model?.isCollect ?? false {
-                            
-                            smodelArray.append(model.model ?? RokuChannelResultListDataModel())
-                        }
-                    }
-                    
-                    RokuChannelMananger.mananger.removeDeivce(channels: smodelArray)
-                }
+                self.rokuChannelClick(smodel: smodel1, text: text)
+            }
+            
+            if smodel?.fireModel != nil {
                 
-            }else {
-                
-                channelIDCallBacl(smodel?.model?.id ?? "")
+                self.FireChannelClick(smodel: smodel1, text: text)
             }
         }
         
         return cell
+    }
+    
+    func rokuChannelClick(smodel:ChannelResultListModel,text:String) {
+        
+        if text == "collect" {
+            
+            if smodel.model?.isCollect ?? false {
+                
+                RokuChannelMananger.mananger.addChannelArray(channel: smodel.model ?? RokuChannelResultListDataModel())
+            }else {
+                
+                var index:Int?
+                
+                for (i,model) in model.collectModelArray.enumerated() {
+                    
+                    if model.model?.id == smodel.model?.id {
+                        
+                        index = i
+                    }
+                }
+                
+                guard let cIndex = index else { return }
+                
+                model.collectModelArray.remove(at: cIndex)
+                
+                var smodelArray:[RokuChannelResultListDataModel] = []
+                
+                for model in model.collectModelArray {
+                    
+                    if model.model?.isCollect ?? false {
+                        
+                        smodelArray.append(model.model ?? RokuChannelResultListDataModel())
+                    }
+                }
+                
+                RokuChannelMananger.mananger.removeDeivce(channels: smodelArray)
+            }
+            
+        }else {
+            
+            channelIDCallBacl(smodel.model?.id ?? "")
+        }
+    }
+    
+    func FireChannelClick(smodel:ChannelResultListModel,text:String) {
+        
+        if text == "collect" {
+            
+            if smodel.fireModel?.isCollect ?? false {
+                
+                FireChannelMananger.mananger.addChannelArray(channel: smodel.fireModel ?? FireChannelResultListDataModel())
+            }else {
+                
+                var index:Int?
+                
+                for (i,model) in model.collectModelArray.enumerated() {
+                    
+                    if model.fireModel?.appId == smodel.fireModel?.appId {
+                        
+                        index = i
+                    }
+                }
+                
+                guard let cIndex = index else { return }
+                
+                model.collectModelArray.remove(at: cIndex)
+                
+                var smodelArray:[FireChannelResultListDataModel] = []
+                
+                for model in model.collectModelArray {
+                    
+                    if model.fireModel?.isCollect ?? false {
+                        
+                        smodelArray.append(model.fireModel ?? FireChannelResultListDataModel())
+                    }
+                }
+                
+                FireChannelMananger.mananger.removeDeivce(channels: smodelArray)
+            }
+            
+        }else {
+            
+            channelIDCallBacl(smodel.fireModel?.appId ?? "")
+        }
     }
 }
 
@@ -329,7 +384,7 @@ class ChannelResultViewModel {
     
     lazy var headModelArray:[ChannelCollectionSectionModel] = {
         
-        let array = [["title":"Favorite Channels","height":32.RW()],["title":"All channels","height":48.RW(),"topMar":16.RW()]]
+        let array = [["title":"Favorite Channels","height":0.RW()],["title":"All channels","height":48.RW(),"topMar":16.RW()]]
         
         let jsonString = JsonUtil.getJSONStringFromArray(array: array)
         

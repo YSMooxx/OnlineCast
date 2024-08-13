@@ -9,20 +9,11 @@ import UIKit
 
 class RokuRemoteView:DeivceRemoteView {
     
-    override init(frame: CGRect) {
-        
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func addViews() {
         
         super.addViews()
         
-        let array:[Any] = [["norlImage":"deviceVC_power_norl_back","hightLImage":"deviceVC_power_hight_back","iconImage":"roku_power","key":RokuDevice.RokuEventKey.PowerOn.rawValue],["iconImage":"roku_keyboard","key":"keyborad"],["iconImage":"roku_back","key":RokuDevice.RokuEventKey.Back.rawValue],["iconImage":"roku_home","key":RokuDevice.RokuEventKey.Home.rawValue],
+        let array:[Any] = [["norlImage":"deviceVC_power_norl_back","hightLImage":"deviceVC_power_hight_back","iconImage":"roku_power","key":RokuDevice.RokuEventKey.PowerOn.rawValue],["iconImage":"roku_keyboard","key":"keyboard"],["iconImage":"roku_back","key":RokuDevice.RokuEventKey.Back.rawValue],["iconImage":"roku_home","key":RokuDevice.RokuEventKey.Home.rawValue],
                            ["iconImage":"roku_rewind","key":RokuDevice.RokuEventKey.Rev.rawValue], ["iconImage":"roku_play","key":RokuDevice.RokuEventKey.Play.rawValue],["iconImage":"roku_fwd","key":RokuDevice.RokuEventKey.Fwd.rawValue],["iconImage":"roku_info","key":RokuDevice.RokuEventKey.Info.rawValue],["iconImage":"roku_refresh","key":RokuDevice.RokuEventKey.Replay.rawValue],["iconImage":"roku_mute","key":RokuDevice.RokuEventKey.VolumeMute.rawValue]]
         
         let arrStr = JsonUtil.getJSONStringFromArray(array: array)

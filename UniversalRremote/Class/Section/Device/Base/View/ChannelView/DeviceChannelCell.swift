@@ -11,22 +11,9 @@ class ChannelResultListModel {
     
     var model:RokuChannelResultListDataModel?
     
+    var fireModel:FireChannelResultListDataModel?
+    
     var height:CGFloat = 88.RW()
-}
-
-class RokuChannelResultListDataModel:BaseModel,Codable {
-    
-    var id:String?
-    var name:String?
-    var imageUrl:String?
-    var imageName:String?
-    var isCollect:Bool?
-    var time:TimeInterval?
-    var image:UIImage?
-    
-    enum CodingKeys: String, CodingKey{
-        case id,name,imageUrl,imageName,isCollect,time
-    }
 }
 
 class ChannelListCollectionCell:UICollectionViewCell {
@@ -87,11 +74,24 @@ class ChannelListCollectionCell:UICollectionViewCell {
         
         didSet {
             
-            guard let url = URL(string: model?.model?.imageUrl ?? "") else {return}
+            if model?.model != nil {
+                
+                guard let url = URL(string: model?.model?.imageUrl ?? "") else {return}
+                
+                self.imageBtn.sd_setImage(with: url, placeholderImage: UIImage(), context: nil)
+                
+                collectBtn.isSelected = model?.model?.isCollect ?? false
+            }
             
-            self.imageBtn.sd_setImage(with: url, placeholderImage: UIImage(), context: nil)
+            if model?.fireModel != nil {
+                
+                guard let url = URL(string: model?.fireModel?.iconArtSmallUri ?? "") else {return}
+                
+                self.imageBtn.sd_setImage(with: url, placeholderImage: UIImage(), context: nil)
+                
+                collectBtn.isSelected = model?.fireModel?.isCollect ?? false
+            }
             
-            collectBtn.isSelected = model?.model?.isCollect ?? false
         }
     }
     
@@ -102,7 +102,15 @@ class ChannelListCollectionCell:UICollectionViewCell {
     
     @objc func collectBtnClick(btn:UIButton) {
         
-        model?.model?.isCollect = !(model?.model?.isCollect ?? false)
+        if model?.model != nil {
+            
+            model?.model?.isCollect = !(model?.model?.isCollect ?? false)
+        }
+        
+        if model?.fireModel != nil {
+            
+            model?.fireModel?.isCollect = !(model?.fireModel?.isCollect ?? false)
+        }
         
         callBack("collect")
     }

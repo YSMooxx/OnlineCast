@@ -5,7 +5,19 @@
 //  Created by Hao Liu on 2024/8/12.
 //
 
-
+class RokuChannelResultListDataModel:BaseModel,Codable {
+    
+    var id:String?
+    var name:String?
+    var imageUrl:String?
+    var imageName:String?
+    var isCollect:Bool?
+    var time:TimeInterval?
+    
+    enum CodingKeys: String, CodingKey{
+        case id,name,imageUrl,imageName,isCollect,time
+    }
+}
 
 class RokuChannelMananger {
 

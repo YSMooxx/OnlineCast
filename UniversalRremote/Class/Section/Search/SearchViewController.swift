@@ -94,6 +94,13 @@ class SearchViewController:LDBaseViewController {
         return tipView
     }()
     
+    lazy var searchConnectTipView:SearchConnectTipView = {
+        
+        let sview:SearchConnectTipView = SearchConnectTipView(frame: CGRect(x: 0, y: 0, width: ScreenW, height: ScreenH))
+        
+        return sview
+    }()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -258,6 +265,43 @@ class SearchViewController:LDBaseViewController {
                     model.isConnect = true
                     
                     self.searchView.resultView.tableView.reloadData()
+                    
+                    self.searchConnectTipView.showView(type: .suc)
+                }else if text == Load_fail {
+                    
+                    self.searchConnectTipView.showView(type: .fail)
+                }
+            }
+        }else if smodel.type == Fire {
+            
+            guard let fireDevice = smodel as? FireDevice else {return}
+            
+            self.fireClick(fireModel: fireDevice) {[weak self] text in
+                
+                guard let self else {return}
+                
+                AllTipLoadingView.loadingShared.dissMiss()
+                
+                if text == Load_suc {
+                    
+                    for smodel in self.searchView.resultView.deviceModelArray {
+                        
+                        smodel.isConnect = false
+                    }
+                    
+                    model.isConnect = true
+                    
+                    self.searchView.resultView.tableView.reloadData()
+                    
+                    self.searchConnectTipView.showView(type: .suc)
+                    
+                }else if text == Load_fail{
+                    
+                    self.searchConnectTipView.showView(type: .fail)
+                    
+                }else if text == Click_cancel {
+                    
+                    
                 }
             }
         }
@@ -267,7 +311,7 @@ class SearchViewController:LDBaseViewController {
         
         AllTipLoadingView.loadingShared.showView()
         
-        rokuModel.connectDevice { suc in
+        rokuModel.connectDevice {[weak self] suc in
             
             if suc == Load_suc {
                 
@@ -278,7 +322,7 @@ class SearchViewController:LDBaseViewController {
                     sucstatus(Load_suc)
                     AllTipLoadingView.loadingShared.dissMiss()
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                         
                         let vc:RokuViewController = RokuViewController(model: rokuModel)
                         
@@ -292,8 +336,116 @@ class SearchViewController:LDBaseViewController {
                 sucstatus(Load_fail)
             }
             
-           
         }
+    }
+    
+    func fireClick(fireModel:FireDevice,sucstatus:@escaping callBack = {status in}) {
+        
+        AllTipLoadingView.loadingShared.showView()
+        
+        self.checkFireStatus(subModel: fireModel) {[weak self] status in
+            
+            guard let self else {return}
+            
+            self.checkStatusTime = nil
+            
+            if status == Load_suc {
+                
+                fireModel.showPin { text in
+                    
+                    if text == Load_suc {
+                        
+                        let writePin:FirePINWriteView = FirePINWriteView()
+                        writePin.fireModel = fireModel
+                        writePin.showView()
+                        writePin.callBack = {text in
+                            
+                            sucstatus(text)
+                        }
+                        
+                        writePin.resultCallBack = {text in
+                            
+                            AllTipLoadingView.loadingShared.showView()
+                            
+                            fireModel.token = text
+                            RemoteDMananger.mananger.addDeviceArray(device: fireModel)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                
+                                sucstatus(Load_suc)
+                                AllTipLoadingView.loadingShared.dissMiss()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
+                                    
+                                    let vc:FireViewController = FireViewController(model: fireModel)
+                                    
+                                    self?.navigationController?.pushViewController(vc, animated: true)
+                                })
+                                
+                            })
+                        }
+                        
+                    }else {
+                        
+                        sucstatus(text)
+                    }
+                }
+                
+            }else {
+                     
+                sucstatus(status)
+
+            }
+        }
+        
+    }
+    
+    var checkStatusTime:Int64?
+    
+    func checkFireStatus(subModel:FireDevice,suc:@escaping callBack = {text in}) {
+        
+        if checkStatusTime != nil {
+            
+            if (checkStatusTime ?? 0) + 5 < Int64(Date().timeIntervalSince1970) {
+                
+                checkStatusTime = nil
+                Print("status--------超时")
+                return
+            }
+            
+        }else {
+            
+            checkStatusTime = Int64(Date().timeIntervalSince1970)
+        }
+        
+        subModel.checkStatus(suc: {[weak self] text in
+            
+            guard let self else{ return}
+            
+            if text == Load_suc {
+                
+                self.checkStatusTime = nil
+                Print("status--------成功")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    
+                    suc(text)
+                })
+                
+            }else {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                    
+                    guard let self else {return}
+                    
+                    self.checkFireStatus(subModel: subModel, suc: {text in
+                        suc(text)
+                    })
+                })
+                
+            }
+            
+        })
     }
     
     deinit {

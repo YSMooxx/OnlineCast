@@ -56,6 +56,7 @@ class RemoteDMananger {
                             }else if user.type == Fire {
                                 
                                 deivce = FireDevice(url: user.url, ip: user.ip)
+
                             }else if user.type == WebOS {
                                 
                                 deivce = WebOSDevice(url: user.url, ip: user.ip)
@@ -68,6 +69,7 @@ class RemoteDMananger {
                             deivce?.type = user.type
                             deivce?.port = user.port
                             deivce?.UDN = user.UDN
+                            deivce?.token = user.token
                             
                             guard let cDevice = deivce else {break}
                             

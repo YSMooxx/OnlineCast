@@ -107,11 +107,10 @@ class AllTipLoadingView:UIView {
     
     func showView() {
        
-        self.loadingAnimation.play()
-        
        DispatchQueue.main.async {[weak self] in
            
            guard let self else {return}
+           self.loadingAnimation.play()
            cWindow?.addSubview(self)
        }
         

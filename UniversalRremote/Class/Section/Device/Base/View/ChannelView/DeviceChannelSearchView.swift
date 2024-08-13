@@ -105,37 +105,80 @@ class DeviceChannelSearchView:UIView {
         
         cell.callBack = {[weak self] text in
             
-            guard let self else {return}
+            guard let self,let smodel1 = smodel else {return}
             
-            if text == "collect" {
-              
-                if smodel?.model?.isCollect ?? false {
-                    
-                    RokuChannelMananger.mananger.addChannelArray(channel: smodel?.model ?? RokuChannelResultListDataModel())
-                }else {
-                    
-                    var smodelArray:[RokuChannelResultListDataModel] = []
-                    
-                    for model in model.allChangeModelArray {
-                        
-                        if model.model?.isCollect ?? false {
-                            
-                            smodelArray.append(model.model ?? RokuChannelResultListDataModel())
-                        }
-                    }
-                    
-                    RokuChannelMananger.mananger.removeDeivce(channels: smodelArray)
-                }
+            if smodel?.model != nil {
                 
-                collectionView.reloadData()
+                self.rokuChannelClick(smodel: smodel1, text: text)
+            }
+            
+            if smodel?.fireModel != nil {
                 
-            }else {
-                
-                channelIDCallBacl(smodel?.model?.id ?? "")
+                self.FireChannelClick(smodel: smodel1, text: text)
             }
         }
         
         return cell
+    }
+    
+    func rokuChannelClick(smodel:ChannelResultListModel,text:String) {
+        
+        if text == "collect" {
+          
+            if smodel.model?.isCollect ?? false {
+                
+                RokuChannelMananger.mananger.addChannelArray(channel: smodel.model ?? RokuChannelResultListDataModel())
+            }else {
+                
+                var smodelArray:[RokuChannelResultListDataModel] = []
+                
+                for model in model.allChangeModelArray {
+                    
+                    if model.model?.isCollect ?? false {
+                        
+                        smodelArray.append(model.model ?? RokuChannelResultListDataModel())
+                    }
+                }
+                
+                RokuChannelMananger.mananger.removeDeivce(channels: smodelArray)
+            }
+            
+            collectionView.reloadData()
+            
+        }else {
+            
+            channelIDCallBacl(smodel.model?.id ?? "")
+        }
+    }
+    
+    func FireChannelClick(smodel:ChannelResultListModel,text:String) {
+        
+        if text == "collect" {
+          
+            if smodel.fireModel?.isCollect ?? false {
+                
+                FireChannelMananger.mananger.addChannelArray(channel: smodel.fireModel ?? FireChannelResultListDataModel())
+            }else {
+                
+                var smodelArray:[FireChannelResultListDataModel] = []
+                
+                for model in model.allChangeModelArray {
+                    
+                    if model.model?.isCollect ?? false {
+                        
+                        smodelArray.append(model.fireModel ?? FireChannelResultListDataModel())
+                    }
+                }
+                
+                FireChannelMananger.mananger.removeDeivce(channels: smodelArray)
+            }
+            
+            collectionView.reloadData()
+            
+        }else {
+            
+            channelIDCallBacl(smodel.fireModel?.appId ?? "")
+        }
     }
 }
 
@@ -269,9 +312,20 @@ class ChannelSearchViewModel {
             
             for subModel in allChangeModelArray {
 
-                if key.range(of: (subModel.model?.name ?? ""), options: .caseInsensitive) != nil || (subModel.model?.name ?? "").range(of: (key), options: .caseInsensitive) != nil {
-                    channelModelArray.append(subModel)
+                if subModel.model != nil {
+                    
+                    if key.range(of: (subModel.model?.name ?? ""), options: .caseInsensitive) != nil || (subModel.model?.name ?? "").range(of: (key), options: .caseInsensitive) != nil {
+                        channelModelArray.append(subModel)
+                    }
                 }
+                
+                if subModel.fireModel != nil {
+                    
+                    if key.range(of: (subModel.fireModel?.name ?? ""), options: .caseInsensitive) != nil || (subModel.fireModel?.name ?? "").range(of: (key), options: .caseInsensitive) != nil {
+                        channelModelArray.append(subModel)
+                    }
+                }
+                
             }
             
             searchResultModelArray = channelModelArray

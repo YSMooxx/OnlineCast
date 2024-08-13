@@ -74,6 +74,7 @@ class DeviceConnectingView:UIView {
         tipLabel.text = "Trying to connect to \"\(deviceName ?? "")\""
         tipLabel.width = width - tipLabel.x - 12.RW()
         tipLabel.sizeToFit()
+        tipLabel.width = width - tipLabel.x - 12.RW()
         tipLabel.centerY = height / 2
     }
 }

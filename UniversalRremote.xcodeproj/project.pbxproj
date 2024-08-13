@@ -120,6 +120,16 @@
 		12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */; };
 		12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE6D2C63523300CD417A /* RemoteDRenameView.swift */; };
 		12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE702C6363A400CD417A /* UITextFieldX.swift */; };
+		12DD350A2C6AE590007402AC /* SearchConnectTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD35092C6AE590007402AC /* SearchConnectTipView.swift */; };
+		12DD350D2C6AEB93007402AC /* FirePINWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD350C2C6AEB93007402AC /* FirePINWriteView.swift */; };
+		12DD350F2C6AEBCB007402AC /* BaseShowTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD350E2C6AEBCB007402AC /* BaseShowTipView.swift */; };
+		12DD35112C6B0907007402AC /* FireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD35102C6B0907007402AC /* FireView.swift */; };
+		12DD35132C6B0C84007402AC /* FireRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD35122C6B0C84007402AC /* FireRemoteView.swift */; };
+		12DD35152C6B0D32007402AC /* FireChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD35142C6B0D32007402AC /* FireChannelView.swift */; };
+		12DD35182C6B1A89007402AC /* fire_menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12DD35172C6B1A89007402AC /* fire_menu.svg */; };
+		12DD351A2C6B275E007402AC /* FireChannelMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD35192C6B275E007402AC /* FireChannelMananger.swift */; };
+		12DD351D2C6B3368007402AC /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD351C2C6B3368007402AC /* Debouncer.swift */; };
+		12DD351F2C6B373A007402AC /* DeviceKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD351E2C6B373A007402AC /* DeviceKeyboardView.swift */; };
 		606ED2A4BA3C427789CEB418 /* Pods_UniversalRremoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */; };
 		8D2DAE621991705C5F2CBAAC /* Pods_UniversalRremote_UniversalRremoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92E4E1596974273C76A5D06 /* Pods_UniversalRremote_UniversalRremoteUITests.framework */; };
 		F53000A4D9957E03CE61D2AC /* Pods_UniversalRremote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */; };
@@ -263,6 +273,16 @@
 		12CCDE6B2C63472D00CD417A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		12CCDE6D2C63523300CD417A /* RemoteDRenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDRenameView.swift; sourceTree = "<group>"; };
 		12CCDE702C6363A400CD417A /* UITextFieldX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
+		12DD35092C6AE590007402AC /* SearchConnectTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConnectTipView.swift; sourceTree = "<group>"; };
+		12DD350C2C6AEB93007402AC /* FirePINWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirePINWriteView.swift; sourceTree = "<group>"; };
+		12DD350E2C6AEBCB007402AC /* BaseShowTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseShowTipView.swift; sourceTree = "<group>"; };
+		12DD35102C6B0907007402AC /* FireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireView.swift; sourceTree = "<group>"; };
+		12DD35122C6B0C84007402AC /* FireRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireRemoteView.swift; sourceTree = "<group>"; };
+		12DD35142C6B0D32007402AC /* FireChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChannelView.swift; sourceTree = "<group>"; };
+		12DD35172C6B1A89007402AC /* fire_menu.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fire_menu.svg; sourceTree = "<group>"; };
+		12DD35192C6B275E007402AC /* FireChannelMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChannelMananger.swift; sourceTree = "<group>"; };
+		12DD351C2C6B3368007402AC /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		12DD351E2C6B373A007402AC /* DeviceKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceKeyboardView.swift; sourceTree = "<group>"; };
 		31CD881656B99123C7767007 /* Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73EF877A07A581A7DE3862A7 /* Pods-UniversalRremoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremoteTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremoteTests/Pods-UniversalRremoteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -462,6 +482,7 @@
 		129DFDA42C61F197009EBC7F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				12DD351B2C6B3361007402AC /* Debouncer */,
 				12AFB0002C64995E00E660C2 /* EnlargeBtn */,
 				12AFAFF92C647CC200E660C2 /* Privacy */,
 				12AFAFE02C64530500E660C2 /* AllTipView */,
@@ -539,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				129DFDC22C6201B7009EBC7F /* LDBaseNavView.swift */,
+				12DD350E2C6AEBCB007402AC /* BaseShowTipView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -643,6 +665,7 @@
 		12AC07FD2C65C20400593844 /* DeviceVC */ = {
 			isa = PBXGroup;
 			children = (
+				12DD35162C6B1A71007402AC /* Fire */,
 				12AC08182C6603C200593844 /* Roku */,
 				12AC08142C65FCFE00593844 /* deviceVC_touch.svg */,
 				12AC08122C65FCA900593844 /* deviceVC_btn.svg */,
@@ -686,6 +709,7 @@
 				12AFAFE82C64624900E660C2 /* SearchResultView.swift */,
 				12AFAFEA2C64625800E660C2 /* SearchNoResultView.swift */,
 				12AFAFEC2C64626700E660C2 /* SearchNoWifiView.swift */,
+				12DD35092C6AE590007402AC /* SearchConnectTipView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -740,6 +764,7 @@
 				12AC07FB2C65BB9C00593844 /* DeviceBaseNavView.swift */,
 				12AC08082C65E89600593844 /* DeviceBaseChoiceView.swift */,
 				12B078CD2C69ACB800CB3276 /* DeviceConnectingView.swift */,
+				12DD351E2C6B373A007402AC /* DeviceKeyboardView.swift */,
 				12B078D42C69E38600CB3276 /* RemoteView */,
 				12B078D52C69E3AC00CB3276 /* ChannelView */,
 			);
@@ -771,6 +796,7 @@
 			isa = PBXGroup;
 			children = (
 				12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */,
+				12DD35192C6B275E007402AC /* FireChannelMananger.swift */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -779,6 +805,10 @@
 			isa = PBXGroup;
 			children = (
 				12B078E22C6A2E8500CB3276 /* FireViewController.swift */,
+				12DD35102C6B0907007402AC /* FireView.swift */,
+				12DD35122C6B0C84007402AC /* FireRemoteView.swift */,
+				12DD35142C6B0D32007402AC /* FireChannelView.swift */,
+				12DD350C2C6AEB93007402AC /* FirePINWriteView.swift */,
 			);
 			path = FireDeivce;
 			sourceTree = "<group>";
@@ -835,6 +865,22 @@
 				127F36EB2C63793C00DC5642 /* qidong_back2.png */,
 			);
 			path = IMG;
+			sourceTree = "<group>";
+		};
+		12DD35162C6B1A71007402AC /* Fire */ = {
+			isa = PBXGroup;
+			children = (
+				12DD35172C6B1A89007402AC /* fire_menu.svg */,
+			);
+			path = Fire;
+			sourceTree = "<group>";
+		};
+		12DD351B2C6B3361007402AC /* Debouncer */ = {
+			isa = PBXGroup;
+			children = (
+				12DD351C2C6B3368007402AC /* Debouncer.swift */,
+			);
+			path = Debouncer;
 			sourceTree = "<group>";
 		};
 		14A5B2A12939869B4BE1C7BA /* Pods */ = {
@@ -992,6 +1038,7 @@
 				12AC082C2C6617E800593844 /* roku_mute.svg in Resources */,
 				12B078C82C6996C400CB3276 /* logo_1.png in Resources */,
 				12AC081A2C6603D400593844 /* roku_power.svg in Resources */,
+				12DD35182C6B1A89007402AC /* fire_menu.svg in Resources */,
 				12AC08152C65FCFE00593844 /* deviceVC_touch.svg in Resources */,
 				12AC07F32C65AD1400593844 /* All_loading.json in Resources */,
 				129DFD762C61D4CD009EBC7F /* Assets.xcassets in Resources */,
@@ -1161,6 +1208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12DD35112C6B0907007402AC /* FireView.swift in Sources */,
 				12AC080F2C65F54C00593844 /* RokuMirrorView.swift in Sources */,
 				12AFB0022C64996C00E660C2 /* EnlargeBtn.swift in Sources */,
 				127F37152C639CCC00DC5642 /* TermOfUseWebViewController.swift in Sources */,
@@ -1172,8 +1220,11 @@
 				129DFDC32C6201B8009EBC7F /* LDBaseNavView.swift in Sources */,
 				129DFDE92C6225E1009EBC7F /* AmazonFlingMananger.swift in Sources */,
 				129DFDBF2C61FCB1009EBC7F /* LDBaseViewController.swift in Sources */,
+				12DD351A2C6B275E007402AC /* FireChannelMananger.swift in Sources */,
 				12AC07FC2C65BB9C00593844 /* DeviceBaseNavView.swift in Sources */,
 				12CCDE682C632ADA00CD417A /* UserDef.swift in Sources */,
+				12DD350A2C6AE590007402AC /* SearchConnectTipView.swift in Sources */,
+				12DD351F2C6B373A007402AC /* DeviceKeyboardView.swift in Sources */,
 				129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */,
 				129DFDC52C6201E3009EBC7F /* CommonType.swift in Sources */,
 				12AFAFEB2C64625800E660C2 /* SearchNoResultView.swift in Sources */,
@@ -1185,9 +1236,12 @@
 				12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */,
 				12AC08072C65E51F00593844 /* DeviceBaseSettingViewController.swift in Sources */,
 				12AC07F82C65B6E500593844 /* RokuViewController.swift in Sources */,
+				12DD35132C6B0C84007402AC /* FireRemoteView.swift in Sources */,
 				12AFAFE22C64531200E660C2 /* AllTipCheckView.swift in Sources */,
 				12AC08092C65E89700593844 /* DeviceBaseChoiceView.swift in Sources */,
 				12AFAFE92C64624900E660C2 /* SearchResultView.swift in Sources */,
+				12DD351D2C6B3368007402AC /* Debouncer.swift in Sources */,
+				12DD350D2C6AEB93007402AC /* FirePINWriteView.swift in Sources */,
 				12AFAFED2C64626700E660C2 /* SearchNoWifiView.swift in Sources */,
 				12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */,
 				12AC080D2C65F52400593844 /* RokuChannelView.swift in Sources */,
@@ -1196,8 +1250,10 @@
 				129DFDDA2C62233F009EBC7F /* Analytics.swift in Sources */,
 				129DFDF62C62368B009EBC7F /* RemoteViewController.swift in Sources */,
 				12AFAFFF2C6490C900E660C2 /* NetStatusManager.swift in Sources */,
+				12DD350F2C6AEBCB007402AC /* BaseShowTipView.swift in Sources */,
 				12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */,
 				12AFAFFD2C647D4600E660C2 /* TimeGlobal.swift in Sources */,
+				12DD35152C6B0D32007402AC /* FireChannelView.swift in Sources */,
 				12AFAFF82C64788500E660C2 /* RokuDevice.swift in Sources */,
 				12B078DB2C69E41800CB3276 /* DeviceChannelSearchView.swift in Sources */,
 				129DFDAB2C61F3AE009EBC7F /* Value+Extension.swift in Sources */,

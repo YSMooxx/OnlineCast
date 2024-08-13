@@ -133,6 +133,19 @@ class RokuDevice: Device {
         }
     }
     
+    func searchWithString(content: String) {
+        
+        guard let url = URL(string: httpHeader + self.ip + ":" + port + "/keypress/" + "Lit_" + content) else { return }
+        
+        AF.request(url, method: HTTPMethod.post).responseString { response in
+            
+            switch response.result {
+                case .success(_):break
+                case .failure(_):break
+            }
+        }
+    }
+    
     func checkStatus(error:Error,suc:@escaping callBack = {status in}) {
         
         if let afError = error.asAFError {

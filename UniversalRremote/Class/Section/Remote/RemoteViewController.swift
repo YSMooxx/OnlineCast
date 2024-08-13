@@ -37,6 +37,11 @@ class RemoteViewController:LDBaseViewController {
                     let vc:RokuViewController = RokuViewController(model: device)
                     
                     self.navigationController?.pushViewController(vc, animated: true)
+                }else if device.type == Fire {
+                    
+                    let vc:FireViewController = FireViewController(model: device)
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
             

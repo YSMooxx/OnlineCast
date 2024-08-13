@@ -28,6 +28,24 @@ class RokuViewController:DeviceBaseViewController {
             }else if text == "dir" {
                 
                 
+            }else if text == "keyboard" {
+                
+                guard let dev = currentDevice else {return}
+                
+                let keyboardView:DeviceKeyboardView = DeviceKeyboardView()
+                
+                keyboardView.showView()
+                keyboardView.resultCallBack = {text in
+                    
+                    if text == "delete" {
+                        
+                        dev.sendKey(key: FireDevice.FireEventKey.Backspace.rawValue)
+                    }else {
+                        
+                        dev.searchWithString(content: text)
+                    }
+                }
+                
             }else {
                 
                 if self.connectStatus == .sucConnect {
@@ -47,6 +65,8 @@ class RokuViewController:DeviceBaseViewController {
             if self.connectStatus == .sucConnect {
                 
                 guard let dev = currentDevice else {return}
+                
+                shock()
                 
                 dev.changeChannel(id: text)
             }else {
@@ -81,7 +101,7 @@ class RokuViewController:DeviceBaseViewController {
     func connectDevice() {
         
         self.connectStatus = .startConnect
-        self.rokuView.connectingView.deviceName = currentDevice?.friendlyName
+        self.rokuView.connectingView.deviceName = currentDevice?.reName
         self.currentDevice?.connectDevice(suc: {[weak self] status in
             guard let self else {return}
             if status == Load_suc {
