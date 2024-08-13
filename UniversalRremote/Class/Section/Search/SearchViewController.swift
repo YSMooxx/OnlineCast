@@ -304,6 +304,35 @@ class SearchViewController:LDBaseViewController {
                     
                 }
             }
+        }else if smodel.type == WebOS {
+            
+            guard let webDevice = smodel as? WebOSDevice else {return}
+            
+            AllTipLoadingView.loadingShared.dissMiss()
+            
+            self.checkWebOSStatus(webOSModel: webDevice) { status in
+                
+                if status == Load_fail{
+                    
+                    self.searchConnectTipView.showView(type: .fail)
+                    
+                }else if status == Click_cancel {
+                    
+                    
+                }else if status == Load_suc {
+                    
+                    for smodel in self.searchView.resultView.deviceModelArray {
+                        
+                        smodel.isConnect = false
+                    }
+                    
+                    model.isConnect = true
+                    
+                    self.searchView.resultView.tableView.reloadData()
+                    
+                    self.searchConnectTipView.showView(type: .suc)
+                }
+            }
         }
     }
     
@@ -446,6 +475,61 @@ class SearchViewController:LDBaseViewController {
             }
             
         })
+    }
+    
+    func checkWebOSStatus(webOSModel:WebOSDevice,suc:@escaping callBack = {text in}) {
+        
+        AllTipLoadingView.loadingShared.showView()
+        
+        webOSModel.connectDevice()
+        
+        let writePin:WebOSPINWriteView = WebOSPINWriteView()
+        
+        webOSModel.callBackStatus = {status,content in
+            
+            switch status{
+                
+            case .didDisplayPin:
+                
+                DispatchQueue.main.async {
+                    
+                    writePin.showView()
+                    writePin.resultCallBack = {text in
+                        
+                        webOSModel.checkPin(pin: text)
+                    }
+                    
+                    writePin.callBack = {text in
+                        
+                        suc(text)
+                    }
+                }
+            case .didRegister:
+                webOSModel.token = content
+                RemoteDMananger.mananger.addDeviceArray(device: webOSModel)
+                
+                DispatchQueue.main.async {
+                    
+                    writePin.dissMiss()
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    
+                    suc(Load_suc)
+                    AllTipLoadingView.loadingShared.dissMiss()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
+                        
+                        let vc:WebOSViewController = WebOSViewController(model: webOSModel)
+                        
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    
+                })
+            default:
+                break
+            }
+        }
     }
     
     deinit {

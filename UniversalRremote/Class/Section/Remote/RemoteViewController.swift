@@ -42,6 +42,11 @@ class RemoteViewController:LDBaseViewController {
                     let vc:FireViewController = FireViewController(model: device)
                     
                     self.navigationController?.pushViewController(vc, animated: true)
+                }else if device.type == WebOS {
+                    
+                    let vc:WebOSViewController = WebOSViewController(model: device)
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
             

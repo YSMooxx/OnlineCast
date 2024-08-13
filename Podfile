@@ -14,6 +14,7 @@ target 'UniversalRremote' do
   pod 'Alamofire', '~> 5.9.1'
   pod 'lottie-ios', '~> 3.0.7'
   pod 'BlueSocket', '1.0.52'
+  pod 'WebOSClient'
   
   target 'UniversalRremoteTests' do
     inherit! :search_paths

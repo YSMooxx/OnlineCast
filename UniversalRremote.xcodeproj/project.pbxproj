@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127791D72C6B6A490074D5F4 /* WebOSPINWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127791D62C6B6A490074D5F4 /* WebOSPINWriteView.swift */; };
+		127791D92C6B73C40074D5F4 /* WebOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127791D82C6B73C40074D5F4 /* WebOSViewController.swift */; };
 		127F36EC2C63793C00DC5642 /* qidong_back2.png in Resources */ = {isa = PBXBuildFile; fileRef = 127F36EB2C63793C00DC5642 /* qidong_back2.png */; };
 		127F36EE2C63835E00DC5642 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 127F36ED2C63835E00DC5642 /* FirebaseAnalytics */; };
 		127F36F02C63835E00DC5642 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 127F36EF2C63835E00DC5642 /* FirebaseCrashlytics */; };
@@ -150,11 +152,41 @@
 			remoteGlobalIDString = 129DFD682C61D4CB009EBC7F;
 			remoteInfo = UniversalRremote;
 		};
+		12DD35282C6B554F007402AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA61EB1018FE485B00D75696;
+			remoteInfo = ConnectSDK;
+		};
+		12DD352A2C6B554F007402AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4480857A1A12A7BE00E13938;
+			remoteInfo = ConnectSDKTests;
+		};
+		12DD352C2C6B554F007402AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 449A37021B0FDC1C00E47DAC;
+			remoteInfo = ConnectSDKIntegrationTests;
+		};
+		12DD352E2C6B554F007402AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 44166C501B4203880052F9EC;
+			remoteInfo = ConnectSDKAcceptanceTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0ADF0190D988A5F4AEEEA0C9 /* Pods_UniversalRremote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0B2FBE0FBB73201F62D79B /* Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		127791D62C6B6A490074D5F4 /* WebOSPINWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSPINWriteView.swift; sourceTree = "<group>"; };
+		127791D82C6B73C40074D5F4 /* WebOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSViewController.swift; sourceTree = "<group>"; };
 		127F36EB2C63793C00DC5642 /* qidong_back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qidong_back2.png; sourceTree = "<group>"; };
 		127F36FA2C6384A000DC5642 /* Launch_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Launch_loading.json; sourceTree = "<group>"; };
 		127F37002C63870600DC5642 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +315,54 @@
 		12DD35192C6B275E007402AC /* FireChannelMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChannelMananger.swift; sourceTree = "<group>"; };
 		12DD351C2C6B3368007402AC /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		12DD351E2C6B373A007402AC /* DeviceKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceKeyboardView.swift; sourceTree = "<group>"; };
+		12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ConnectSDK.xcodeproj; path = "../Connect-SDK-iOS/ConnectSDK.xcodeproj"; sourceTree = "<group>"; };
+		12DD353E2C6B5840007402AC /* CastServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceTests.m; sourceTree = "<group>"; };
+		12DD353F2C6B5840007402AC /* CastWebAppSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSessionTests.m; sourceTree = "<group>"; };
+		12DD35412C6B5840007402AC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		12DD35422C6B5840007402AC /* CastDiscoveryProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastDiscoveryProvider.h; sourceTree = "<group>"; };
+		12DD35432C6B5840007402AC /* CastDiscoveryProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastDiscoveryProvider.m; sourceTree = "<group>"; };
+		12DD35442C6B5840007402AC /* CastService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService_Private.h; sourceTree = "<group>"; };
+		12DD35452C6B5840007402AC /* CastService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService.h; sourceTree = "<group>"; };
+		12DD35462C6B5840007402AC /* CastService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastService.m; sourceTree = "<group>"; };
+		12DD35472C6B5840007402AC /* CastServiceChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastServiceChannel.h; sourceTree = "<group>"; };
+		12DD35482C6B5840007402AC /* CastServiceChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceChannel.m; sourceTree = "<group>"; };
+		12DD35492C6B5840007402AC /* CastWebAppSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastWebAppSession.h; sourceTree = "<group>"; };
+		12DD354A2C6B5840007402AC /* CastWebAppSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSession.m; sourceTree = "<group>"; };
+		12DD354B2C6B5840007402AC /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		12DD354C2C6B5840007402AC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		12DD354D2C6B5840007402AC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12DD354F2C6B587C007402AC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		12DD35512C6B588C007402AC /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		12DD355A2C6B59D7007402AC /* CastServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceTests.m; sourceTree = "<group>"; };
+		12DD355B2C6B59D7007402AC /* CastWebAppSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSessionTests.m; sourceTree = "<group>"; };
+		12DD355D2C6B59D7007402AC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		12DD355E2C6B59D7007402AC /* CastDiscoveryProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastDiscoveryProvider.h; sourceTree = "<group>"; };
+		12DD355F2C6B59D7007402AC /* CastDiscoveryProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastDiscoveryProvider.m; sourceTree = "<group>"; };
+		12DD35602C6B59D7007402AC /* CastService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService_Private.h; sourceTree = "<group>"; };
+		12DD35612C6B59D7007402AC /* CastService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService.h; sourceTree = "<group>"; };
+		12DD35622C6B59D7007402AC /* CastService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastService.m; sourceTree = "<group>"; };
+		12DD35632C6B59D7007402AC /* CastServiceChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastServiceChannel.h; sourceTree = "<group>"; };
+		12DD35642C6B59D7007402AC /* CastServiceChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceChannel.m; sourceTree = "<group>"; };
+		12DD35652C6B59D7007402AC /* CastWebAppSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastWebAppSession.h; sourceTree = "<group>"; };
+		12DD35662C6B59D7007402AC /* CastWebAppSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSession.m; sourceTree = "<group>"; };
+		12DD35672C6B59D7007402AC /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		12DD35682C6B59D7007402AC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		12DD35692C6B59D7007402AC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12DD356B2C6B5A1D007402AC /* CastServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceTests.m; sourceTree = "<group>"; };
+		12DD356C2C6B5A1D007402AC /* CastWebAppSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSessionTests.m; sourceTree = "<group>"; };
+		12DD356E2C6B5A1D007402AC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		12DD356F2C6B5A1D007402AC /* CastDiscoveryProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastDiscoveryProvider.h; sourceTree = "<group>"; };
+		12DD35702C6B5A1D007402AC /* CastDiscoveryProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastDiscoveryProvider.m; sourceTree = "<group>"; };
+		12DD35712C6B5A1D007402AC /* CastService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService_Private.h; sourceTree = "<group>"; };
+		12DD35722C6B5A1D007402AC /* CastService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastService.h; sourceTree = "<group>"; };
+		12DD35732C6B5A1D007402AC /* CastService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastService.m; sourceTree = "<group>"; };
+		12DD35742C6B5A1D007402AC /* CastServiceChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastServiceChannel.h; sourceTree = "<group>"; };
+		12DD35752C6B5A1D007402AC /* CastServiceChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastServiceChannel.m; sourceTree = "<group>"; };
+		12DD35762C6B5A1D007402AC /* CastWebAppSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CastWebAppSession.h; sourceTree = "<group>"; };
+		12DD35772C6B5A1D007402AC /* CastWebAppSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastWebAppSession.m; sourceTree = "<group>"; };
+		12DD35782C6B5A1D007402AC /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		12DD35792C6B5A1D007402AC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		12DD357A2C6B5A1D007402AC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		31CD881656B99123C7767007 /* Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; path = "Target Support Files/Pods-UniversalRremote-UniversalRremoteUITests/Pods-UniversalRremote-UniversalRremoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73EF877A07A581A7DE3862A7 /* Pods-UniversalRremoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniversalRremoteTests.debug.xcconfig"; path = "Target Support Files/Pods-UniversalRremoteTests/Pods-UniversalRremoteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4E9138DF4A3EECA851B8F8 /* Pods_UniversalRremoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniversalRremoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,6 +408,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127791D52C6B6A270074D5F4 /* WebOS */ = {
+			isa = PBXGroup;
+			children = (
+				127791D82C6B73C40074D5F4 /* WebOSViewController.swift */,
+				127791D62C6B6A490074D5F4 /* WebOSPINWriteView.swift */,
+			);
+			path = WebOS;
+			sourceTree = "<group>";
+		};
 		127F36F82C63841500DC5642 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +735,7 @@
 				12B078CF2C69ACBE00CB3276 /* Base */,
 				12AC07F52C65B6CD00593844 /* RokuDevice */,
 				12B078E12C6A2E4200CB3276 /* FireDeivce */,
+				127791D52C6B6A270074D5F4 /* WebOS */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -883,6 +973,110 @@
 			path = Debouncer;
 			sourceTree = "<group>";
 		};
+		12DD35212C6B554F007402AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12DD35292C6B554F007402AC /* libConnectSDK.a */,
+				12DD352B2C6B554F007402AC /* ConnectSDKTests.xctest */,
+				12DD352D2C6B554F007402AC /* ConnectSDKIntegrationTests.xctest */,
+				12DD352F2C6B554F007402AC /* ConnectSDKAcceptanceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12DD35402C6B5840007402AC /* GoogleCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				12DD353E2C6B5840007402AC /* CastServiceTests.m */,
+				12DD353F2C6B5840007402AC /* CastWebAppSessionTests.m */,
+			);
+			path = GoogleCastTests;
+			sourceTree = "<group>";
+		};
+		12DD354E2C6B5840007402AC /* google-cast */ = {
+			isa = PBXGroup;
+			children = (
+				12DD35402C6B5840007402AC /* GoogleCastTests */,
+				12DD35412C6B5840007402AC /* .gitignore */,
+				12DD35422C6B5840007402AC /* CastDiscoveryProvider.h */,
+				12DD35432C6B5840007402AC /* CastDiscoveryProvider.m */,
+				12DD35442C6B5840007402AC /* CastService_Private.h */,
+				12DD35452C6B5840007402AC /* CastService.h */,
+				12DD35462C6B5840007402AC /* CastService.m */,
+				12DD35472C6B5840007402AC /* CastServiceChannel.h */,
+				12DD35482C6B5840007402AC /* CastServiceChannel.m */,
+				12DD35492C6B5840007402AC /* CastWebAppSession.h */,
+				12DD354A2C6B5840007402AC /* CastWebAppSession.m */,
+				12DD354B2C6B5840007402AC /* CONTRIBUTING.md */,
+				12DD354C2C6B5840007402AC /* LICENSE */,
+				12DD354D2C6B5840007402AC /* README.md */,
+			);
+			name = "google-cast";
+			path = "../Connect-SDK-iOS/modules/google-cast";
+			sourceTree = "<group>";
+		};
+		12DD355C2C6B59D7007402AC /* GoogleCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				12DD355A2C6B59D7007402AC /* CastServiceTests.m */,
+				12DD355B2C6B59D7007402AC /* CastWebAppSessionTests.m */,
+			);
+			path = GoogleCastTests;
+			sourceTree = "<group>";
+		};
+		12DD356A2C6B59D7007402AC /* google-cast */ = {
+			isa = PBXGroup;
+			children = (
+				12DD355C2C6B59D7007402AC /* GoogleCastTests */,
+				12DD355D2C6B59D7007402AC /* .gitignore */,
+				12DD355E2C6B59D7007402AC /* CastDiscoveryProvider.h */,
+				12DD355F2C6B59D7007402AC /* CastDiscoveryProvider.m */,
+				12DD35602C6B59D7007402AC /* CastService_Private.h */,
+				12DD35612C6B59D7007402AC /* CastService.h */,
+				12DD35622C6B59D7007402AC /* CastService.m */,
+				12DD35632C6B59D7007402AC /* CastServiceChannel.h */,
+				12DD35642C6B59D7007402AC /* CastServiceChannel.m */,
+				12DD35652C6B59D7007402AC /* CastWebAppSession.h */,
+				12DD35662C6B59D7007402AC /* CastWebAppSession.m */,
+				12DD35672C6B59D7007402AC /* CONTRIBUTING.md */,
+				12DD35682C6B59D7007402AC /* LICENSE */,
+				12DD35692C6B59D7007402AC /* README.md */,
+			);
+			name = "google-cast";
+			path = "../Connect-SDK-iOS/modules/google-cast";
+			sourceTree = "<group>";
+		};
+		12DD356D2C6B5A1D007402AC /* GoogleCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				12DD356B2C6B5A1D007402AC /* CastServiceTests.m */,
+				12DD356C2C6B5A1D007402AC /* CastWebAppSessionTests.m */,
+			);
+			path = GoogleCastTests;
+			sourceTree = "<group>";
+		};
+		12DD357B2C6B5A1D007402AC /* google-cast */ = {
+			isa = PBXGroup;
+			children = (
+				12DD356D2C6B5A1D007402AC /* GoogleCastTests */,
+				12DD356E2C6B5A1D007402AC /* .gitignore */,
+				12DD356F2C6B5A1D007402AC /* CastDiscoveryProvider.h */,
+				12DD35702C6B5A1D007402AC /* CastDiscoveryProvider.m */,
+				12DD35712C6B5A1D007402AC /* CastService_Private.h */,
+				12DD35722C6B5A1D007402AC /* CastService.h */,
+				12DD35732C6B5A1D007402AC /* CastService.m */,
+				12DD35742C6B5A1D007402AC /* CastServiceChannel.h */,
+				12DD35752C6B5A1D007402AC /* CastServiceChannel.m */,
+				12DD35762C6B5A1D007402AC /* CastWebAppSession.h */,
+				12DD35772C6B5A1D007402AC /* CastWebAppSession.m */,
+				12DD35782C6B5A1D007402AC /* CONTRIBUTING.md */,
+				12DD35792C6B5A1D007402AC /* LICENSE */,
+				12DD357A2C6B5A1D007402AC /* README.md */,
+			);
+			name = "google-cast";
+			path = "../SDK/google-cast";
+			sourceTree = "<group>";
+		};
 		14A5B2A12939869B4BE1C7BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +1093,12 @@
 		281971FCDECCED9D35E6398A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12DD356A2C6B59D7007402AC /* google-cast */,
+				12DD357B2C6B5A1D007402AC /* google-cast */,
+				12DD35512C6B588C007402AC /* libicucore.tbd */,
+				12DD354F2C6B587C007402AC /* libz.tbd */,
+				12DD354E2C6B5840007402AC /* google-cast */,
+				12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */,
 				129DFDE32C62259D009EBC7F /* Bolts.xcframework */,
 				129DFDE12C622591009EBC7F /* AmazonFling.xcframework */,
 				129DFDDF2C622578009EBC7F /* Security.framework */,
@@ -1016,6 +1216,12 @@
 			);
 			productRefGroup = 129DFD6A2C61D4CB009EBC7F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 12DD35212C6B554F007402AC /* Products */;
+					ProjectRef = 12DD35202C6B554F007402AC /* ConnectSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				129DFD682C61D4CB009EBC7F /* UniversalRremote */,
@@ -1024,6 +1230,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		12DD35292C6B554F007402AC /* libConnectSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libConnectSDK.a;
+			remoteRef = 12DD35282C6B554F007402AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		12DD352B2C6B554F007402AC /* ConnectSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ConnectSDKTests.xctest;
+			remoteRef = 12DD352A2C6B554F007402AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		12DD352D2C6B554F007402AC /* ConnectSDKIntegrationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ConnectSDKIntegrationTests.xctest;
+			remoteRef = 12DD352C2C6B554F007402AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		12DD352F2C6B554F007402AC /* ConnectSDKAcceptanceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ConnectSDKAcceptanceTests.xctest;
+			remoteRef = 12DD352E2C6B554F007402AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		129DFD672C61D4CB009EBC7F /* Resources */ = {
@@ -1236,6 +1473,7 @@
 				12CCDE6C2C63472D00CD417A /* UIButton+Extension.swift in Sources */,
 				12AC08072C65E51F00593844 /* DeviceBaseSettingViewController.swift in Sources */,
 				12AC07F82C65B6E500593844 /* RokuViewController.swift in Sources */,
+				127791D92C6B73C40074D5F4 /* WebOSViewController.swift in Sources */,
 				12DD35132C6B0C84007402AC /* FireRemoteView.swift in Sources */,
 				12AFAFE22C64531200E660C2 /* AllTipCheckView.swift in Sources */,
 				12AC08092C65E89700593844 /* DeviceBaseChoiceView.swift in Sources */,
@@ -1243,6 +1481,7 @@
 				12DD351D2C6B3368007402AC /* Debouncer.swift in Sources */,
 				12DD350D2C6AEB93007402AC /* FirePINWriteView.swift in Sources */,
 				12AFAFED2C64626700E660C2 /* SearchNoWifiView.swift in Sources */,
+				127791D72C6B6A490074D5F4 /* WebOSPINWriteView.swift in Sources */,
 				12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */,
 				12AC080D2C65F52400593844 /* RokuChannelView.swift in Sources */,
 				129DFDCE2C620FDC009EBC7F /* Transiotion.swift in Sources */,
