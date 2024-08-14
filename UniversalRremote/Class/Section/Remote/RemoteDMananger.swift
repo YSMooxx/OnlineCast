@@ -15,6 +15,7 @@ class RemoteDMananger {
         
         didSet {
             
+            saveAllDeive()
             NotificationCenter.default.post(name:  Notification.Name("Control_currentDev_Change"), object: nil, userInfo:nil)
         }
     }
@@ -46,7 +47,7 @@ class RemoteDMananger {
                             
                             guard let data = data1 as? Data else { break }
                             
-                            var user = try decoder.decode(Device.self, from: data )
+                            let user = try decoder.decode(Device.self, from: data )
                             var deivce:Device?
                             
                             if user.type == Roku {
@@ -96,47 +97,19 @@ class RemoteDMananger {
     
     func addDeviceArray(device:Device) {
         
-        
+        device.reName = device.friendlyName
         self.deviceArray.insert(device, at: 0)
         self.deviceArray = self.deviceArray
-        var DeviceArray:[Any] = []
+    }
+    
+    func tokenChannge(device:Device?) {
         
-        for smodel in self.deviceArray {
-            
-            let data0 = try? JSONEncoder().encode(smodel)
-            DeviceArray.append(data0 ?? Data())
-        }
-        
-        do {
-            
-            let data = try NSKeyedArchiver.archivedData(withRootObject: DeviceArray, requiringSecureCoding: false)
-            UserDef.saveKeyWithValue(key: defatulRemoteDArrayKey, value: data)
-        }catch {
-            
-            
-        }
+        self.deviceArray = self.deviceArray
     }
     
     func removeDeivce(devices:[Device]) {
         
         self.deviceArray = devices
-        var DeviceArray:[Any] = []
-        
-        for smodel in devices {
-            
-            let data0 = try? JSONEncoder().encode(smodel)
-            DeviceArray.append(data0 ?? Data())
-        }
-        
-        do {
-            
-            let data = try NSKeyedArchiver.archivedData(withRootObject: DeviceArray, requiringSecureCoding: false)
-            UserDef.saveKeyWithValue(key: defatulRemoteDArrayKey, value: data)
-        }catch {
-            
-            
-        }
-        
     }
     
     func renameDevice(name:String,index:Int) {
@@ -149,6 +122,21 @@ class RemoteDMananger {
         }
         
         self.deviceArray = self.deviceArray
+    }
+    
+    func changeDeviceIndex(index:Int) {
+        
+        if index < self.deviceArray.count {
+            
+            let device = self.deviceArray.remove(at: index)
+            
+            self.deviceArray.insert(device, at: 0)
+            
+            self.deviceArray = self.deviceArray
+        }
+    }
+    
+    func saveAllDeive() {
         
         var DeviceArray:[Any] = []
         
@@ -166,6 +154,7 @@ class RemoteDMananger {
             
             
         }
+        
     }
     
 }

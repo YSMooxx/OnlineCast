@@ -15,3 +15,4 @@ let Click_cancel:String = "Click_cancel"
 
 let Load_suc:String = "Load_suc"
 let Load_fail:String = "Load_fail"
+let Load_error:String = "Load_error"

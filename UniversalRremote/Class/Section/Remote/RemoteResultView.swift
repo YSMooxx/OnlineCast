@@ -199,6 +199,8 @@ extension RemoteResultView:WaterfallMutiSectionDelegate,UICollectionViewDataSour
         
         if indexPath.row < deviceModelArray.count {
             
+            RemoteDMananger.mananger.changeDeviceIndex(index: indexPath.row)
+            
             clickCallBack(deviceModelArray[indexPath.row].smodel)
         }
     }

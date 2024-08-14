@@ -108,6 +108,25 @@
 		12B078DD2C69EAB900CB3276 /* DeviceChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078DC2C69EAB900CB3276 /* DeviceChannelCell.swift */; };
 		12B078E02C69F19600CB3276 /* RokuChannelMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */; };
 		12B078E32C6A2E8500CB3276 /* FireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B078E22C6A2E8500CB3276 /* FireViewController.swift */; };
+		12B96F762C6C3F6F00B95090 /* AllTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B96F752C6C3F6F00B95090 /* AllTipView.swift */; };
+		12B96F782C6C7DBE00B95090 /* WebOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B96F772C6C7DBE00B95090 /* WebOSView.swift */; };
+		12B96F7A2C6C8F7900B95090 /* WebOSRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B96F792C6C8F7900B95090 /* WebOSRemoteView.swift */; };
+		12B96F7C2C6C924E00B95090 /* DeivceOtherRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B96F7B2C6C924E00B95090 /* DeivceOtherRemoteView.swift */; };
+		12B96F7F2C6CACDE00B95090 /* webos_exit.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F7E2C6CACDE00B95090 /* webos_exit.svg */; };
+		12B96F812C6CAEEF00B95090 /* webos_play.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F802C6CAEEF00B95090 /* webos_play.svg */; };
+		12B96F832C6CAEFD00B95090 /* webos_pause.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F822C6CAEFD00B95090 /* webos_pause.svg */; };
+		12B96F852C6CC6D500B95090 /* webos_num1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F842C6CC6D400B95090 /* webos_num1.svg */; };
+		12B96F8F2C6CCA5100B95090 /* webos_num8.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F862C6CCA5100B95090 /* webos_num8.svg */; };
+		12B96F902C6CCA5100B95090 /* webos_num6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F872C6CCA5100B95090 /* webos_num6.svg */; };
+		12B96F912C6CCA5100B95090 /* webos_num7.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F882C6CCA5100B95090 /* webos_num7.svg */; };
+		12B96F922C6CCA5100B95090 /* webos_num9.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F892C6CCA5100B95090 /* webos_num9.svg */; };
+		12B96F932C6CCA5100B95090 /* webos_num0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F8A2C6CCA5100B95090 /* webos_num0.svg */; };
+		12B96F942C6CCA5100B95090 /* webos_num5.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F8B2C6CCA5100B95090 /* webos_num5.svg */; };
+		12B96F952C6CCA5100B95090 /* webos_num3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F8C2C6CCA5100B95090 /* webos_num3.svg */; };
+		12B96F962C6CCA5100B95090 /* webos_num4.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F8D2C6CCA5100B95090 /* webos_num4.svg */; };
+		12B96F972C6CCA5100B95090 /* webos_num2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F8E2C6CCA5100B95090 /* webos_num2.svg */; };
+		12B96F992C6CCC4400B95090 /* webos_listapps.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F982C6CCC4400B95090 /* webos_listapps.svg */; };
+		12B96F9B2C6CCDE300B95090 /* webos_livetv.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12B96F9A2C6CCDE300B95090 /* webos_livetv.svg */; };
 		12CCDE522C62FF1100CD417A /* CommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE512C62FF1100CD417A /* CommonFunc.swift */; };
 		12CCDE562C6301B500CD417A /* nav_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 12CCDE552C6301B500CD417A /* nav_back.svg */; };
 		12CCDE582C6301C600CD417A /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCDE572C6301C600CD417A /* RemoteView.swift */; };
@@ -291,6 +310,25 @@
 		12B078DC2C69EAB900CB3276 /* DeviceChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceChannelCell.swift; sourceTree = "<group>"; };
 		12B078DF2C69F19600CB3276 /* RokuChannelMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuChannelMananger.swift; sourceTree = "<group>"; };
 		12B078E22C6A2E8500CB3276 /* FireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireViewController.swift; sourceTree = "<group>"; };
+		12B96F752C6C3F6F00B95090 /* AllTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTipView.swift; sourceTree = "<group>"; };
+		12B96F772C6C7DBE00B95090 /* WebOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSView.swift; sourceTree = "<group>"; };
+		12B96F792C6C8F7900B95090 /* WebOSRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSRemoteView.swift; sourceTree = "<group>"; };
+		12B96F7B2C6C924E00B95090 /* DeivceOtherRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeivceOtherRemoteView.swift; sourceTree = "<group>"; };
+		12B96F7E2C6CACDE00B95090 /* webos_exit.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_exit.svg; sourceTree = "<group>"; };
+		12B96F802C6CAEEF00B95090 /* webos_play.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_play.svg; sourceTree = "<group>"; };
+		12B96F822C6CAEFD00B95090 /* webos_pause.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_pause.svg; sourceTree = "<group>"; };
+		12B96F842C6CC6D400B95090 /* webos_num1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num1.svg; sourceTree = "<group>"; };
+		12B96F862C6CCA5100B95090 /* webos_num8.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num8.svg; sourceTree = "<group>"; };
+		12B96F872C6CCA5100B95090 /* webos_num6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num6.svg; sourceTree = "<group>"; };
+		12B96F882C6CCA5100B95090 /* webos_num7.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num7.svg; sourceTree = "<group>"; };
+		12B96F892C6CCA5100B95090 /* webos_num9.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num9.svg; sourceTree = "<group>"; };
+		12B96F8A2C6CCA5100B95090 /* webos_num0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num0.svg; sourceTree = "<group>"; };
+		12B96F8B2C6CCA5100B95090 /* webos_num5.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num5.svg; sourceTree = "<group>"; };
+		12B96F8C2C6CCA5100B95090 /* webos_num3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num3.svg; sourceTree = "<group>"; };
+		12B96F8D2C6CCA5100B95090 /* webos_num4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num4.svg; sourceTree = "<group>"; };
+		12B96F8E2C6CCA5100B95090 /* webos_num2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_num2.svg; sourceTree = "<group>"; };
+		12B96F982C6CCC4400B95090 /* webos_listapps.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_listapps.svg; sourceTree = "<group>"; };
+		12B96F9A2C6CCDE300B95090 /* webos_livetv.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_livetv.svg; sourceTree = "<group>"; };
 		12CCDE512C62FF1100CD417A /* CommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunc.swift; sourceTree = "<group>"; };
 		12CCDE552C6301B500CD417A /* nav_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nav_back.svg; sourceTree = "<group>"; };
 		12CCDE572C6301C600CD417A /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
@@ -412,6 +450,8 @@
 			isa = PBXGroup;
 			children = (
 				127791D82C6B73C40074D5F4 /* WebOSViewController.swift */,
+				12B96F772C6C7DBE00B95090 /* WebOSView.swift */,
+				12B96F792C6C8F7900B95090 /* WebOSRemoteView.swift */,
 				127791D62C6B6A490074D5F4 /* WebOSPINWriteView.swift */,
 			);
 			path = WebOS;
@@ -755,6 +795,7 @@
 		12AC07FD2C65C20400593844 /* DeviceVC */ = {
 			isa = PBXGroup;
 			children = (
+				12B96F7D2C6CACC800B95090 /* WebOS */,
 				12DD35162C6B1A71007402AC /* Fire */,
 				12AC08182C6603C200593844 /* Roku */,
 				12AC08142C65FCFE00593844 /* deviceVC_touch.svg */,
@@ -785,6 +826,7 @@
 		12AFAFE02C64530500E660C2 /* AllTipView */ = {
 			isa = PBXGroup;
 			children = (
+				12B96F752C6C3F6F00B95090 /* AllTipView.swift */,
 				12AFAFE12C64531200E660C2 /* AllTipCheckView.swift */,
 				12AC07EF2C65AB8400593844 /* AllTipLoadingView.swift */,
 			);
@@ -867,6 +909,7 @@
 				12AC08162C66002300593844 /* DeviceListBtn.swift */,
 				12AC08102C65F92800593844 /* DeviceTouchView.swift */,
 				12B078C92C69A71200CB3276 /* DeivceRemoteView.swift */,
+				12B96F7B2C6C924E00B95090 /* DeivceOtherRemoteView.swift */,
 			);
 			path = RemoteView;
 			sourceTree = "<group>";
@@ -901,6 +944,28 @@
 				12DD350C2C6AEB93007402AC /* FirePINWriteView.swift */,
 			);
 			path = FireDeivce;
+			sourceTree = "<group>";
+		};
+		12B96F7D2C6CACC800B95090 /* WebOS */ = {
+			isa = PBXGroup;
+			children = (
+				12B96F842C6CC6D400B95090 /* webos_num1.svg */,
+				12B96F8A2C6CCA5100B95090 /* webos_num0.svg */,
+				12B96F8E2C6CCA5100B95090 /* webos_num2.svg */,
+				12B96F8C2C6CCA5100B95090 /* webos_num3.svg */,
+				12B96F8D2C6CCA5100B95090 /* webos_num4.svg */,
+				12B96F8B2C6CCA5100B95090 /* webos_num5.svg */,
+				12B96F872C6CCA5100B95090 /* webos_num6.svg */,
+				12B96F882C6CCA5100B95090 /* webos_num7.svg */,
+				12B96F862C6CCA5100B95090 /* webos_num8.svg */,
+				12B96F892C6CCA5100B95090 /* webos_num9.svg */,
+				12B96F822C6CAEFD00B95090 /* webos_pause.svg */,
+				12B96F802C6CAEEF00B95090 /* webos_play.svg */,
+				12B96F7E2C6CACDE00B95090 /* webos_exit.svg */,
+				12B96F982C6CCC4400B95090 /* webos_listapps.svg */,
+				12B96F9A2C6CCDE300B95090 /* webos_livetv.svg */,
+			);
+			path = WebOS;
 			sourceTree = "<group>";
 		};
 		12CCDE532C63019E00CD417A /* Nav */ = {
@@ -1269,18 +1334,29 @@
 			files = (
 				12AC08012C65C27000593844 /* deviceVC_client_nor_tip.svg in Resources */,
 				127F370A2C63986500DC5642 /* pp.svg in Resources */,
+				12B96F7F2C6CACDE00B95090 /* webos_exit.svg in Resources */,
+				12B96F992C6CCC4400B95090 /* webos_listapps.svg in Resources */,
+				12B96F812C6CAEEF00B95090 /* webos_play.svg in Resources */,
 				127F370C2C63986500DC5642 /* tou.svg in Resources */,
 				12AFAFF02C6464DE00E660C2 /* search_loading.json in Resources */,
+				12B96F952C6CCA5100B95090 /* webos_num3.svg in Resources */,
 				12AC08002C65C27000593844 /* deviceVC_client_sel_tip.svg in Resources */,
 				12AC082C2C6617E800593844 /* roku_mute.svg in Resources */,
 				12B078C82C6996C400CB3276 /* logo_1.png in Resources */,
 				12AC081A2C6603D400593844 /* roku_power.svg in Resources */,
+				12B96F852C6CC6D500B95090 /* webos_num1.svg in Resources */,
+				12B96F832C6CAEFD00B95090 /* webos_pause.svg in Resources */,
 				12DD35182C6B1A89007402AC /* fire_menu.svg in Resources */,
+				12B96F932C6CCA5100B95090 /* webos_num0.svg in Resources */,
 				12AC08152C65FCFE00593844 /* deviceVC_touch.svg in Resources */,
 				12AC07F32C65AD1400593844 /* All_loading.json in Resources */,
+				12B96F8F2C6CCA5100B95090 /* webos_num8.svg in Resources */,
+				12B96F962C6CCA5100B95090 /* webos_num4.svg in Resources */,
+				12B96F902C6CCA5100B95090 /* webos_num6.svg in Resources */,
 				129DFD762C61D4CD009EBC7F /* Assets.xcassets in Resources */,
 				12CCDE562C6301B500CD417A /* nav_back.svg in Resources */,
 				12AC08282C66177000593844 /* roku_info.svg in Resources */,
+				12B96F942C6CCA5100B95090 /* webos_num5.svg in Resources */,
 				129DFDBA2C61FA41009EBC7F /* GoogleService-Info.plist in Resources */,
 				12AC081C2C66118500593844 /* roku_keyboard.svg in Resources */,
 				127F370B2C63986500DC5642 /* rateus.svg in Resources */,
@@ -1295,7 +1371,11 @@
 				129DFD742C61D4CB009EBC7F /* Base in Resources */,
 				12AC082A2C6617B700593844 /* roku_refresh.svg in Resources */,
 				127F36EC2C63793C00DC5642 /* qidong_back2.png in Resources */,
+				12B96F922C6CCA5100B95090 /* webos_num9.svg in Resources */,
+				12B96F972C6CCA5100B95090 /* webos_num2.svg in Resources */,
+				12B96F912C6CCA5100B95090 /* webos_num7.svg in Resources */,
 				127F37092C63986500DC5642 /* contactus.svg in Resources */,
+				12B96F9B2C6CCDE300B95090 /* webos_livetv.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1460,6 +1540,7 @@
 				12DD351A2C6B275E007402AC /* FireChannelMananger.swift in Sources */,
 				12AC07FC2C65BB9C00593844 /* DeviceBaseNavView.swift in Sources */,
 				12CCDE682C632ADA00CD417A /* UserDef.swift in Sources */,
+				12B96F7A2C6C8F7900B95090 /* WebOSRemoteView.swift in Sources */,
 				12DD350A2C6AE590007402AC /* SearchConnectTipView.swift in Sources */,
 				12DD351F2C6B373A007402AC /* DeviceKeyboardView.swift in Sources */,
 				129DFDCB2C620F04009EBC7F /* LDBaseNavViewController.swift in Sources */,
@@ -1479,6 +1560,7 @@
 				12AC08092C65E89700593844 /* DeviceBaseChoiceView.swift in Sources */,
 				12AFAFE92C64624900E660C2 /* SearchResultView.swift in Sources */,
 				12DD351D2C6B3368007402AC /* Debouncer.swift in Sources */,
+				12B96F782C6C7DBE00B95090 /* WebOSView.swift in Sources */,
 				12DD350D2C6AEB93007402AC /* FirePINWriteView.swift in Sources */,
 				12AFAFED2C64626700E660C2 /* SearchNoWifiView.swift in Sources */,
 				127791D72C6B6A490074D5F4 /* WebOSPINWriteView.swift in Sources */,
@@ -1491,6 +1573,7 @@
 				12AFAFFF2C6490C900E660C2 /* NetStatusManager.swift in Sources */,
 				12DD350F2C6AEBCB007402AC /* BaseShowTipView.swift in Sources */,
 				12CCDE6E2C63523300CD417A /* RemoteDRenameView.swift in Sources */,
+				12B96F762C6C3F6F00B95090 /* AllTipView.swift in Sources */,
 				12AFAFFD2C647D4600E660C2 /* TimeGlobal.swift in Sources */,
 				12DD35152C6B0D32007402AC /* FireChannelView.swift in Sources */,
 				12AFAFF82C64788500E660C2 /* RokuDevice.swift in Sources */,
@@ -1507,6 +1590,7 @@
 				127F37012C63870600DC5642 /* SettingViewController.swift in Sources */,
 				12B078CC2C69A89800CB3276 /* RokuRemoteView.swift in Sources */,
 				129DFDBD2C61FC77009EBC7F /* LaunchVC.swift in Sources */,
+				12B96F7C2C6C924E00B95090 /* DeivceOtherRemoteView.swift in Sources */,
 				12AFAFFB2C647CCE00E660C2 /* LMLocalNetworkAuthorization.swift in Sources */,
 				12B078DD2C69EAB900CB3276 /* DeviceChannelCell.swift in Sources */,
 				127F37032C638C3300DC5642 /* SettingView.swift in Sources */,

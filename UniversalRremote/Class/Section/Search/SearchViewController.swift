@@ -344,7 +344,9 @@ class SearchViewController:LDBaseViewController {
             
             if suc == Load_suc {
                 
-                RemoteDMananger.mananger.addDeviceArray(device: rokuModel)
+                let newDevice:RokuDevice = RokuDevice(device: rokuModel)
+                
+                RemoteDMananger.mananger.addDeviceArray(device: newDevice)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     
@@ -353,7 +355,7 @@ class SearchViewController:LDBaseViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                         
-                        let vc:RokuViewController = RokuViewController(model: rokuModel)
+                        let vc:RokuViewController = RokuViewController(model: newDevice)
                         
                         self?.navigationController?.pushViewController(vc, animated: true)
                     })
@@ -389,7 +391,21 @@ class SearchViewController:LDBaseViewController {
                         writePin.showView()
                         writePin.callBack = {text in
                             
-                            sucstatus(text)
+                            if text == Load_error {
+                                
+                                fireModel.showPin { text in
+                                    
+                                    if text == Load_fail {
+                                        
+                                        sucstatus(text)
+                                    }
+                                }
+                                
+                            }else {
+                                
+                                sucstatus(text)
+                            }
+                            
                         }
                         
                         writePin.resultCallBack = {text in
@@ -397,7 +413,10 @@ class SearchViewController:LDBaseViewController {
                             AllTipLoadingView.loadingShared.showView()
                             
                             fireModel.token = text
-                            RemoteDMananger.mananger.addDeviceArray(device: fireModel)
+                            
+                            let newDevice:FireDevice = FireDevice(device: fireModel)
+                            
+                            RemoteDMananger.mananger.addDeviceArray(device: newDevice)
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                                 
@@ -406,7 +425,7 @@ class SearchViewController:LDBaseViewController {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                                     
-                                    let vc:FireViewController = FireViewController(model: fireModel)
+                                    let vc:FireViewController = FireViewController(model: newDevice)
                                     
                                     self?.navigationController?.pushViewController(vc, animated: true)
                                 })
@@ -439,6 +458,7 @@ class SearchViewController:LDBaseViewController {
                 
                 checkStatusTime = nil
                 Print("status--------超时")
+                suc(Load_fail)
                 return
             }
             
@@ -505,8 +525,12 @@ class SearchViewController:LDBaseViewController {
                     }
                 }
             case .didRegister:
-                webOSModel.token = content
-                RemoteDMananger.mananger.addDeviceArray(device: webOSModel)
+                
+                let newDevice:WebOSDevice = WebOSDevice(device: webOSModel)
+                
+                newDevice.token = content
+                
+                RemoteDMananger.mananger.addDeviceArray(device: newDevice)
                 
                 DispatchQueue.main.async {
                     
@@ -520,12 +544,21 @@ class SearchViewController:LDBaseViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                         
-                        let vc:WebOSViewController = WebOSViewController(model: webOSModel)
+                        let vc:WebOSViewController = WebOSViewController(model: newDevice)
                         
                         self?.navigationController?.pushViewController(vc, animated: true)
                     })
                     
                 })
+                
+            case .pinError:
+                webOSModel.connectDevice()
+                
+                DispatchQueue.main.async {
+                    
+                    writePin.seterror()
+                }
+                
             default:
                 break
             }

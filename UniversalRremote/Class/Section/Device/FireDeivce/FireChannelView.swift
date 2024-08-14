@@ -41,17 +41,22 @@ class FireChannelView:DeviceChannelView {
         
         var collectModelArray:[ChannelResultListModel] = []
         
+        for cmodel in self.resultView.model.changeModelArray {
+            
+            cmodel.fireModel?.isCollect = false
+        }
+        
         for smodel in FireChannelMananger.mananger.collectionArray {
             
             let model:ChannelResultListModel = ChannelResultListModel()
             smodel.isCollect = true
             model.fireModel = smodel
-            
+
             for cmodel in  self.resultView.model.changeModelArray{
                 
                 if smodel.appId == cmodel.fireModel?.appId {
                     
-                    cmodel.model?.isCollect = true
+                    cmodel.fireModel?.isCollect = true
                 }
             }
             

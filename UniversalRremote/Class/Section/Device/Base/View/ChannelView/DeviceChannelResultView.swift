@@ -384,7 +384,7 @@ class ChannelResultViewModel {
     
     lazy var headModelArray:[ChannelCollectionSectionModel] = {
         
-        let array = [["title":"Favorite Channels","height":0.RW()],["title":"All channels","height":48.RW(),"topMar":16.RW()]]
+        let array = [["title":"Favorite Channels","height":0.RW()],["title":"All channels","height":0.RW(),"topMar":16.RW()]]
         
         let jsonString = JsonUtil.getJSONStringFromArray(array: array)
         

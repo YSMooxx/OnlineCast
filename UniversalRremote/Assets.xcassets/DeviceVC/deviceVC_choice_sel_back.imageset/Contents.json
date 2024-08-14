@@ -3,16 +3,58 @@
     {
       "filename" : "Rectangle_1391.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 22,
+          "left" : 40,
+          "right" : 70,
+          "top" : 21
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "1x"
     },
     {
       "filename" : "Rectangle_1391@2x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 44,
+          "left" : 115,
+          "right" : 106,
+          "top" : 43
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "2x"
     },
     {
       "filename" : "Rectangle_1391@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 66,
+          "left" : 179,
+          "right" : 153,
+          "top" : 65
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     }
   ],

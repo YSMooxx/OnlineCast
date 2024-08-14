@@ -11,6 +11,8 @@ class FireViewController:DeviceBaseViewController {
     
     var currentDevice:FireDevice?
     
+    var failCount:Int = 0
+    
     lazy var fireView:FireView = {
         
         let cY:CGFloat = titleView.y + titleView.height
@@ -25,10 +27,10 @@ class FireViewController:DeviceBaseViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }else if text == "touch"{
                 
-                
+                shock()
             }else if text == "dir" {
                 
-                
+                shock()
             }else if text == "keyboard" {
                 
                 guard let dev = currentDevice else {return}
@@ -53,10 +55,42 @@ class FireViewController:DeviceBaseViewController {
                     
                     guard let dev = currentDevice else {return}
                     
-                    dev.sendKey(key: text)
+                    throttler.throttle {
+                        
+                        shock()
+                        
+                        dev.sendKey(key: text) { status in
+                            
+                            if status == Load_fail {
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {[weak self]  in
+                                    guard let self else {return}
+                                    self.currentDevice?.connectDevice(suc: { status in
+                                        
+                                        if status == Load_fail {
+                                            
+                                            self.failCount += 1
+                                            
+                                            if self.failCount > 5 {
+                                                
+                                                self.connectStatus = .failConnect
+                                            }
+                                        }
+                                        
+                                    })
+                                })
+                            }
+                        }
+                    }
+                    
+                    
+                }else if self.connectStatus == .failConnect {
+                    
+                    self.fireView.connectStatus = .failConnect
+                    
                 }else {
                     
-                    
+                    AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
                 }
             }
         }
@@ -66,11 +100,36 @@ class FireViewController:DeviceBaseViewController {
             if self.connectStatus == .sucConnect {
                 
                 guard let dev = currentDevice else {return}
-                shock()
-                dev.changeChannel(id: text)
+                
+                throttler.throttle {
+                    shock()
+                    dev.changeChannel(id: text) { status in
+                        
+                        if status == Load_fail {
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[weak self]  in
+                                guard let self else {return}
+                                self.currentDevice?.connectDevice(suc: { status in
+                                    
+                                    self.failCount += 1
+                                    
+                                    if self.failCount > 5 {
+                                        
+                                        self.connectStatus = .failConnect
+                                    }
+                                    
+                                })
+                            })
+                        }
+                    }
+                }
+                
+            }else if self.connectStatus == .failConnect {
+                
+                self.fireView.connectStatus = .failConnect
             }else {
                 
-                
+                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
             }
         }
         
@@ -85,7 +144,7 @@ class FireViewController:DeviceBaseViewController {
         
         currentDevice = smodel
         
-        connectDevice()
+        self.connectStatus = .startConnect
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: Notification.Name("collection_Fire_channgeArray"), object: nil)
     }
@@ -99,7 +158,6 @@ class FireViewController:DeviceBaseViewController {
     
     func connectDevice() {
         
-        self.connectStatus = .startConnect
         self.fireView.connectingView.deviceName = currentDevice?.reName
         self.currentDevice?.connectDevice(suc: {[weak self] status in
             guard let self else {return}
@@ -107,8 +165,147 @@ class FireViewController:DeviceBaseViewController {
                 
                 self.connectStatus = .sucConnect
             }else {
-                self.connectStatus = .failConnect
+                
+                guard let smodel = currentDevice else {self.connectStatus = .failConnect; return}
+                self.fireClick(fireModel: smodel) { status in
+                    
+                    AllTipLoadingView.loadingShared.dissMiss()
+                    if status == Load_suc {
+                        
+                        self.connectStatus = .sucConnect
+                    }else {
+                        
+                        self.connectStatus = .failConnect
+                    }
+                }
             }
+        })
+    }
+    
+    func fireClick(fireModel:FireDevice,sucstatus:@escaping callBack = {status in}) {
+        
+        self.checkFireStatus(subModel: fireModel) {[weak self] status in
+            
+            guard let self else {return}
+            
+            self.checkStatusTime = nil
+            
+            if status == Load_suc {
+                
+                AllTipLoadingView.loadingShared.showView()
+                
+                fireModel.showPin { text in
+                    
+                    if text == Load_suc {
+                        
+                        let writePin:FirePINWriteView = FirePINWriteView()
+                        writePin.fireModel = fireModel
+                        writePin.showView()
+                        writePin.callBack = {text in
+                            
+                            if text == Load_error {
+                                
+                                fireModel.showPin { text in
+                                    
+                                    if text == Load_fail {
+                                        
+                                        sucstatus(text)
+                                    }
+                                }
+                                
+                            }else if text == Load_error{
+                                
+                                fireModel.showPin { text in
+                                    
+                                    if text == Load_fail {
+                                        
+                                        sucstatus(text)
+                                    }
+                                }
+                                
+                            }else {
+                                
+                                sucstatus(text)
+                            }
+                            
+                        }
+                        
+                        writePin.resultCallBack = {text in
+                            
+                            AllTipLoadingView.loadingShared.showView()
+                            
+                            fireModel.token = text
+                            RemoteDMananger.mananger.tokenChannge(device: fireModel)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                
+                                sucstatus(Load_suc)
+                                AllTipLoadingView.loadingShared.dissMiss()
+                                
+                            })
+                        }
+                        
+                    }else {
+                        
+                        sucstatus(text)
+                    }
+                }
+                
+            }else {
+                     
+                sucstatus(status)
+
+            }
+        }
+        
+    }
+    
+    var checkStatusTime:Int64?
+    
+    func checkFireStatus(subModel:FireDevice,suc:@escaping callBack = {text in}) {
+        
+        if checkStatusTime != nil {
+            
+            if (checkStatusTime ?? 0) + 5 < Int64(Date().timeIntervalSince1970) {
+                
+                checkStatusTime = nil
+                Print("status--------超时")
+                suc(Load_fail)
+                return
+            }
+            
+        }else {
+            
+            checkStatusTime = Int64(Date().timeIntervalSince1970)
+        }
+        
+        subModel.checkStatus(suc: {[weak self] text in
+            
+            guard let self else{ return}
+            
+            if text == Load_suc {
+                
+                self.checkStatusTime = nil
+                Print("status--------成功")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    
+                    suc(text)
+                })
+                
+            }else {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                    
+                    guard let self else {return}
+                    
+                    self.checkFireStatus(subModel: subModel, suc: {text in
+                        suc(text)
+                    })
+                })
+                
+            }
+            
         })
     }
     
@@ -116,17 +313,21 @@ class FireViewController:DeviceBaseViewController {
         
         super.changeConnectStatus()
         
+        switch connectStatus {
+            
+        case .startConnect:
+            
+            self.connectDevice()
+        default:
+            break
+        }
+        
         self.fireView.connectStatus = self.connectStatus
     }
     
     @objc func handleNotification(_ notification: Notification) {
         
         fireView.channelView.setWithArray()
-    }
-    
-    deinit {
-        
-        NotificationCenter.default.removeObserver(self)
     }
 }
 

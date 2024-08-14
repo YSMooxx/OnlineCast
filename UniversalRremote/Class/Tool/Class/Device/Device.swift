@@ -12,7 +12,7 @@ let Roku:String = "Roku"
 let Fire:String = "Fire"
 let WebOS:String = "WebOS"
 
-class Device:Codable {
+class Device:NSObject,Codable {
     
     var type:String = ""
     var friendlyName:String = ""
@@ -22,7 +22,19 @@ class Device:Codable {
     var ip:String = ""
     var reName:String = ""
     var token:String = ""
-    
+
+    init(device:Device) {
+        
+        self.type = device.type
+        self.friendlyName = device.friendlyName
+        self.UDN = device.UDN
+        self.port = device.port
+        self.url = device.url
+        self.ip = device.ip
+        self.reName = device.reName
+        self.token = device.token
+    }
+
     enum CodingKeys: String, CodingKey{
         case friendlyName,UDN,url,ip,type,reName,port,token
     }

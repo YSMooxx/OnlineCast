@@ -55,7 +55,7 @@ class RokuViewController:DeviceBaseViewController {
                     dev.sendKey(key: text)
                 }else {
                     
-                    
+                    AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
                 }
             }
         }
@@ -71,7 +71,7 @@ class RokuViewController:DeviceBaseViewController {
                 dev.changeChannel(id: text)
             }else {
                 
-                
+                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
             }
         }
         
@@ -86,7 +86,7 @@ class RokuViewController:DeviceBaseViewController {
         
         currentDevice = smodel
         
-        connectDevice()
+        self.connectStatus = .startConnect
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: Notification.Name("collection_channgeArray"), object: nil)
     }
@@ -100,7 +100,6 @@ class RokuViewController:DeviceBaseViewController {
     
     func connectDevice() {
         
-        self.connectStatus = .startConnect
         self.rokuView.connectingView.deviceName = currentDevice?.reName
         self.currentDevice?.connectDevice(suc: {[weak self] status in
             guard let self else {return}
@@ -113,10 +112,18 @@ class RokuViewController:DeviceBaseViewController {
         })
     }
     
-    
     override func changeConnectStatus() {
         
         super.changeConnectStatus()
+        
+        switch connectStatus {
+            
+        case .startConnect:
+            
+            self.connectDevice()
+        default:
+            break
+        }
         
         self.rokuView.connectStatus = self.connectStatus
     }
@@ -124,10 +131,5 @@ class RokuViewController:DeviceBaseViewController {
     @objc func handleNotification(_ notification: Notification) {
         
         rokuView.channelView.setWithArray()
-    }
-    
-    deinit {
-        
-        NotificationCenter.default.removeObserver(self)
     }
 }

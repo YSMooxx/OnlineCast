@@ -10,18 +10,58 @@ import WebOSClient
 
 class WebOSDevice: Device {
         
-    
     enum statusType {
         case didConnect
+        case didDisconnect
         case didDisplayPin
         case didRegister
+        case pinError
         case error
+    }
+    
+    enum WebOSEventKey:String {
         
+        case Home = "Home"
+        case Enter = "Enter"
+        case Click = "Click"
+        case Left = "Left"
+        case Right = "Right"
+        case Down = "Down"
+        case Up = "Up"
+        case Back = "Back"
+        case Menu = "Menu"
+        case VolumeUp = "VolumeUp"
+        case VolumeDown = "VolumeDown"
+        case Mute = "Mute"
+        case Exit = "Exit"
+        case Rewind = "rewind"
+        case FastForward = "FastForward"
+        case Play = "Play"
+        case Pause = "Pause"
+        case ChannelUp = "ChannelUp"
+        case ChannelDown = "ChannelDown"
+        case Num1 = "Num1"
+        case Num2 = "Num2"
+        case Num3 = "Num3"
+        case Num4 = "Num4"
+        case Num5 = "Num5"
+        case Num6 = "Num6"
+        case Num7 = "Num7"
+        case Num8 = "Num8"
+        case Num9 = "Num9"
+        case Num0 = "Num0"
+        case ListApps = "ListApps"
+        case LiveTV = "LiveTV"
     }
         // The client responsible for communication with the WebOS service.
     var client: WebOSClientProtocol?
     
     var callBackStatus:(_ status:statusType,_ content:String) -> () = {status,content in}
+    
+    override init(device: Device) {
+        
+        super.init(device: device)
+    }
     
     override init(url: String, ip: String) {
         
@@ -34,12 +74,14 @@ class WebOSDevice: Device {
         fatalError("init(from:) has not been implemented")
     }
     
+    func disconnect() {
+        
+        client?.disconnect()
+    }
     
     func connectDevice() {
         
         guard let url = URL(string: "wss://" + self.ip + ":3001") else {return}
-        
-        
         
         client = WebOSClient(url: url, delegate: self, shouldLogActivity: true)
         
@@ -52,7 +94,105 @@ class WebOSDevice: Device {
     
     func sendKey(key:String) {
         
-        client?.sendKey(.right) 
+        if key == WebOSDevice.WebOSEventKey.Home.rawValue {
+            
+            client?.sendKey(.home)
+        }else if key == WebOSDevice.WebOSEventKey.Enter.rawValue {
+            
+            client?.sendKey(.enter)
+        }else if key == WebOSDevice.WebOSEventKey.Click.rawValue {
+            
+            client?.sendKey(.click)
+        }else if key == WebOSDevice.WebOSEventKey.Up.rawValue {
+            
+            client?.sendKey(.up)
+        }else if key == WebOSDevice.WebOSEventKey.Down.rawValue {
+            
+            client?.sendKey(.down)
+        }else if key == WebOSDevice.WebOSEventKey.Left.rawValue {
+            
+            client?.sendKey(.left)
+        }else if key == WebOSDevice.WebOSEventKey.Right.rawValue {
+            
+            client?.sendKey(.right)
+        }else if key == WebOSDevice.WebOSEventKey.Back.rawValue {
+            
+            client?.sendKey(.back)
+        }else if key == WebOSDevice.WebOSEventKey.Menu.rawValue {
+            
+            client?.sendKey(.menu)
+        }else if key == WebOSDevice.WebOSEventKey.VolumeUp.rawValue {
+            
+            client?.sendKey(.volumeUp)
+        }else if key == WebOSDevice.WebOSEventKey.VolumeDown.rawValue {
+            
+            client?.sendKey(.volumeDown)
+        }else if key == WebOSDevice.WebOSEventKey.Mute.rawValue {
+            
+            client?.sendKey(.mute)
+        }else if key == WebOSDevice.WebOSEventKey.Exit.rawValue {
+            
+            client?.sendKey(.exit)
+        }else if key == WebOSDevice.WebOSEventKey.Rewind.rawValue {
+            
+            client?.sendKey(.rewind)
+        }else if key == WebOSDevice.WebOSEventKey.FastForward.rawValue {
+            
+            client?.sendKey(.fastForward)
+        }else if key == WebOSDevice.WebOSEventKey.Play.rawValue {
+            
+            client?.sendKey(.play)
+        }else if key == WebOSDevice.WebOSEventKey.Pause.rawValue {
+            
+            client?.sendKey(.pause)
+        }else if key == WebOSDevice.WebOSEventKey.ChannelUp.rawValue {
+            
+            client?.sendKey(.channelUp)
+        }else if key == WebOSDevice.WebOSEventKey.ChannelDown.rawValue {
+            
+            client?.sendKey(.channelDown)
+        }else if key == WebOSDevice.WebOSEventKey.Num1.rawValue {
+            
+            client?.sendKey(.num1)
+        }else if key == WebOSDevice.WebOSEventKey.Num2.rawValue {
+            
+            client?.sendKey(.num2)
+        }else if key == WebOSDevice.WebOSEventKey.Num3.rawValue {
+            
+            client?.sendKey(.num3)
+        }else if key == WebOSDevice.WebOSEventKey.Num4.rawValue {
+            
+            client?.sendKey(.num4)
+        }else if key == WebOSDevice.WebOSEventKey.Num5.rawValue {
+            
+            client?.sendKey(.num5)
+        }else if key == WebOSDevice.WebOSEventKey.Num5.rawValue {
+            
+            client?.sendKey(.num6)
+        }else if key == WebOSDevice.WebOSEventKey.Num6.rawValue {
+            
+            client?.sendKey(.num6)
+        }else if key == WebOSDevice.WebOSEventKey.Num7.rawValue {
+            
+            client?.sendKey(.num7)
+        }else if key == WebOSDevice.WebOSEventKey.Num8.rawValue {
+            
+            client?.sendKey(.num8)
+        }else if key == WebOSDevice.WebOSEventKey.Num9.rawValue {
+            
+            client?.sendKey(.num9)
+        }else if key == WebOSDevice.WebOSEventKey.Num0.rawValue {
+            
+            client?.sendKey(.num0)
+        }else if key == WebOSDevice.WebOSEventKey.ListApps.rawValue {
+            
+//            client?.send(.listApps)
+            client?.send(.launchApp(appId: ""))
+        }else if key == WebOSDevice.WebOSEventKey.LiveTV.rawValue {
+            
+            client?.send(.launchApp(appId: "com.webos.app.livetv"))
+        }
+        
     }
     
     func checkPin(pin: String) {
@@ -72,6 +212,11 @@ extension WebOSDevice:WebOSClientDelegate {
         self.callBackStatus(.didConnect, "")
     }
     
+    func didDisconnect() {
+        
+        
+    }
+    
     func didDisplayPin() {
             // Send the correct PIN displayed on the TV screen to the TV here.
         self.callBackStatus(.didDisplayPin, "")
@@ -84,7 +229,11 @@ extension WebOSDevice:WebOSClientDelegate {
     
     func didReceiveNetworkError(_ error: (any Error)?) {
         
-        self.callBackStatus(.error, "")
+        if let error = error as NSError? {
+            
+            self.callBackStatus(.error, error.localizedDescription)
+        }
+        
     }
     
     func didReceive(_ result: Result<WebOSResponse, Error>) {
@@ -93,10 +242,12 @@ extension WebOSDevice:WebOSClientDelegate {
 
                 if errorMessage.contains("rejected pairing") {
                 // Pairing rejected by the user or invalid pin.
+                    callBackStatus(.pinError, "rejected pairing")
                 }
                 
                 if errorMessage.contains("cancelled") {
                 // Pairing cancelled due to a timeout.
+                    callBackStatus(.pinError, "cancelled")
                 }
             }
         }

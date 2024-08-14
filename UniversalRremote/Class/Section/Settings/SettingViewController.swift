@@ -133,7 +133,7 @@ class SettingViewController:LDBaseViewController {
             
         } else {
             
-            emailTipView.showView()
+            AllTipView.shard.showViewWithView(content: "Please install an email application before trying again.")
         }
     }
     

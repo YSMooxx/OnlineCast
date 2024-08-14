@@ -13,6 +13,11 @@ class FireDevice: Device {
     let headType:String = "https://"
     let headType2:String = "http://"
     
+    override init(device: Device) {
+        
+        super.init(device: device)
+    }
+    
     enum FireEventKey:String {
         case Home = "home"
         case Select = "select"
@@ -46,11 +51,23 @@ class FireDevice: Device {
     lazy var session2 = {
         
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 3 // 请求超时时间为30秒
-        configuration.timeoutIntervalForResource = 3 // 资源超时时间为60秒
+        configuration.timeoutIntervalForRequest = 10 // 请求超时时间为30秒
+        configuration.timeoutIntervalForResource = 10 // 资源超时时间为60秒
 
         // 创建一个 Alamofire 的 Session
-        let session = Session(configuration: configuration)
+        let s = Session(configuration:configuration,serverTrustManager: CustomServerTrustManager(ip: self.ip))
+        
+        return s
+    }()
+    
+    lazy var session3 = {
+        
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 30 // 请求超时时间为30秒
+        configuration.timeoutIntervalForResource = 60 // 资源超时时间为60秒
+
+        // 创建一个 Alamofire 的 Session
+        let s = Session(configuration:configuration,serverTrustManager: CustomServerTrustManager(ip: self.ip))
         
         return session
     }()
@@ -75,7 +92,7 @@ class FireDevice: Device {
         
         let request = getRequest(isToken: true, url: url)
         
-        session.request(request)
+        session3.request(request)
             .validate()
             .response { response in
                 switch response.result {
@@ -143,7 +160,7 @@ class FireDevice: Device {
         
         let request = getRequestHttp(httpMethod: method, url: url)
         
-        session.request(request)
+        session2.request(request)
             .validate()
             .response {[weak self] response in
                 guard let self else { return }
@@ -241,7 +258,7 @@ class FireDevice: Device {
         
         let request = getRequest(httpMethod: "GET", isToken: true, url: url)
         
-        self.session.request(request)
+        self.session2.request(request)
             .validate()
             .response { response in
                 
@@ -290,7 +307,7 @@ class FireDevice: Device {
         
         let request = getRequest(url: url, requestData: requestData)
         
-        session.request(request)
+        session2.request(request)
             .validate()
             .response {[weak self] response in
                 switch response.result {
@@ -302,7 +319,13 @@ class FireDevice: Device {
                                 
                                 guard let self ,let result = jsonResponse["description"] as? String else { return }
                                 
-                                suc(result)
+                                if result.count == 0 {
+                                    
+                                    suc(Load_error)
+                                }else {
+                                    
+                                    suc(result)
+                                }
 
                             }else {
                                 
@@ -370,7 +393,7 @@ class FireDevice: Device {
                             suc([])
                         }
                     }
-                case .failure(let error):
+                case .failure(_):
                     suc([])
                 }
             }
@@ -378,49 +401,44 @@ class FireDevice: Device {
     
     func changeChannel(id: String, suc: @escaping callBack = {text in}) {
         
-        throttler1.throttle {[weak self] in
-            
-            guard let self else {return}
-            
-            let port:String = "8080"
-            let path:String = "/v1/FireTV/app/\(id)"
-            
-            guard let url = URL(string: headType + ip + ":" + port + path) else { return }
-            
-            let request = getRequest(httpMethod: "POST", isToken:true, url: url)
-            
-            session.request(request)
-                .validate()
-                .response { response in
-                    switch response.result {
-                    case .success(let data):
-                        if let data = data {
-                            
-                            do {
-                                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+        let port:String = "8080"
+        let path:String = "/v1/FireTV/app/\(id)"
+        
+        guard let url = URL(string: headType + ip + ":" + port + path) else { return }
+        
+        let request = getRequest(httpMethod: "POST", isToken:true, url: url)
+        
+        session3.request(request)
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(let data):
+                    if let data = data {
+                        
+                        do {
+                            if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                
+                                guard let result = jsonResponse["description"] as? String else { return }
+                                
+                                if result.containsSubstring(substring: "ok") {
                                     
-                                    guard let result = jsonResponse["description"] as? String else { return }
-                                    
-                                    if result.containsSubstring(substring: "ok") {
-                                        
-                                        suc(Load_suc)
-                                    }else {
-                                        
-                                        suc(Load_fail)
-                                    }
-                                    
+                                    suc(Load_suc)
                                 }else {
+                                    
                                     suc(Load_fail)
                                 }
-                            }catch {
                                 
+                            }else {
                                 suc(Load_fail)
                             }
+                        }catch {
+                            
+                            suc(Load_fail)
                         }
-                    case .failure(_):
-                        
-                        suc(Load_fail)
                     }
+                case .failure(_):
+                    
+                    suc(Load_fail)
                 }
             }
         

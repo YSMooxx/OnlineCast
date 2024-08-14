@@ -34,7 +34,8 @@ class DeviceListBtn:UIButton {
         
         self.setImage(UIImage.svgWithName(name: sModel.iconImage, size: CGSizeMake(iconWH, iconWH)), for: .normal)
         self.setBackgroundImage(UIImage(named: sModel.norlImage), for: .normal)
-        
+        self.setTitleColor(UIColor.colorWithHex(hexStr: whiteColor), for: .normal)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 10.RW(), weight: .medium)
         if !sModel.noHight {
             
             self.setBackgroundImage(UIImage(named: sModel.hightLImage), for: .highlighted)
@@ -42,6 +43,14 @@ class DeviceListBtn:UIButton {
         
         self.addTarget(self, action: #selector(buttonTouchDown(_:)), for: .touchDown)
         self.addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchUpInside, .touchUpOutside])
+        
+        if sModel.title.count != 0{
+            self.setTitle(sModel.title, for: .normal)
+            changBtnWithStytl(btnStyle: .imageTop, margin: 0)
+        }else {
+            self.setTitle("", for: .normal)
+            changBtnWithStytl(btnStyle: .defalut, margin: 0)
+        }
         
     }
     
@@ -64,6 +73,7 @@ class DeviceListbtnModel:BaseModel {
     var norlImage:String = "deviceVC_list_norl_back"
     var hightLImage:String = "deviceVC_list_hight_back"
     var iconImage:String = ""
+    var title:String = ""
     var noHight:Bool = false
     var key:String = ""
 }
@@ -85,5 +95,14 @@ class volumBtn:UIButton {
         }
         
         return hitView
+    }
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+
+        var boundCGRect = self.bounds
+
+        boundCGRect = CGRectInset(boundCGRect, -marginLR, -marginLR)
+
+        return CGRectContainsPoint(boundCGRect, point)
     }
 }

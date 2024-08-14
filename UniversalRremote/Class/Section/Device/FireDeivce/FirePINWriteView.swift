@@ -152,7 +152,6 @@ class FirePINWriteView:BaseShowTipView {
         backView.addSubview(noBtn)
         backView.addSubview(pinTextView)
         backView.addSubview(errorLabel)
-        
     }
     
     @objc func connectBtnClick() {
@@ -192,28 +191,23 @@ class FirePINWriteView:BaseShowTipView {
         
         let text = pinTextView.text ?? ""
         
-        if text.count == 4 {
+        fireModel?.checkPin(pin: text, suc: {[weak self] pin in
             
-            fireModel?.checkPin(pin: text, suc: {[weak self] pin in
-                
-                guard let self else {return}
-                
-                if pin == Load_fail {
-                    
-                    self.seterror()
-                }else {
-                    
-                    self.resultCallBack(pin)
-                }
-                
-                self.dissMiss()
-
-            })
+            guard let self else {return}
             
-        }else {
+            if pin == Load_fail {
+                
+                callBack(Load_fail)
+            }else if pin ==  Load_error{
+                
+                self.seterror()
+            }else {
+                
+                self.resultCallBack(pin)
+                self.removeFromSuperview()
+            }
             
-            self.seterror()
-        }
+        })
     }
     
     func seterror() {
@@ -222,6 +216,7 @@ class FirePINWriteView:BaseShowTipView {
         pinTextView.text = ""
         shakeAnimation()
         errorLabel.isHidden = false
+        callBack(Load_error)
     }
     
     @objc func yesBtnClick() {

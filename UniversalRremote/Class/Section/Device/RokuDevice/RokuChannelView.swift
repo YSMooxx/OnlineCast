@@ -41,13 +41,18 @@ class RokuChannelView:DeviceChannelView {
         
         var collectModelArray:[ChannelResultListModel] = []
         
+        for cmodel in self.resultView.model.changeModelArray {
+            
+            cmodel.model?.isCollect = false
+        }
+        
         for smodel in RokuChannelMananger.mananger.collectionArray {
             
             let model:ChannelResultListModel = ChannelResultListModel()
             smodel.isCollect = true
             model.model = smodel
             
-            for cmodel in  self.resultView.model.changeModelArray{
+            for cmodel in self.resultView.model.changeModelArray {
                 
                 if smodel.id == cmodel.model?.id {
                     

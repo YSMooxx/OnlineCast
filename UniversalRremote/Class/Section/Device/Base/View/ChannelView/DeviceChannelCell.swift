@@ -97,7 +97,7 @@ class ChannelListCollectionCell:UICollectionViewCell {
     
     @objc func imageBtnClick() {
         
-        shock()
+        
     }
     
     @objc func collectBtnClick(btn:UIButton) {
@@ -117,7 +117,6 @@ class ChannelListCollectionCell:UICollectionViewCell {
     
     @objc func handleTapGesture(_ gesture: UITapGestureRecognizer) {
         
-        shock()
         callBack("click")
     }
 }

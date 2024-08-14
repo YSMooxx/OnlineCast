@@ -57,14 +57,15 @@ class DeivceBaseView:UIView {
         return sview
     }()
     
-    lazy var scrollView:UIScrollView = {
+    lazy var scrollView:BtnCLickScrollView = {
         
         let cY:CGFloat = choiceView.y + choiceView.height
-        let sview:UIScrollView = UIScrollView(frame: CGRect(x: 0, y: cY, width: width, height: height - cY))
+        let sview:BtnCLickScrollView = BtnCLickScrollView(frame: CGRect(x: 0, y: cY, width: width, height: height - cY))
         sview.contentSize = CGSize(width: CGFloat(titleArray.count) * width, height: sview.height)
         sview.showsHorizontalScrollIndicator = false
         sview.isPagingEnabled = true
         sview.delegate = self
+        sview.delaysContentTouches = false
         return sview
     }()
     
@@ -176,3 +177,11 @@ extension DeivceBaseView:UIScrollViewDelegate {
     }
 }
 
+class BtnCLickScrollView: UIScrollView {
+    override func touchesShouldCancel(in view: UIView) -> Bool {
+        if view is UIButton {
+            return true
+        }
+        return super.touchesShouldCancel(in: view)
+    }
+}

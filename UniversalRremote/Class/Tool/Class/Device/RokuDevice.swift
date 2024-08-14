@@ -33,6 +33,11 @@ class RokuDevice: Device {
         case VolumeMute = "VolumeMute"
     }
     
+    override init(device: Device) {
+        
+        super.init(device: device)
+    }
+    
     enum CodingKeys: String, CodingKey{
         case friendlyName,UDN,url,ip,type,reName
     }

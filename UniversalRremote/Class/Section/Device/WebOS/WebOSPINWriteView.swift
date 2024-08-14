@@ -191,19 +191,11 @@ class WebOSPINWriteView:BaseShowTipView {
         
         let text = pinTextView.text ?? ""
         
-        if text.count == 8 {
-            
-            resultCallBack(text)
-            
-        }else {
-            
-            self.seterror()
-        }
+        resultCallBack(text)
     }
     
     func seterror() {
         
-//        pinTextView.restore()
         pinTextView.text = ""
         shakeAnimation()
         errorLabel.isHidden = false

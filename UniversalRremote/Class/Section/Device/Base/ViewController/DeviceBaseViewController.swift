@@ -13,6 +13,7 @@ enum connectStatusType {
     case startConnect
     case sucConnect
     case failConnect
+    case noWifi
 }
 
 class DeviceBaseViewController:LDBaseViewController {
@@ -89,6 +90,8 @@ class DeviceBaseViewController:LDBaseViewController {
         super.viewDidLoad()
         
         titleView.model.titleHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NetWorkChangehandleNotification(_:)), name: Notification.Name("NetWork_Change"), object: nil)
     }
     
     override func addViews() {
@@ -157,7 +160,11 @@ class DeviceBaseViewController:LDBaseViewController {
                     self.loadingAnimation.pause()
                     self.setTitleString(text: model.smodel?.reName ?? "", isSelected: true)
                 })
-                
+            case .noWifi:
+                titleBtn.imageView?.isHidden = false
+                loadingAnimation.isHidden = true
+                setTitleString()
+                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
             default:
                 break
             }
@@ -166,9 +173,27 @@ class DeviceBaseViewController:LDBaseViewController {
 
     }
     
+    @objc func NetWorkChangehandleNotification(_ notification: Notification) {
+        
+        switch NetStatusManager.manager.currentStatus {
+            
+        case .WIFI:
+            self.connectStatus = .startConnect
+        case .NoNet,.WWAN:
+            self.connectStatus = .noWifi
+        default:
+            break
+        }
+    }
+    
     override func close(animation: Bool = true) {
         
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

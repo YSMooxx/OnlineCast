@@ -17,8 +17,6 @@ class FireView:DeivceBaseView {
         
         sview.callBack = {[weak self] text in
             
-            shock()
-            
             if text == "volumup" {
                 
                 self?.callBack(FireDevice.FireEventKey.volumeUp.rawValue)

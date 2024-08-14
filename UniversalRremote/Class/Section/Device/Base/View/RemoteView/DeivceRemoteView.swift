@@ -47,6 +47,7 @@ class DeivceRemoteView:UIView {
         sview.setBackgroundImage(UIImage(named: "deviceVC_volum_norl_icon"), for: .normal)
         sview.setBackgroundImage(UIImage(named: "deviceVC_volum_height_icon"), for: .highlighted)
         sview.addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchUpInside, .touchUpOutside])
+        
         return sview
     }()
     
