@@ -68,11 +68,18 @@ class RokuDevice: Device {
         
         guard let url = URL(string: httpHeader + self.ip + ":" + port + "/query/device-info") else { return  }
         
-        sessionManager.request(url, method: HTTPMethod.get).responseString { response in
+        sessionManager.request(url, method: HTTPMethod.get).responseString {[weak self] response in
             
             switch response.result {
-                case .success(_):
+                case .success(let xmlString):
+                
+                guard let self else {suc(Load_fail);return}
+                guard let dic =  NSDictionary.init(xmlString: xmlString) as? [String:Any] else {suc(Load_suc); return}
+                guard let istv = dic["is-tv"] as? String,let isVolum = istv.toBool  else {suc(Load_suc); return }
+                
+                self.isVolum = isVolum
                 suc(Load_suc)
+                
                 case .failure(_):
                 
                 suc(Load_fail)
@@ -125,7 +132,7 @@ class RokuDevice: Device {
                     
                     switch response.result {
                         
-                    case .success(let success):
+                    case .success(_):
                         suc(Load_suc)
                     case .failure(let error):
                         

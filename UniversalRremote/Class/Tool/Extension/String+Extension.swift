@@ -16,4 +16,15 @@ extension String {
             return self.contains(substring)
         }
     }
+    
+    var toBool: Bool? {
+            let lowercasedSelf = self.lowercased()
+            if lowercasedSelf == "true" || lowercasedSelf == "yes" || lowercasedSelf == "1" {
+                return true
+            } else if lowercasedSelf == "false" || lowercasedSelf == "no" || lowercasedSelf == "0" {
+                return false
+            } else {
+                return nil
+            }
+        }
 }

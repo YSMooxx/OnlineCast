@@ -33,23 +33,43 @@ class WebOSViewController:DeviceBaseViewController {
                 let keyboardView:DeviceKeyboardView = DeviceKeyboardView()
                 
                 keyboardView.showView()
-                keyboardView.resultCallBack = {text in
+                keyboardView.allresultCallBack = {text in
                     
-                    if text == "delete" {
-                        
-//                        dev.sendKey(key: FireDevice.FireEventKey.Backspace.rawValue)
-                    }else {
-                        
-                        
-                    }
+                    dev.searchWithString(content: text)
                 }
+                
+                keyboardView.allDelete = {text in
+                    
+                    dev.searchWithString(content: "")
+                }
+                
+            }else if text == WebOSDevice.WebOSEventKey.Input.rawValue {
+                
+                let vc:WebOSHDMIViewController = WebOSHDMIViewController()
+                let nav:LDBaseNavViewController = LDBaseNavViewController(isAnimation: .overBottomToTop,rootViewController: vc)
+                vc.model.modelArray = self.hdmiArray
+                vc.idCallBack = {[weak self] id in
+                    guard let self,let dev = currentDevice else {return}
+                    
+                    dev.setSource(id: id)
+                }
+                nav.modalPresentationStyle = .overFullScreen
+                self.navigationController?.present(nav, animated: true)
                 
             }else {
                 
-                guard let dev = currentDevice else {return}
+                if self.connectStatus == .sucConnect {
+                    
+                    guard let dev = currentDevice else {return}
+                    
+                    shock()
+                    dev.sendKey(key: text)
+                    
+                }else {
+                    
+                    AllTipView.shard.showViewWithView(content: "Device Disconnected")
+                }
                 
-                shock()
-                dev.sendKey(key: text)
             }
         }
         
@@ -75,6 +95,14 @@ class WebOSViewController:DeviceBaseViewController {
         return sview
     }()
     
+    var iscanConnect:Bool = false
+    
+    var timer: Timer?
+    
+    var startTime:TimeInterval?
+    
+    var hdmiArray:[WebOSHDMIListModel] = []
+    
     var currentDevice:WebOSDevice? {
         
         didSet {
@@ -87,13 +115,20 @@ class WebOSViewController:DeviceBaseViewController {
                     switch status {
                         
                     case .didConnect:
-                        break
+                        iscanConnect = true
+                        stopTimer()
                     case .didRegister:
                         self.connectStatus = .sucConnect
                         self.pinWriteView.pinTextView.text = ""
                         self.pinWriteView.dissMiss()
                         self.currentDevice?.token = content
                         RemoteDMananger.mananger.tokenChannge(device: self.currentDevice)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[weak self] in
+                            guard let self else {return}
+                            self.currentDevice?.sendKey(key: WebOSDevice.WebOSEventKey.Input.rawValue)
+                            
+                        })
                     case .didDisplayPin:
                         self.connectStatus = .failConnect
                         self.pinWriteView.showView()
@@ -104,6 +139,18 @@ class WebOSViewController:DeviceBaseViewController {
                         self.connectStatus = .failConnect
                     default:break
                     }
+                }
+            }
+            
+            currentDevice?.hdmideviceCallBack = {[weak self] arry in
+                
+                guard let self else {return}
+                
+                self.hdmiArray = []
+                
+                for smodel in arry {
+                    
+                    self.hdmiArray.append(smodel)
                 }
             }
         }
@@ -132,7 +179,37 @@ class WebOSViewController:DeviceBaseViewController {
         self.webOSView.connectingView.deviceName = currentDevice?.reName
         
         currentDevice?.connectDevice()
+    }
+    
+    func startTimer() {
         
+        DispatchQueue.main.async {[weak self] in
+            
+            guard let self else {return}
+            
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
+                
+                guard let self else {return}
+                
+                if iscanConnect {
+                    
+                    return
+                }
+                
+                if (self.startTime ?? 0) + 10 < getNowTimeInterval() {
+                    
+                    currentDevice?.disconnect()
+                    self.connectStatus = .failConnect
+                    self.stopTimer()
+                }
+            }
+        }
+    }
+    
+    func stopTimer() {
+        
+        timer?.invalidate()
+        timer = nil
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -150,6 +227,8 @@ class WebOSViewController:DeviceBaseViewController {
             
         case .startConnect:
             
+            startTime = getNowTimeInterval()
+            startTimer()
             self.connectDevice()
         default:
             break
@@ -159,7 +238,7 @@ class WebOSViewController:DeviceBaseViewController {
     }
     
     deinit {
-        
+        Print("xiaohui")
         currentDevice?.disconnect()
         NotificationCenter.default.removeObserver(self)
     }

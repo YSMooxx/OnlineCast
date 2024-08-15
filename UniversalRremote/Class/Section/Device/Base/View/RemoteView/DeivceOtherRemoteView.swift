@@ -179,7 +179,10 @@ class DeivceOtherRemoteView:UIView {
     
     lazy var touchView:UIImageView = {
         
-        let sview:UIImageView = UIImageView(image: UIImage(named: "deviceVC_touch_back"))
+        let backString = centerHeigit < 247.RW() ? "deviceVC_remote_smaltouch_back" : "deviceVC_touch_back"
+        
+        let sview:UIImageView = UIImageView(image: UIImage(named: backString))
+        
         sview.width = width - 2 * marginLR
         sview.height = centerHeigit
         sview.centerX = width / 2

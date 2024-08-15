@@ -20,6 +20,7 @@ class SearchViewController:LDBaseViewController {
             case .startLoading:
                 self.searchView.model.deviceModelArray = defaultDeviceArray
                 SSDPDiscovery.shared.discoverService(forDuration: 15, searchTarget: AllTag, port: 1900)
+                logEvent(eventId: search_device)
             case .haveData,.noData:
                 SSDPDiscovery.shared.stop()
                 refreshBtn.isHidden = false
@@ -248,6 +249,7 @@ class SearchViewController:LDBaseViewController {
         
         guard let smodel = model.smodel else {return}
         
+
         if smodel.type == Roku {
             
             guard let rokuDevice = smodel as? RokuDevice else {return}
@@ -255,6 +257,9 @@ class SearchViewController:LDBaseViewController {
             self.rokuClick(rokuModel: rokuDevice) {[weak self] text in
                 
                 guard let self else {return}
+                
+                AllTipLoadingView.loadingShared.dissMiss()
+                
                 if text == Load_suc {
                     
                     for smodel in self.searchView.resultView.deviceModelArray {
@@ -267,6 +272,8 @@ class SearchViewController:LDBaseViewController {
                     self.searchView.resultView.tableView.reloadData()
                     
                     self.searchConnectTipView.showView(type: .suc)
+                    
+                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
                 }else if text == Load_fail {
                     
                     self.searchConnectTipView.showView(type: .fail)
@@ -294,6 +301,8 @@ class SearchViewController:LDBaseViewController {
                     self.searchView.resultView.tableView.reloadData()
                     
                     self.searchConnectTipView.showView(type: .suc)
+                    
+                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
                     
                 }else if text == Load_fail{
                     
@@ -331,9 +340,13 @@ class SearchViewController:LDBaseViewController {
                     self.searchView.resultView.tableView.reloadData()
                     
                     self.searchConnectTipView.showView(type: .suc)
+                    
+                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
                 }
             }
         }
+        
+        logEvent(eventId: device_click_connect,param: ["device":smodel.friendlyName])
     }
     
     func rokuClick(rokuModel:RokuDevice,sucstatus:@escaping callBack = {status in}) {
@@ -410,27 +423,39 @@ class SearchViewController:LDBaseViewController {
                         
                         writePin.resultCallBack = {text in
                             
-                            AllTipLoadingView.loadingShared.showView()
-                            
-                            fireModel.token = text
-                            
-                            let newDevice:FireDevice = FireDevice(device: fireModel)
-                            
-                            RemoteDMananger.mananger.addDeviceArray(device: newDevice)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                                 
-                                sucstatus(Load_suc)
-                                AllTipLoadingView.loadingShared.dissMiss()
+                                fireModel.token = text
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
+                                fireModel.getVoice { isVoice in
                                     
-                                    let vc:FireViewController = FireViewController(model: newDevice)
+                                    guard let voice = isVoice else {sucstatus(Load_fail);return }
                                     
-                                    self?.navigationController?.pushViewController(vc, animated: true)
-                                })
+                                    AllTipLoadingView.loadingShared.showView()
+                                    
+                                    fireModel.isVolum = voice
+                                    
+                                    let newDevice:FireDevice = FireDevice(device: fireModel)
+                                    
+                                    RemoteDMananger.mananger.addDeviceArray(device: newDevice)
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                        
+                                        sucstatus(Load_suc)
+                                        AllTipLoadingView.loadingShared.dissMiss()
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
+                                            
+                                            let vc:FireViewController = FireViewController(model: newDevice)
+                                            
+                                            self?.navigationController?.pushViewController(vc, animated: true)
+                                        })
+                                        
+                                    })
+                                }
                                 
                             })
+                            
                         }
                         
                     }else {
@@ -590,6 +615,8 @@ extension SearchViewController:SSDPDiscoveryDelegate {
                 defaultDeviceArray.append(device)
                 self.searchView.model.deviceModelArray = defaultDeviceArray
             }
+            
+            logEvent(eventId: search_support_device,param: ["name":device.friendlyName])
         }
     }
     
@@ -603,6 +630,7 @@ extension SearchViewController:SSDPDiscoveryDelegate {
             }else {
                 
                 self.status = .noData
+                logEvent(eventId: no_device)
             }
         }
     }

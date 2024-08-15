@@ -9,11 +9,47 @@ import UIKit
 
 class FireChannelView:DeviceChannelView {
     
+    lazy var loadingModel:AllTipLoadingViewModel = {
+        
+        let smodel:AllTipLoadingViewModel = AllTipLoadingViewModel()
+        
+        smodel.maxWH = 104.RW()
+        smodel.title = "Loadinging"
+        
+        return smodel
+    }()
+    
+    lazy var loadingView:AllTipLoadingView = {
+        
+        let sview:AllTipLoadingView = AllTipLoadingView(model: loadingModel)
+        
+        sview.frame = bounds
+        
+        sview.backView.centerY = (sview.height - navHeight) / 2
+        
+        sview.isHidden = true
+        
+        return sview
+    }()
+    
+    override func addViews() {
+        
+        super.addViews()
+        
+        addSubview(loadingView)
+    }
+    
     override func loadData() {
         
         guard let smodel = self.deviceModel as? FireDevice else {return}
         
+        loadingView.isHidden = false
+        
         smodel.getALlChannel {[weak self] arr in
+            
+            guard let self else {return}
+            
+            self.loadingView.isHidden = true
             
             let arrString = JsonUtil.getJSONStringFromArray(array: arr)
             let modelArray = JsonUtil.jsonArrayToModel(arrString, FireChannelResultListDataModel.self) as? [FireChannelResultListDataModel]
@@ -31,9 +67,9 @@ class FireChannelView:DeviceChannelView {
                 channelModelArray.append(model)
             }
             
-            self?.resultView.model.changeModelArray = channelModelArray
-            self?.searchView.model.allChangeModelArray = channelModelArray
-            self?.setWithArray()
+            self.resultView.model.changeModelArray = channelModelArray
+            self.searchView.model.allChangeModelArray = channelModelArray
+            self.setWithArray()
         }
     }
     

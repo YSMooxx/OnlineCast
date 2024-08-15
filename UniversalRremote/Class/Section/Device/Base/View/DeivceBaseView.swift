@@ -105,39 +105,37 @@ class DeivceBaseView:UIView {
     
     func changeConnectStatus() {
         
-        switch connectStatus {
+        DispatchQueue.main.async {[weak self] in
             
-        case .startConnect:
-            choiceView.isHidden = true
-            connectingView.isHidden = false
-            connectFailView.isHidden = true
-        case .failConnect:
+            guard let self else {return}
             
-            choiceView.isHidden = true
-            connectingView.isHidden = true
-            connectFailView.isHidden = false
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {[weak self] in
+            switch connectStatus {
                 
-                guard let self else {return}
+            case .startConnect:
+                choiceView.isHidden = true
+                connectingView.isHidden = false
+                connectFailView.isHidden = true
+            case .failConnect:
                 
-                self.connectFailView.isHidden = true
-                self.choiceView.isHidden = false
-            })
-            
-        case .sucConnect:
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                choiceView.isHidden = true
+                connectingView.isHidden = true
+                connectFailView.isHidden = false
                 
-                guard let self else {return}
-                self.choiceView.isHidden = false
-                self.connectingView.isHidden = true
-                self.connectFailView.isHidden = true
-            })
-            
-        default:
-            break
+            case .sucConnect:
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                    
+                    guard let self else {return}
+                    self.choiceView.isHidden = false
+                    self.connectingView.isHidden = true
+                    self.connectFailView.isHidden = true
+                })
+                
+            default:
+                break
+            }
         }
+        
     }
 }
 

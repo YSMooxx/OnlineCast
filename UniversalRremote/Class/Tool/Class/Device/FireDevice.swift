@@ -317,7 +317,7 @@ class FireDevice: Device {
                         do {
                             if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                                 
-                                guard let self ,let result = jsonResponse["description"] as? String else { return }
+                                guard let result = jsonResponse["description"] as? String else { return }
                                 
                                 if result.count == 0 {
                                     
@@ -342,6 +342,45 @@ class FireDevice: Device {
                 }
             }
         
+    }
+    
+    func getVoice(suc:@escaping (_ isVoice:Bool?) -> () = {isVoice in}) {
+        
+        let port:String = "8080"
+        let path:String = "/v1/FireTV"
+        
+        guard let url = URL(string: headType + ip + ":" + port + path) else { return }
+        
+        let request = getRequest(httpMethod: "GET", isToken: true, url: url)
+        
+        session.request(request)
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(let data):
+                    if let data = data {
+                        
+                        do {
+                            if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                
+                                guard let isVolumeControlsSupported = jsonResponse["isVolumeControlsSupported"] as? Bool else {suc(false);return }
+                                
+                                suc(isVolumeControlsSupported)
+                                
+                            }else {
+                                
+                                suc(false)
+                            }
+                        }catch {
+                            
+                            suc(false)
+                        }
+                    }
+                case .failure(let error):
+                    
+                    suc(nil)
+                }
+            }
     }
     
     var showpinFirst:Bool = true

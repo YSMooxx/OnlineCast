@@ -7,8 +7,14 @@
 
 import FirebaseAnalytics
 
-
-let open_app:String = "open_app"
+let first_open:String = "first_open";
+let open_app:String = "open_app";
+let search_device:String = "search_device";
+let no_device:String = "no_device";
+let search_device_result:String = "search_device_result";
+let device_click_connect:String = "device_click_connect";
+let device_connect_success:String = "device_connect_success";
+let search_support_device:String = "search_support_device";
 
 func logEvent(eventId:String,param:[String:Any]? = nil) {
     

@@ -31,6 +31,7 @@ class LDBaseNavViewController:UINavigationController,UIGestureRecognizerDelegate
         case def
         case recectToFull
         case overRightToLeft
+        case overBottomToTop
         case dissRight
     }
     
@@ -137,6 +138,9 @@ extension LDBaseNavViewController:UIViewControllerTransitioningDelegate {
         }else if isAnimation == .overRightToLeft {
             
             return OverRightToLeftTransition()
+        }else if isAnimation == .overBottomToTop {
+            
+            return OverBottomToTopTransition()
         }else {
             
             return nil
@@ -156,6 +160,9 @@ extension LDBaseNavViewController:UIViewControllerTransitioningDelegate {
         }else if isAnimation == .overRightToLeft {
             
             return OverLeftToRightTransition()
+        }else if isAnimation == .overBottomToTop {
+            
+            return OverTopToBottomTransition()
         }else {
             
             return nil

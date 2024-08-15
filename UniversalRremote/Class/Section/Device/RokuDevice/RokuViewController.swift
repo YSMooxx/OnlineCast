@@ -48,6 +48,17 @@ class RokuViewController:DeviceBaseViewController {
                 
             }else {
                 
+                if text == RokuDevice.RokuEventKey.volumeUp.rawValue || text == RokuDevice.RokuEventKey.VolumeDown.rawValue || text == RokuDevice.RokuEventKey.VolumeMute.rawValue {
+                    
+                    guard let dev = currentDevice else {return}
+                    
+                    if !dev.isVolum {
+                        
+                        AllTipView.shard.showViewWithView(content: "Volume cannot e adjusted")
+                        return
+                    }
+                }
+                
                 if self.connectStatus == .sucConnect {
                     
                     guard let dev = currentDevice else {return}
@@ -55,7 +66,7 @@ class RokuViewController:DeviceBaseViewController {
                     dev.sendKey(key: text)
                 }else {
                     
-                    AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
+                    AllTipView.shard.showViewWithView(content: "Device Disconnected")
                 }
             }
         }
@@ -71,7 +82,7 @@ class RokuViewController:DeviceBaseViewController {
                 dev.changeChannel(id: text)
             }else {
                 
-                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
+                AllTipView.shard.showViewWithView(content: "Device Disconnected")
             }
         }
         

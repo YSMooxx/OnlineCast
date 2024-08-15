@@ -22,6 +22,7 @@ class Device:NSObject,Codable {
     var ip:String = ""
     var reName:String = ""
     var token:String = ""
+    var isVolum:Bool = false
 
     init(device:Device) {
         
@@ -33,10 +34,11 @@ class Device:NSObject,Codable {
         self.ip = device.ip
         self.reName = device.reName
         self.token = device.token
+        self.isVolum = device.isVolum
     }
 
     enum CodingKeys: String, CodingKey{
-        case friendlyName,UDN,url,ip,type,reName,port,token
+        case friendlyName,UDN,url,ip,type,reName,port,token,isVolum
     }
     
     init(url:String,ip:String) {
@@ -69,6 +71,13 @@ class Device:NSObject,Codable {
                 
                 guard let xmlString = String(data: xmlData, encoding: .utf8) else {
                         return
+                }
+                
+                guard let dic =  NSDictionary.init(xmlString: xmlString) as? [String:Any],let deviceStr = dic["device"] as? [String:Any],let friendlyName = deviceStr["friendlyName"] as? String else {return}
+                
+                if friendlyName.containsSubstring(substring: "roku") || friendlyName.containsSubstring(substring: "fire") || friendlyName.containsSubstring(substring: "LG") || friendlyName.containsSubstring(substring: "TCL") || friendlyName.containsSubstring(substring: "samsung") || friendlyName.containsSubstring(substring: "vizio") || friendlyName.containsSubstring(substring: "sony") || friendlyName.containsSubstring(substring: "chromecast") || friendlyName.containsSubstring(substring: "panasonic") || friendlyName.containsSubstring(substring: "hisense") {
+                    
+                    logEvent(eventId: search_device_result,param: ["name":friendlyName])
                 }
                 
                 var device:Device?

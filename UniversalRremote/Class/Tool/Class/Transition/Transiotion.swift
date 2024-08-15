@@ -251,3 +251,65 @@ class OverLeftToRightTransition: NSObject, UIViewControllerAnimatedTransitioning
     }
 }
 
+class OverBottomToTopTransition: NSObject, UIViewControllerAnimatedTransitioning {
+
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5 // 设置过渡动画的持续时间
+    }
+
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let toViewController = transitionContext.viewController(forKey: .to)else {
+            return
+        }
+        
+        let containerView:UIView = transitionContext.containerView
+        let finalFrame = transitionContext.finalFrame(for: toViewController)
+        let screenHeight = UIScreen.main.bounds.height
+        
+        toViewController.view.alpha = 0
+        // 初始位置在屏幕右侧
+        toViewController.view.frame = finalFrame.offsetBy(dx: 0, dy: 2 * screenHeight)
+        containerView.addSubview(toViewController.view)
+
+        // 执行动画
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            toViewController.view.frame = finalFrame
+            toViewController.view.alpha = 1
+        }, completion: { finished in
+            
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
+    }
+}
+
+class OverTopToBottomTransition: NSObject, UIViewControllerAnimatedTransitioning {
+
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5 // 设置过渡动画的持续时间
+    }
+
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromViewController = transitionContext.viewController(forKey: .from),
+              let toViewController = transitionContext.viewController(forKey: .to)else {
+            return
+        }
+        
+        let finalFrame = transitionContext.finalFrame(for: toViewController)
+        let screenHeight = UIScreen.main.bounds.height
+        fromViewController.view.alpha = 1
+        // 初始位置在屏幕右侧
+//        toViewController.view.frame = finalFrame.offsetBy(dx: screenWidth, dy: 0)
+//        containerView.addSubview(toViewController.view)
+
+        // 执行动画
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            fromViewController.view.frame = finalFrame.offsetBy(dx: 0, dy: 2 * screenHeight)
+            fromViewController.view.alpha = 0
+//            toViewController.view.frame = finalFrame
+        }, completion: { finished in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
+    }
+}
+

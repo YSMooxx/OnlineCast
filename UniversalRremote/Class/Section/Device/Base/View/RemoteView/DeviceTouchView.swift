@@ -58,12 +58,11 @@ class DeviceTouchBtnView:UIView {
     func addListBtn() {
         
         var startX:CGFloat = 4.RW()
-        let cW:CGFloat = (backImageView.width - 2 * startX) / CGFloat(titleArray.count)
-        let cH:CGFloat = 44.RW()
+        let cWH:CGFloat = 42.RW()
         
         for (index,text) in titleArray.enumerated() {
             
-            let btn:UIButton = UIButton(frame: CGRect(x: startX, y: 0, width: cW, height: cH))
+            let btn:UIButton = UIButton(frame: CGRect(x: startX, y: 0, width: cWH, height: cWH))
             btn.setBackgroundImage(UIImage(named: ""), for: .normal)
             btn.setBackgroundImage(UIImage(named: "deivceVC_touch_sel_back"), for: .selected)
             btn.setTitleColor(UIColor.colorWithHex(hexStr: "#666666"), for: .normal)
@@ -72,7 +71,7 @@ class DeviceTouchBtnView:UIView {
             btn.setImage(UIImage.svgWithName(name: text, size:CGSizeMake(iconWH, iconWH), color: grayColor), for: .normal)
             
             btn.addTarget(self, action: #selector(listBtnClick(btn:)), for: .touchUpInside)
-            startX += cW
+            startX += cWH
             btn.tag = 1000 + index
             btn.centerY = backImageView.height / 2
             backImageView.addSubview(btn)

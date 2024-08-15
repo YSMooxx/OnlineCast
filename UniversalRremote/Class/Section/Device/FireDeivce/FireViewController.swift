@@ -23,8 +23,9 @@ class FireViewController:DeviceBaseViewController {
             guard let self else {return}
             if text == "gotosearch" {
                 
-                let vc:SearchViewController = SearchViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+//                let vc:SearchViewController = SearchViewController()
+//                self.navigationController?.pushViewController(vc, animated: true)
+                self.connectStatus = .startConnect
             }else if text == "touch"{
                 
                 shock()
@@ -51,6 +52,18 @@ class FireViewController:DeviceBaseViewController {
                 
             }else {
                 
+                
+                if text == FireDevice.FireEventKey.volumeUp.rawValue || text == FireDevice.FireEventKey.VolumeDown.rawValue || text == FireDevice.FireEventKey.VolumeMute.rawValue {
+                    
+                    guard let dev = currentDevice else {return}
+                    
+                    if !dev.isVolum {
+                        
+                        AllTipView.shard.showViewWithView(content: "Volume cannot e adjusted")
+                        return
+                    }
+                }
+                
                 if self.connectStatus == .sucConnect {
                     
                     guard let dev = currentDevice else {return}
@@ -73,7 +86,7 @@ class FireViewController:DeviceBaseViewController {
                                             
                                             if self.failCount > 5 {
                                                 
-                                                self.connectStatus = .failConnect
+                                                self.connectStatus = .startConnect
                                             }
                                         }
                                         
@@ -84,13 +97,9 @@ class FireViewController:DeviceBaseViewController {
                     }
                     
                     
-                }else if self.connectStatus == .failConnect {
-                    
-                    self.fireView.connectStatus = .failConnect
-                    
                 }else {
                     
-                    AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
+                    AllTipView.shard.showViewWithView(content: "Device Disconnected")
                 }
             }
         }
@@ -124,12 +133,9 @@ class FireViewController:DeviceBaseViewController {
                     }
                 }
                 
-            }else if self.connectStatus == .failConnect {
-                
-                self.fireView.connectStatus = .failConnect
             }else {
                 
-                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
+                AllTipView.shard.showViewWithView(content: "Device Disconnected")
             }
         }
         

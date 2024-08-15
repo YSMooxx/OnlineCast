@@ -11,21 +11,23 @@ class UserDef:NSObject {
     
     static let shard:UserDef = UserDef()
     
-    var isFirst:Bool = true
+    var FirstOpen:Bool = false
     var isFirstLoadingLanding:Bool = true
     var isShock:Bool = true
     var locaNetwork:Bool? = nil
     var tmptime:TimeInterval = 0
+    var lastOpenAppTime:TimeInterval = 0
     
     override init() {
         
         let defaults:UserDefaults = UserDefaults.standard
         
-        self.isFirst = defaults.value(forKey: "isFirst") as? Bool ?? true
+        self.FirstOpen = defaults.value(forKey: "FirstOpen") as? Bool ?? false
         self.isFirstLoadingLanding = defaults.value(forKey: "isFirstLoadingLanding") as? Bool ?? true
         self.isShock = defaults.value(forKey: "isShock") as? Bool ?? true
         self.locaNetwork = defaults.value(forKey: "locaNetwork") as? Bool
         self.tmptime = defaults.value(forKey: "tmptime") as? TimeInterval ?? 0
+        self.lastOpenAppTime = defaults.value(forKey: "lastOpenAppTime") as? TimeInterval ?? 0
         
     }
     
@@ -33,11 +35,12 @@ class UserDef:NSObject {
     
         let defaults:UserDefaults = UserDefaults.standard
         
-            defaults.setValue(UserDef.shard.isFirst, forKey: "isFirst")
+            defaults.setValue(UserDef.shard.FirstOpen, forKey: "FirstOpen")
             defaults.setValue(UserDef.shard.isFirstLoadingLanding, forKey: "isFirstLoadingLanding")
             defaults.setValue(UserDef.shard.isShock, forKey: "isShock")
             defaults.setValue(UserDef.shard.locaNetwork, forKey: "locaNetwork")
             defaults.setValue(UserDef.shard.tmptime, forKey: "tmptime")
+            defaults.setValue(UserDef.shard.lastOpenAppTime, forKey: "lastOpenAppTime")
             defaults.synchronize()
     }
     

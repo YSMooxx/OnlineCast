@@ -30,6 +30,7 @@ class WebOSDevice: Device {
         case Up = "Up"
         case Back = "Back"
         case Menu = "Menu"
+        case Info = "Info"
         case VolumeUp = "VolumeUp"
         case VolumeDown = "VolumeDown"
         case Mute = "Mute"
@@ -52,11 +53,21 @@ class WebOSDevice: Device {
         case Num0 = "Num0"
         case ListApps = "ListApps"
         case LiveTV = "LiveTV"
+        case Red = "Red"
+        case Green = "Green"
+        case Yellow = "Yellow"
+        case Blue = "Blue"
+        case Search = "Search"
+        case Input = "Input"
+        case Setting = "Setting"
+        case Guide = "Guide"
     }
         // The client responsible for communication with the WebOS service.
     var client: WebOSClientProtocol?
     
     var callBackStatus:(_ status:statusType,_ content:String) -> () = {status,content in}
+    
+    var hdmideviceCallBack:(_ array:[WebOSHDMIListModel]) -> () = {array in}
     
     override init(device: Device) {
         
@@ -121,6 +132,9 @@ class WebOSDevice: Device {
         }else if key == WebOSDevice.WebOSEventKey.Menu.rawValue {
             
             client?.sendKey(.menu)
+        }else if key == WebOSDevice.WebOSEventKey.Info.rawValue {
+            
+            client?.sendKey(.info)
         }else if key == WebOSDevice.WebOSEventKey.VolumeUp.rawValue {
             
             client?.sendKey(.volumeUp)
@@ -130,6 +144,9 @@ class WebOSDevice: Device {
         }else if key == WebOSDevice.WebOSEventKey.Mute.rawValue {
             
             client?.sendKey(.mute)
+        }else if key == WebOSDevice.WebOSEventKey.Menu.rawValue {
+            
+            client?.sendKey(.menu)   
         }else if key == WebOSDevice.WebOSEventKey.Exit.rawValue {
             
             client?.sendKey(.exit)
@@ -186,13 +203,53 @@ class WebOSDevice: Device {
             client?.sendKey(.num0)
         }else if key == WebOSDevice.WebOSEventKey.ListApps.rawValue {
             
-//            client?.send(.listApps)
-            client?.send(.launchApp(appId: ""))
+            client?.send(.launchApp(appId: "com.webos.app.livemenu"))
         }else if key == WebOSDevice.WebOSEventKey.LiveTV.rawValue {
             
             client?.send(.launchApp(appId: "com.webos.app.livetv"))
+        }else if key == WebOSDevice.WebOSEventKey.Red.rawValue {
+            
+            client?.sendKey(.red)
+        }else if key == WebOSDevice.WebOSEventKey.Green.rawValue {
+            
+            client?.sendKey(.green)
+        }else if key == WebOSDevice.WebOSEventKey.Yellow.rawValue {
+            
+            client?.sendKey(.yellow)
+        }else if key == WebOSDevice.WebOSEventKey.Blue.rawValue {
+            
+            client?.sendKey(.blue)
+        }else if key == WebOSDevice.WebOSEventKey.Search.rawValue {
+            
+            client?.send(.launchApp(appId: "com.webos.app.voice"))
+        }else if key == WebOSDevice.WebOSEventKey.Setting.rawValue {
+            
+            client?.send(.launchApp(appId: "com.palm.app.settings"))
+        }else if key == WebOSDevice.WebOSEventKey.Guide.rawValue {
+            
+            client?.send(.launchApp(appId: "com.webos.app.tvuserguide"))
+        }else if key == WebOSDevice.WebOSEventKey.Input.rawValue {
+            
+            let count = Int.random(in: 1...3)
+            
+//            let id:String = "HDMI_\(count)"
+//            let appid:String = "com.webos.app.hdmi\(count)"
+////            client?.send(.setSource(id))
+//            client?.send(.launchApp(appId: appid))
+            client?.send(.listSources)
+//            client?.send(.launchApp(appId: "com.webos.app.tvlistSources"))
         }
+            
+    }
+    
+    func setSource(id:String) {
         
+        client?.send(.setSource(id))
+    }
+    
+    func searchWithString(content: String) {
+        
+        client?.send(.insertText(text: content, replace: true))
     }
     
     func checkPin(pin: String) {
@@ -237,19 +294,52 @@ extension WebOSDevice:WebOSClientDelegate {
     }
     
     func didReceive(_ result: Result<WebOSResponse, Error>) {
-            if case .failure(let error) = result {
-                let errorMessage = error.localizedDescription
-
-                if errorMessage.contains("rejected pairing") {
-                // Pairing rejected by the user or invalid pin.
-                    callBackStatus(.pinError, "rejected pairing")
+        switch result {
+        case .success(let response):
+            
+            if let devices = response.payload?.devices {
+                
+                if devices.count == 0 {
+                    
+                    break
                 }
                 
-                if errorMessage.contains("cancelled") {
-                // Pairing cancelled due to a timeout.
-                    callBackStatus(.pinError, "cancelled")
+                var modelArray:[WebOSHDMIListModel] = []
+                
+                for device in devices {
+                    
+                    let smodel:WebOSHDMIListModel = WebOSHDMIListModel()
+                    smodel.name = device.label
+                    smodel.id = device.id
+                    
+                    modelArray.append(smodel)
                 }
+                
+                if modelArray.count != 0 {
+                    
+                    self.hdmideviceCallBack(modelArray)
+                }
+                
+            } else {
+                print("No devices found.")
+            }
+        case .failure(let error):
+            print("Failed with error: \(error)")
+        }
+        
+        if case .failure(let error) = result {
+            let errorMessage = error.localizedDescription
+
+            if errorMessage.contains("rejected pairing") {
+            // Pairing rejected by the user or invalid pin.
+                callBackStatus(.pinError, "rejected pairing")
+            }
+            
+            if errorMessage.contains("cancelled") {
+            // Pairing cancelled due to a timeout.
+                callBackStatus(.pinError, "cancelled")
             }
         }
+    }
     
 }

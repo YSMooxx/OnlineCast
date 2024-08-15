@@ -14,9 +14,9 @@ class WebOSRemoteView:DeivceOtherRemoteView {
         super.addViews()
         
         let array:[Any] = [["norlImage":"deviceVC_power_norl_back","hightLImage":"deviceVC_power_hight_back","iconImage":"roku_power","key":WebOSDevice.WebOSEventKey.Home.rawValue],["iconImage":"roku_back","key":WebOSDevice.WebOSEventKey.Back.rawValue],["iconImage":"roku_home","key":WebOSDevice.WebOSEventKey.Home.rawValue],
-                           ["iconImage":"roku_mute","key":WebOSDevice.WebOSEventKey.Mute.rawValue], ["iconImage":"webos_exit","key":WebOSDevice.WebOSEventKey.Exit.rawValue],["iconImage":"roku_rewind","key":WebOSDevice.WebOSEventKey.Rewind.rawValue],["iconImage":"webos_play","key":WebOSDevice.WebOSEventKey.Play.rawValue],["iconImage":"webos_pause","key":WebOSDevice.WebOSEventKey.Pause.rawValue],["iconImage":"roku_fwd","key":WebOSDevice.WebOSEventKey.FastForward.rawValue],["iconImage":"webos_num1","key":WebOSDevice.WebOSEventKey.Num1.rawValue],["iconImage":"webos_num2","key":WebOSDevice.WebOSEventKey.Num2.rawValue],["iconImage":"webos_num3","key":WebOSDevice.WebOSEventKey.Num3.rawValue],["iconImage":"webos_num4","key":WebOSDevice.WebOSEventKey.Num4.rawValue],["iconImage":"webos_num5","key":WebOSDevice.WebOSEventKey.Num5.rawValue],["iconImage":"webos_num6","key":WebOSDevice.WebOSEventKey.Num6.rawValue],["iconImage":"webos_num7","key":WebOSDevice.WebOSEventKey.Num7.rawValue],["iconImage":"webos_num8","key":WebOSDevice.WebOSEventKey.Num8.rawValue],["iconImage":"webos_num9","key":WebOSDevice.WebOSEventKey.Num9.rawValue],["iconImage":"webos_num0","key":WebOSDevice.WebOSEventKey.Num0.rawValue],["iconImage":"webos_listapps","title":"CH LIST","key":WebOSDevice.WebOSEventKey.LiveTV.rawValue],["iconImage":"webos_livetv","title":"LIVE TV","key":WebOSDevice.WebOSEventKey.LiveTV.rawValue]]
+                           ["iconImage":"roku_mute","key":WebOSDevice.WebOSEventKey.Mute.rawValue], ["iconImage":"webos_exit","key":WebOSDevice.WebOSEventKey.Exit.rawValue],["iconImage":"roku_rewind","key":WebOSDevice.WebOSEventKey.Rewind.rawValue],["iconImage":"webos_play","key":WebOSDevice.WebOSEventKey.Play.rawValue],["iconImage":"webos_pause","key":WebOSDevice.WebOSEventKey.Pause.rawValue],["iconImage":"roku_fwd","key":WebOSDevice.WebOSEventKey.FastForward.rawValue],["iconImage":"webos_num1","key":WebOSDevice.WebOSEventKey.Num1.rawValue],["iconImage":"webos_num2","key":WebOSDevice.WebOSEventKey.Num2.rawValue],["iconImage":"webos_num3","key":WebOSDevice.WebOSEventKey.Num3.rawValue],["iconImage":"webos_num4","key":WebOSDevice.WebOSEventKey.Num4.rawValue],["iconImage":"webos_num5","key":WebOSDevice.WebOSEventKey.Num5.rawValue],["iconImage":"webos_num6","key":WebOSDevice.WebOSEventKey.Num6.rawValue],["iconImage":"webos_num7","key":WebOSDevice.WebOSEventKey.Num7.rawValue],["iconImage":"webos_num8","key":WebOSDevice.WebOSEventKey.Num8.rawValue],["iconImage":"webos_num9","key":WebOSDevice.WebOSEventKey.Num9.rawValue],["iconImage":"webos_num0","key":WebOSDevice.WebOSEventKey.Num0.rawValue],["iconImage":"webos_listapps","title":"CH LIST","key":WebOSDevice.WebOSEventKey.LiveTV.rawValue],["iconImage":"webos_livetv","title":"LIVE TV","key":WebOSDevice.WebOSEventKey.LiveTV.rawValue],["iconImage":"webos_red","norlImage":"webos_red_norl","hightLImage":"webos_red_hight","key":WebOSDevice.WebOSEventKey.Red.rawValue],["iconImage":"webos_green","norlImage":"webos_green_norl","hightLImage":"webos_green_hight","key":WebOSDevice.WebOSEventKey.Green.rawValue],["iconImage":"webos_yellow","norlImage":"webos_yellow_norl","hightLImage":"webos_yellow_hight","key":WebOSDevice.WebOSEventKey.Yellow.rawValue],["iconImage":"webos_blue","norlImage":"webos_blue_norl","hightLImage":"webos_blue_hight","key":WebOSDevice.WebOSEventKey.Blue.rawValue],["iconImage":"webos_keyboard","title":"KBD", "key":"keyboard"],["iconImage":"webos_search","title":"SEARCH","key":WebOSDevice.WebOSEventKey.Search.rawValue],["iconImage":"webos_input","title":"INPUT","key":WebOSDevice.WebOSEventKey.Input.rawValue],["iconImage":"webos_setting","title":"SETTING","key":WebOSDevice.WebOSEventKey.Setting.rawValue],["iconImage":"webos_guide","title":"GUIDE","key":WebOSDevice.WebOSEventKey.Guide.rawValue],["iconImage":"webos_menu","title":"MENU","key":WebOSDevice.WebOSEventKey.Menu.rawValue],["iconImage":"webos_info","title":"INFO","key":WebOSDevice.WebOSEventKey.Info.rawValue]]
         
-        
+       
         let arrStr = JsonUtil.getJSONStringFromArray(array: array)
         
         listModelArray = JsonUtil.jsonArrayToModel(arrStr, DeviceListbtnModel.self) as? [DeviceListbtnModel] ?? []
@@ -45,7 +45,7 @@ class WebOSRemoteView:DeivceOtherRemoteView {
                 let titleWH:CGFloat = 50.RW()
                 btn = DeviceListBtn(frame: CGRect(x: marginLR, y: startY, width: titleWH, height: titleWH))
                 startY = 102.RW() + centerHeigit
-            case 1..<21:
+            case 1..<32:
 //                1,2,3,4,5,6,7,8,9
                 let listY:CGFloat = 0
                 let listStartX:CGFloat = marginLR
@@ -70,11 +70,16 @@ class WebOSRemoteView:DeivceOtherRemoteView {
                     row = (index - 5) / 4 + 2
                     column = (index - 5) % 4
                     Page = 0
-                }else {
+                }else if index < 21{
                     
                     row = (index - 9) / 4
                     column = (index - 9) % 4
                     Page = 1
+                }else {
+                    
+                    row = (index - 21) / 4
+                    column = (index - 21) % 4
+                    Page = 2
                 }
                 
                 btn?.x = listStartX + CGFloat(Page) * scrollView.width + CGFloat(column) * (btnW + margerW)

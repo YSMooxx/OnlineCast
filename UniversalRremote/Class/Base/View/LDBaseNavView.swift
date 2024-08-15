@@ -50,7 +50,7 @@ class LDBaseNavView:UIView {
         sview.setImage(UIImage.svgWithName(name: "nav_back", size: CGSize(width: iconWH, height: iconWH)), for: .normal)
         sview.height = iconWH
         sview.width = iconWH
-        sview.x = 8.RW()
+        sview.x = marginLR
         sview.centerY = (height - statusBarHeight) / 2 + statusBarHeight
         sview.addTarget(self, action: #selector(backBtnClick(btn:)), for: .touchUpInside)
         
@@ -112,7 +112,7 @@ class LDBaseNavViewModel {
         }
     }
     
-    var backgroundColor:String = dBackColor {
+    var backgroundColor:String = navBack {
         
         didSet {
             

@@ -10,7 +10,8 @@ import UIKit
 class DeviceKeyboardView:BaseShowTipView {
     
     var resultCallBack:callBack = {text in}
-    
+    var allresultCallBack:callBack = {text in}
+    var allDelete:callBack = {text in}
     var fireModel:FireDevice?
     
     override func setupUI() {
@@ -104,7 +105,13 @@ class DeviceKeyboardView:BaseShowTipView {
             guard let self else {return}
             
             self.resultCallBack(text)
+            
+            if self.pinTextView.text?.count ?? 0 <= 0 {
+                
+                self.allDelete(text)
+            }
         }
+        sview.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
         
         
         return sview
@@ -221,6 +228,13 @@ class DeviceKeyboardView:BaseShowTipView {
 
             self.backView.layer.add(momAnimation, forKey: "centerLayer")
     }
+    
+    
+    
+    @objc func textFieldDidChange(textField:UITextField) {
+        
+        allresultCallBack(textField.text ?? "")
+    }
 }
 
 extension DeviceKeyboardView:UITextFieldDelegate {
@@ -229,6 +243,7 @@ extension DeviceKeyboardView:UITextFieldDelegate {
         
         let containsChinese = string.range(of: "\\p{Han}", options: .regularExpression) != nil
                 
+        
         if containsChinese {
             return false
         }

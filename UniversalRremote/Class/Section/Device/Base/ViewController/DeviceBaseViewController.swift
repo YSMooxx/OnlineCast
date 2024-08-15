@@ -13,7 +13,6 @@ enum connectStatusType {
     case startConnect
     case sucConnect
     case failConnect
-    case noWifi
 }
 
 class DeviceBaseViewController:LDBaseViewController {
@@ -160,11 +159,6 @@ class DeviceBaseViewController:LDBaseViewController {
                     self.loadingAnimation.pause()
                     self.setTitleString(text: model.smodel?.reName ?? "", isSelected: true)
                 })
-            case .noWifi:
-                titleBtn.imageView?.isHidden = false
-                loadingAnimation.isHidden = true
-                setTitleString()
-                AllTipView.shard.showViewWithView(content: "Wi-Fi Network Disconnected")
             default:
                 break
             }
@@ -180,7 +174,7 @@ class DeviceBaseViewController:LDBaseViewController {
         case .WIFI:
             self.connectStatus = .startConnect
         case .NoNet,.WWAN:
-            self.connectStatus = .noWifi
+            self.connectStatus = .failConnect
         default:
             break
         }
@@ -216,9 +210,9 @@ class SelectableButton: UIButton {
         
         sizeToFit()
         width += 10.RW()
-        if width > 259.RW() {
+        if width > 243.RW() {
             
-            width = 259.RW()
+            width = 243.RW()
         }
         
         changBtnWithStytl(btnStyle: .defalut, margin: 10.RW())

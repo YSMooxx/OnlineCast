@@ -32,7 +32,15 @@ class DeviceListBtn:UIButton {
         
         guard let sModel = model else { return}
         
-        self.setImage(UIImage.svgWithName(name: sModel.iconImage, size: CGSizeMake(iconWH, iconWH)), for: .normal)
+        
+        var iconSize:CGSize = CGSizeMake(iconWH, iconWH)
+        
+        if sModel.title.count != 0 {
+            
+            iconSize = CGSizeMake(22.RW(), 22.RW())
+        }
+        
+        self.setImage(UIImage.svgWithName(name: sModel.iconImage, size: iconSize), for: .normal)
         self.setBackgroundImage(UIImage(named: sModel.norlImage), for: .normal)
         self.setTitleColor(UIColor.colorWithHex(hexStr: whiteColor), for: .normal)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 10.RW(), weight: .medium)
@@ -76,6 +84,7 @@ class DeviceListbtnModel:BaseModel {
     var title:String = ""
     var noHight:Bool = false
     var key:String = ""
+    //1  defalut 2 22.rw()
 }
 
 class volumBtn:UIButton {

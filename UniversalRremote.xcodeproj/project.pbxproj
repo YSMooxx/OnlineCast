@@ -24,6 +24,18 @@
 		127F37112C639C2500DC5642 /* LDBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37102C639C2500DC5642 /* LDBaseWebViewController.swift */; };
 		127F37132C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37122C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift */; };
 		127F37152C639CCC00DC5642 /* TermOfUseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F37142C639CCC00DC5642 /* TermOfUseWebViewController.swift */; };
+		128CAB302C6D943C0050560B /* webos_red.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB2F2C6D943C0050560B /* webos_red.svg */; };
+		128CAB322C6D95640050560B /* webos_blue.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB312C6D95640050560B /* webos_blue.svg */; };
+		128CAB342C6D95680050560B /* webos_green.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB332C6D95680050560B /* webos_green.svg */; };
+		128CAB362C6D956D0050560B /* webos_yellow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB352C6D956D0050560B /* webos_yellow.svg */; };
+		128CAB3E2C6D9DDF0050560B /* webos_info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB372C6D9DDE0050560B /* webos_info.svg */; };
+		128CAB3F2C6D9DDF0050560B /* webos_search.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB382C6D9DDE0050560B /* webos_search.svg */; };
+		128CAB402C6D9DDF0050560B /* webos_input.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB392C6D9DDE0050560B /* webos_input.svg */; };
+		128CAB412C6D9DDF0050560B /* webos_menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB3A2C6D9DDE0050560B /* webos_menu.svg */; };
+		128CAB422C6D9DDF0050560B /* webos_keyboard.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB3B2C6D9DDF0050560B /* webos_keyboard.svg */; };
+		128CAB432C6D9DDF0050560B /* webos_setting.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB3C2C6D9DDF0050560B /* webos_setting.svg */; };
+		128CAB442C6D9DDF0050560B /* webos_guide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 128CAB3D2C6D9DDF0050560B /* webos_guide.svg */; };
+		128CAB462C6DCDD40050560B /* WebOSHDMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128CAB452C6DCDD40050560B /* WebOSHDMIViewController.swift */; };
 		129DFD6D2C61D4CB009EBC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFD6C2C61D4CB009EBC7F /* AppDelegate.swift */; };
 		129DFD712C61D4CB009EBC7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129DFD702C61D4CB009EBC7F /* ViewController.swift */; };
 		129DFD742C61D4CB009EBC7F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 129DFD732C61D4CB009EBC7F /* Base */; };
@@ -218,6 +230,18 @@
 		127F37102C639C2500DC5642 /* LDBaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseWebViewController.swift; sourceTree = "<group>"; };
 		127F37122C639C6D00DC5642 /* PrivacyPolicyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyWebViewController.swift; sourceTree = "<group>"; };
 		127F37142C639CCC00DC5642 /* TermOfUseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseWebViewController.swift; sourceTree = "<group>"; };
+		128CAB2F2C6D943C0050560B /* webos_red.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_red.svg; sourceTree = "<group>"; };
+		128CAB312C6D95640050560B /* webos_blue.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_blue.svg; sourceTree = "<group>"; };
+		128CAB332C6D95680050560B /* webos_green.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_green.svg; sourceTree = "<group>"; };
+		128CAB352C6D956D0050560B /* webos_yellow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_yellow.svg; sourceTree = "<group>"; };
+		128CAB372C6D9DDE0050560B /* webos_info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_info.svg; sourceTree = "<group>"; };
+		128CAB382C6D9DDE0050560B /* webos_search.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_search.svg; sourceTree = "<group>"; };
+		128CAB392C6D9DDE0050560B /* webos_input.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_input.svg; sourceTree = "<group>"; };
+		128CAB3A2C6D9DDE0050560B /* webos_menu.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_menu.svg; sourceTree = "<group>"; };
+		128CAB3B2C6D9DDF0050560B /* webos_keyboard.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_keyboard.svg; sourceTree = "<group>"; };
+		128CAB3C2C6D9DDF0050560B /* webos_setting.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_setting.svg; sourceTree = "<group>"; };
+		128CAB3D2C6D9DDF0050560B /* webos_guide.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = webos_guide.svg; sourceTree = "<group>"; };
+		128CAB452C6DCDD40050560B /* WebOSHDMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOSHDMIViewController.swift; sourceTree = "<group>"; };
 		129DFD692C61D4CB009EBC7F /* UniversalRremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversalRremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		129DFD6C2C61D4CB009EBC7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		129DFD702C61D4CB009EBC7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -453,6 +477,7 @@
 				12B96F772C6C7DBE00B95090 /* WebOSView.swift */,
 				12B96F792C6C8F7900B95090 /* WebOSRemoteView.swift */,
 				127791D62C6B6A490074D5F4 /* WebOSPINWriteView.swift */,
+				128CAB452C6DCDD40050560B /* WebOSHDMIViewController.swift */,
 			);
 			path = WebOS;
 			sourceTree = "<group>";
@@ -949,6 +974,17 @@
 		12B96F7D2C6CACC800B95090 /* WebOS */ = {
 			isa = PBXGroup;
 			children = (
+				128CAB3D2C6D9DDF0050560B /* webos_guide.svg */,
+				128CAB372C6D9DDE0050560B /* webos_info.svg */,
+				128CAB392C6D9DDE0050560B /* webos_input.svg */,
+				128CAB3B2C6D9DDF0050560B /* webos_keyboard.svg */,
+				128CAB3A2C6D9DDE0050560B /* webos_menu.svg */,
+				128CAB382C6D9DDE0050560B /* webos_search.svg */,
+				128CAB3C2C6D9DDF0050560B /* webos_setting.svg */,
+				128CAB352C6D956D0050560B /* webos_yellow.svg */,
+				128CAB332C6D95680050560B /* webos_green.svg */,
+				128CAB312C6D95640050560B /* webos_blue.svg */,
+				128CAB2F2C6D943C0050560B /* webos_red.svg */,
 				12B96F842C6CC6D400B95090 /* webos_num1.svg */,
 				12B96F8A2C6CCA5100B95090 /* webos_num0.svg */,
 				12B96F8E2C6CCA5100B95090 /* webos_num2.svg */,
@@ -1333,12 +1369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				12AC08012C65C27000593844 /* deviceVC_client_nor_tip.svg in Resources */,
+				128CAB342C6D95680050560B /* webos_green.svg in Resources */,
 				127F370A2C63986500DC5642 /* pp.svg in Resources */,
 				12B96F7F2C6CACDE00B95090 /* webos_exit.svg in Resources */,
 				12B96F992C6CCC4400B95090 /* webos_listapps.svg in Resources */,
 				12B96F812C6CAEEF00B95090 /* webos_play.svg in Resources */,
 				127F370C2C63986500DC5642 /* tou.svg in Resources */,
 				12AFAFF02C6464DE00E660C2 /* search_loading.json in Resources */,
+				128CAB432C6D9DDF0050560B /* webos_setting.svg in Resources */,
 				12B96F952C6CCA5100B95090 /* webos_num3.svg in Resources */,
 				12AC08002C65C27000593844 /* deviceVC_client_sel_tip.svg in Resources */,
 				12AC082C2C6617E800593844 /* roku_mute.svg in Resources */,
@@ -1347,15 +1385,21 @@
 				12B96F852C6CC6D500B95090 /* webos_num1.svg in Resources */,
 				12B96F832C6CAEFD00B95090 /* webos_pause.svg in Resources */,
 				12DD35182C6B1A89007402AC /* fire_menu.svg in Resources */,
+				128CAB412C6D9DDF0050560B /* webos_menu.svg in Resources */,
 				12B96F932C6CCA5100B95090 /* webos_num0.svg in Resources */,
 				12AC08152C65FCFE00593844 /* deviceVC_touch.svg in Resources */,
+				128CAB402C6D9DDF0050560B /* webos_input.svg in Resources */,
 				12AC07F32C65AD1400593844 /* All_loading.json in Resources */,
 				12B96F8F2C6CCA5100B95090 /* webos_num8.svg in Resources */,
 				12B96F962C6CCA5100B95090 /* webos_num4.svg in Resources */,
 				12B96F902C6CCA5100B95090 /* webos_num6.svg in Resources */,
 				129DFD762C61D4CD009EBC7F /* Assets.xcassets in Resources */,
+				128CAB3F2C6D9DDF0050560B /* webos_search.svg in Resources */,
 				12CCDE562C6301B500CD417A /* nav_back.svg in Resources */,
 				12AC08282C66177000593844 /* roku_info.svg in Resources */,
+				128CAB362C6D956D0050560B /* webos_yellow.svg in Resources */,
+				128CAB422C6D9DDF0050560B /* webos_keyboard.svg in Resources */,
+				128CAB302C6D943C0050560B /* webos_red.svg in Resources */,
 				12B96F942C6CCA5100B95090 /* webos_num5.svg in Resources */,
 				129DFDBA2C61FA41009EBC7F /* GoogleService-Info.plist in Resources */,
 				12AC081C2C66118500593844 /* roku_keyboard.svg in Resources */,
@@ -1371,11 +1415,14 @@
 				129DFD742C61D4CB009EBC7F /* Base in Resources */,
 				12AC082A2C6617B700593844 /* roku_refresh.svg in Resources */,
 				127F36EC2C63793C00DC5642 /* qidong_back2.png in Resources */,
+				128CAB3E2C6D9DDF0050560B /* webos_info.svg in Resources */,
 				12B96F922C6CCA5100B95090 /* webos_num9.svg in Resources */,
+				128CAB442C6D9DDF0050560B /* webos_guide.svg in Resources */,
 				12B96F972C6CCA5100B95090 /* webos_num2.svg in Resources */,
 				12B96F912C6CCA5100B95090 /* webos_num7.svg in Resources */,
 				127F37092C63986500DC5642 /* contactus.svg in Resources */,
 				12B96F9B2C6CCDE300B95090 /* webos_livetv.svg in Resources */,
+				128CAB322C6D95640050560B /* webos_blue.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1582,6 +1629,7 @@
 				12AFAFE72C6460EF00E660C2 /* SearchView.swift in Sources */,
 				12CCDE712C6363A400CD417A /* UITextFieldX.swift in Sources */,
 				12B078E32C6A2E8500CB3276 /* FireViewController.swift in Sources */,
+				128CAB462C6DCDD40050560B /* WebOSHDMIViewController.swift in Sources */,
 				12B078D12C69B34100CB3276 /* DeivceBaseView.swift in Sources */,
 				12AFAFE52C645DC200E660C2 /* SearchViewController.swift in Sources */,
 				12AFAFF42C6472AB00E660C2 /* SSDPDiscovery.swift in Sources */,
