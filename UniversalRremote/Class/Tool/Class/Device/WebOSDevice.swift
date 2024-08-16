@@ -107,6 +107,8 @@ class WebOSDevice: Device {
             client = WebOSClient(url: url, delegate: self, shouldLogActivity: true)
         }
         
+        isShowPin = false
+        
         client?.connect()
                 
         // Send a registration request to the TV with the stored or nil registration token.

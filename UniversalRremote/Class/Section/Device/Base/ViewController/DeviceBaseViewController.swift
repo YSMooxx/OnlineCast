@@ -200,7 +200,7 @@ class DeviceBaseViewController:LDBaseViewController {
     
     override func close(animation: Bool = true) {
         
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     deinit {
