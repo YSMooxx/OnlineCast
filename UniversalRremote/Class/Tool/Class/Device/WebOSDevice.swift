@@ -98,7 +98,7 @@ class WebOSDevice: Device {
         client?.disconnect()
     }
     
-    func connectDevice() {
+    func connectDevice(isShow:Bool = false) {
         
         guard let url = URL(string: "wss://" + self.ip + ":3001") else {return}
         
@@ -106,8 +106,6 @@ class WebOSDevice: Device {
             
             client = WebOSClient(url: url, delegate: self, shouldLogActivity: true)
         }
-        
-        isShowPin = false
         
         client?.connect()
                 

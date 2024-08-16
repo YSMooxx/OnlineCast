@@ -122,57 +122,7 @@ class WebOSViewController:DeviceBaseViewController {
         
         didSet {
             
-            currentDevice?.callBackStatus = {[weak self] status,content in
-                
-                DispatchQueue.main.async {[weak self] in
-                    
-                    guard let self else { return }
-                    switch status {
-                        
-                    case .didConnect:
-                        break
-                        
-                    case .didRegister:
-                        iscanConnect = true
-                        stopTimer()
-                        self.connectStatus = .sucConnect
-                        self.pinWriteView.pinTextView.text = ""
-                        self.pinWriteView.dissMiss()
-                        self.currentDevice?.token = content
-                        RemoteDMananger.mananger.tokenChannge(device: self.currentDevice)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[weak self] in
-                            guard let self else {return}
-                            self.currentDevice?.sendKey(key: WebOSDevice.WebOSEventKey.Input.rawValue)
-                            
-                        })
-                    case .didDisplayPin:
-                        self.connectStatus = .failConnect
-                        self.pinWriteView.showView()
-                    case .pinError:
-                        self.currentDevice?.connectDevice()
-                        self.pinWriteView.seterror()
-                    case .didDisconnect:
-                        self.connectStatus = .failConnect
-                    case .error:
-                        self.connectStatus = .failConnect
-                        stopTimer()
-                    default:break
-                    }
-                }
-            }
             
-            currentDevice?.hdmideviceCallBack = {[weak self] arry in
-                
-                guard let self else {return}
-                
-                self.hdmiArray = []
-                
-                for smodel in arry {
-                    
-                    self.hdmiArray.append(smodel)
-                }
-            }
         }
     }
     
@@ -202,6 +152,7 @@ class WebOSViewController:DeviceBaseViewController {
                 self.currentDevice?.sendKey(key: WebOSDevice.WebOSEventKey.Input.rawValue)
                 
             })
+            
             self.connectStatus = .sucConnect
         }
     }
@@ -216,8 +167,63 @@ class WebOSViewController:DeviceBaseViewController {
     func connectDevice() {
     
         startTime = getNowTimeInterval()
+        currentDevice?.disconnect()
+        currentDevice?.client = nil
+        
         startTimer()
         currentDevice?.connectDevice()
+        
+        currentDevice?.callBackStatus = {[weak self] status,content in
+            
+            DispatchQueue.main.async {[weak self] in
+                
+                guard let self else { return }
+                switch status {
+                    
+                case .didConnect:
+                    self.currentDevice?.isShowPin = false
+                    
+                case .didRegister:
+                    iscanConnect = true
+                    stopTimer()
+                    self.connectStatus = .sucConnect
+                    self.pinWriteView.pinTextView.text = ""
+                    self.pinWriteView.dissMiss()
+                    self.currentDevice?.token = content
+                    RemoteDMananger.mananger.tokenChannge(device: self.currentDevice)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[weak self] in
+                        guard let self else {return}
+                        self.currentDevice?.sendKey(key: WebOSDevice.WebOSEventKey.Input.rawValue)
+                        
+                    })
+                case .didDisplayPin:
+                    self.connectStatus = .failConnect
+                    self.pinWriteView.showView()
+                case .pinError:
+                    self.currentDevice?.connectDevice()
+                    self.pinWriteView.seterror()
+                case .didDisconnect:
+                    self.connectStatus = .failConnect
+                case .error:
+                    self.connectStatus = .failConnect
+                    stopTimer()
+                default:break
+                }
+            }
+        }
+        
+        currentDevice?.hdmideviceCallBack = {[weak self] arry in
+            
+            guard let self else {return}
+            
+            self.hdmiArray = []
+            
+            for smodel in arry {
+                
+                self.hdmiArray.append(smodel)
+            }
+        }
     }
     
     func startTimer() {
