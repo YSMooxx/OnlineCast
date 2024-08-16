@@ -73,10 +73,12 @@ class DeviceBaseViewController:LDBaseViewController {
         return animationView
     }()
     
-    init(model:Device) {
+    var isRConnet:Bool = true
+    
+    init(model:Device,isRConnet:Bool = true) {
         
         self.model.smodel = model
-        
+        self.isRConnet = isRConnet
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,6 +89,10 @@ class DeviceBaseViewController:LDBaseViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        SSDPDiscovery.shared.stop()
+        SSDPDiscovery.shared.delegate = nil
+        
+        removeViewControllerOfType(type: SearchViewController.self)
         
         titleView.model.titleHidden = true
         
@@ -150,15 +156,27 @@ class DeviceBaseViewController:LDBaseViewController {
                 
             case .sucConnect:
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
-                    
-                    guard let self else {return}
+                if !self.isRConnet {
                     
                     self.titleBtn.imageView?.isHidden = false
                     self.loadingAnimation.isHidden = true
                     self.loadingAnimation.pause()
                     self.setTitleString(text: model.smodel?.reName ?? "", isSelected: true)
-                })
+                    self.isRConnet = true
+                    
+                }else {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                        
+                        guard let self else {return}
+                        
+                        self.titleBtn.imageView?.isHidden = false
+                        self.loadingAnimation.isHidden = true
+                        self.loadingAnimation.pause()
+                        self.setTitleString(text: model.smodel?.reName ?? "", isSelected: true)
+                    })
+                }
+                
             default:
                 break
             }
@@ -182,7 +200,7 @@ class DeviceBaseViewController:LDBaseViewController {
     
     override func close(animation: Bool = true) {
         
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     deinit {

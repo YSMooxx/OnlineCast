@@ -48,7 +48,7 @@ class FirePINWriteView:BaseShowTipView {
         noBtn.width = 130.RW()
         noBtn.height = 44.RW()
         noBtn.x = 30.RW()
-        noBtn.cornerCut(radius: 8.RW(), corner: .allCorners)
+        noBtn.cornerCut(radius: 12.RW(), corner: .allCorners)
         
         yesBtn.y = pinTextView.y + pinTextView.height + 24.RW()
         yesBtn.width = 130.RW()
@@ -56,7 +56,7 @@ class FirePINWriteView:BaseShowTipView {
         yesBtn.x = backView.width - 30.RW() - yesBtn.width
         yesBtn.setBackgroundImage(UIImage(named: ""), for: .normal)
         yesBtn.backgroundColor = UIColor.colorWithHex(hexStr: mColor)
-        yesBtn.cornerCut(radius: 8.RW(), corner: .allCorners)
+        yesBtn.cornerCut(radius: 12.RW(), corner: .allCorners)
         pinTextView.becomeFirstResponder()
        
     }
@@ -65,9 +65,9 @@ class FirePINWriteView:BaseShowTipView {
        
         let btn:UIButton = UIButton()
         btn.setTitle("Cancel", for: .normal)
-        btn.setTitleColor(UIColor.colorWithHex(hexStr: "#575757"), for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.RW())
-        btn.backgroundColor = UIColor.colorWithHex(hexStr: "#F5F5F5")
+        btn.setTitleColor(UIColor.colorWithHex(hexStr: whiteColor), for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.RW(),weight: .medium)
+        btn.backgroundColor = UIColor.colorWithHex(hexStr: "#575757")
         btn.width = 275.RW()
         btn.height = 37.RW()
         btn.addTarget(self, action: #selector(noBtnClick), for: .touchUpInside)
@@ -121,7 +121,7 @@ class FirePINWriteView:BaseShowTipView {
         let btn:UIButton = UIButton()
         btn.setTitle("OK", for: .normal)
         btn.setTitleColor(UIColor.colorWithHex(hexStr: whiteColor), for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.RW())
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.RW(),weight: .medium)
         btn.setBackgroundImage(UIImage(named: "search_ok_back"), for: .normal)
         btn.width = 275.RW()
         btn.height = 37.RW()

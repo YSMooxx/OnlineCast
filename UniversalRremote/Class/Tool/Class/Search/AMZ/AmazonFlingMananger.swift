@@ -17,15 +17,15 @@ class AmazonFlingMananger:NSObject {
     
     func startDiscovered() {
         
-        stopDiscovered()
-        
-        guard let vc = mController else {
-            mController = DiscoveryController()
-            mController?.searchPlayer(withId: AmazonFlingMananger.searchID, andListener: self);
-            mController?.resume()
-        return }
-        
-        vc.resume()
+//        stopDiscovered()
+//        
+//        guard let vc = mController else {
+//            mController = DiscoveryController()
+//            mController?.searchPlayer(withId: AmazonFlingMananger.searchID, andListener: self);
+//            mController?.resume()
+//        return }
+//        
+//        vc.resume()
     }
     
     func stopDiscovered() {

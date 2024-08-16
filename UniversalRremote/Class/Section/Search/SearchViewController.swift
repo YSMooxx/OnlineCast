@@ -19,15 +19,27 @@ class SearchViewController:LDBaseViewController {
                 
             case .startLoading:
                 self.searchView.model.deviceModelArray = defaultDeviceArray
-                SSDPDiscovery.shared.discoverService(forDuration: 15, searchTarget: AllTag, port: 1900)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    
+                    SSDPDiscovery.shared.discoverService(forDuration: 15, searchTarget: AllTag, port: 1900)
+                })
                 logEvent(eventId: search_device)
-            case .haveData,.noData:
-                SSDPDiscovery.shared.stop()
-                refreshBtn.isHidden = false
-            case .noNet:
-                refreshBtn.isHidden = true
+            case .haveData:
+                DispatchQueue.main.async {[weak self] in
+                    
+                    self?.refreshBtn.isHidden = false
+                }
+                
+            case .noNet,.noData:
+                DispatchQueue.main.async {[weak self] in
+                    
+                    self?.refreshBtn.isHidden = true
+                }
             case .noLocalNet:
-                refreshBtn.isHidden = false
+                DispatchQueue.main.async {[weak self] in
+                    
+                    self?.refreshBtn.isHidden = false
+                }
             default:
                 break
             }
@@ -146,6 +158,13 @@ class SearchViewController:LDBaseViewController {
         
     }
     
+    lazy var writePin:WebOSPINWriteView = {
+        
+        let sview:WebOSPINWriteView = WebOSPINWriteView()
+        
+        return sview
+    }()
+    
     func checkStatus() {
         
         if NetStatusManager.manager.currentStatus == .WIFI {
@@ -185,6 +204,7 @@ class SearchViewController:LDBaseViewController {
                     checkStatus()
                 }else {
                     
+                    SSDPDiscovery.shared.stop()
                     self.status = .noNet
                 }
             }
@@ -223,15 +243,24 @@ class SearchViewController:LDBaseViewController {
         
     }
     
-    override func didMove(toParent parent: UIViewController?) {
+//    override func didMove(toParent parent: UIViewController?) {
+//        
+//        super.didMove(toParent: parent)
+//        
+//        if (parent == nil)  {
+//            
+//            SSDPDiscovery.shared.stop()
+//            SSDPDiscovery.shared.delegate = nil
+//        }
+//        
+//    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
         
-        super.didMove(toParent: parent)
+        super.viewDidDisappear(animated)
         
-        if (parent == nil)  {
-            SSDPDiscovery.shared.delegate = nil
-            SSDPDiscovery.shared.stop()
-        }
-        
+        SSDPDiscovery.shared.stop()
+        SSDPDiscovery.shared.delegate = nil
     }
     
     func showNoLocalNetView() {
@@ -273,12 +302,14 @@ class SearchViewController:LDBaseViewController {
                     
                     self.searchConnectTipView.showView(type: .suc)
                     
-                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
+                    logEvent(eventId: device_connect_success,param: ["device":"Roku-" + smodel.friendlyName])
                 }else if text == Load_fail {
                     
                     self.searchConnectTipView.showView(type: .fail)
                 }
             }
+            
+            logEvent(eventId: device_click_connect,param: ["device":"Roku-" + String(smodel.friendlyName.prefix(5))])
         }else if smodel.type == Fire {
             
             guard let fireDevice = smodel as? FireDevice else {return}
@@ -302,7 +333,7 @@ class SearchViewController:LDBaseViewController {
                     
                     self.searchConnectTipView.showView(type: .suc)
                     
-                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
+                    logEvent(eventId: device_connect_success,param: ["device":"Fire-" + smodel.friendlyName])
                     
                 }else if text == Load_fail{
                     
@@ -313,13 +344,15 @@ class SearchViewController:LDBaseViewController {
                     
                 }
             }
+            
+            logEvent(eventId: device_click_connect,param: ["device":"Fire-" + smodel.friendlyName])
         }else if smodel.type == WebOS {
             
             guard let webDevice = smodel as? WebOSDevice else {return}
             
-            AllTipLoadingView.loadingShared.dissMiss()
-            
             self.checkWebOSStatus(webOSModel: webDevice) { status in
+                
+                AllTipLoadingView.loadingShared.dissMiss()
                 
                 if status == Load_fail{
                     
@@ -341,12 +374,14 @@ class SearchViewController:LDBaseViewController {
                     
                     self.searchConnectTipView.showView(type: .suc)
                     
-                    logEvent(eventId: device_connect_success,param: ["device":smodel.friendlyName])
+                    logEvent(eventId: device_connect_success,param: ["device":"LG-" + smodel.friendlyName])
                 }
             }
+            
+            logEvent(eventId: device_click_connect,param: ["device":"LG-" + smodel.friendlyName])
         }
         
-        logEvent(eventId: device_click_connect,param: ["device":smodel.friendlyName])
+        
     }
     
     func rokuClick(rokuModel:RokuDevice,sucstatus:@escaping callBack = {status in}) {
@@ -368,9 +403,12 @@ class SearchViewController:LDBaseViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                         
-                        let vc:RokuViewController = RokuViewController(model: newDevice)
+                        guard let self else {return}
                         
-                        self?.navigationController?.pushViewController(vc, animated: true)
+                        let vc:RokuViewController = RokuViewController(model: newDevice,isRConnet: false)
+                        
+                        self.navigationController?.pushViewController(vc, animated: true)
+
                     })
                     
                 })
@@ -446,7 +484,7 @@ class SearchViewController:LDBaseViewController {
                                         
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
                                             
-                                            let vc:FireViewController = FireViewController(model: newDevice)
+                                            let vc:FireViewController = FireViewController(model: newDevice,isRConnet: false)
                                             
                                             self?.navigationController?.pushViewController(vc, animated: true)
                                         })
@@ -522,68 +560,186 @@ class SearchViewController:LDBaseViewController {
         })
     }
     
+    var iscanConnect:Bool = false
+    
+    var timer: Timer?
+    
+    var startTime:TimeInterval?
+    
+    func startTimer(webOSModel:WebOSDevice,suc:@escaping callBack = {text in}) {
+        
+        DispatchQueue.main.async {[weak self] in
+            
+            guard let self else {return}
+            
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
+                
+                guard let self else {return}
+                
+                if iscanConnect  {
+                    self.stopTimer(webOSModel: webOSModel)
+                }else {
+                    
+                    if (self.startTime ?? 0) + 10 < getNowTimeInterval() {
+                        
+                        webOSModel.callBackStatus = {status,content in }
+                        suc(Load_fail)
+                        webOSModel.disconnect()
+                        self.stopTimer(webOSModel: webOSModel)
+                    }
+                }
+            }
+        }
+    }
+
+    
+    func stopTimer(webOSModel:WebOSDevice) {
+        
+        startTime = nil
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    var timer2: Timer?
+    
+    var startTime2:TimeInterval?
+    
+    var iscanWritet:Bool = false
+    
+    func startTimer2(webOSModel:WebOSDevice,suc:@escaping callBack = {text in}) {
+        
+        DispatchQueue.main.async {[weak self] in
+            
+            guard let self else {return}
+            
+            self.timer2 = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
+                
+                guard let self else {return}
+                
+                if iscanWritet  {
+                    self.stopTimer2(webOSModel: webOSModel)
+                }else {
+                    
+                    if (self.startTime2 ?? 0) + 10 < getNowTimeInterval() {
+                        
+                        webOSModel.callBackStatus = {status,content in }
+                        suc(Load_fail)
+                        webOSModel.disconnect()
+                        self.writePin.pinTextView.text = nil
+                        self.writePin.removeFromSuperview()
+                        self.stopTimer2(webOSModel: webOSModel)
+                    }
+                }
+            }
+        }
+    }
+
+    
+    func stopTimer2(webOSModel:WebOSDevice) {
+        
+        startTime2 = nil
+        timer2?.invalidate()
+        timer2 = nil
+    }
+    
     func checkWebOSStatus(webOSModel:WebOSDevice,suc:@escaping callBack = {text in}) {
         
         AllTipLoadingView.loadingShared.showView()
         
+        self.startTime = getNowTimeInterval()
+        startTimer(webOSModel: webOSModel) { status in
+            
+            suc(status)
+        }
+        
         webOSModel.connectDevice()
         
-        let writePin:WebOSPINWriteView = WebOSPINWriteView()
-        
-        webOSModel.callBackStatus = {status,content in
+        webOSModel.callBackStatus = {[weak self] status,content in
+            guard let self else {return}
             
             switch status{
+            case .didConnect: break
                 
             case .didDisplayPin:
                 
-                DispatchQueue.main.async {
+                self.iscanConnect = true
+                DispatchQueue.main.async {[weak self] in
                     
-                    writePin.showView()
-                    writePin.resultCallBack = {text in
+                    guard let self else {return}
+                    
+                    self.writePin.showView()
+                    self.writePin.resultCallBack = { text in
                         
+                        AllTipLoadingView.loadingShared.showView()
+                        
+                        self.startTime2 = getNowTimeInterval()
+                        self.startTimer2(webOSModel: webOSModel, suc: {status in
+                            
+                            suc(status)
+                        })
                         webOSModel.checkPin(pin: text)
                     }
                     
-                    writePin.callBack = {text in
+                    self.writePin.callBack = {text in
                         
+                        if text == "cancel" {
+                            webOSModel.canCelPin()
+                            webOSModel.didDisconnect()
+                        }
                         suc(text)
                     }
                 }
             case .didRegister:
                 
                 let newDevice:WebOSDevice = WebOSDevice(device: webOSModel)
-                
+                self.iscanWritet = true
                 newDevice.token = content
-                
+                newDevice.client = webOSModel.client
                 RemoteDMananger.mananger.addDeviceArray(device: newDevice)
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async {[weak self] in
                     
-                    writePin.dissMiss()
+                    self?.writePin.pinTextView.text = nil
+                    self?.writePin.removeFromSuperview()
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     
                     suc(Load_suc)
-                    AllTipLoadingView.loadingShared.dissMiss()
+                    
+                    webOSModel.callBackStatus = { status,text in
+                        
+                    }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
-                        
-                        let vc:WebOSViewController = WebOSViewController(model: newDevice)
+//                        
+                        let vc:WebOSViewController = WebOSViewController(model:newDevice,isRConnet: false)
                         
                         self?.navigationController?.pushViewController(vc, animated: true)
+                        
                     })
                     
                 })
                 
             case .pinError:
+                self.iscanWritet = true
+                AllTipLoadingView.loadingShared.dissMiss()
                 webOSModel.connectDevice()
-                
-                DispatchQueue.main.async {
+                DispatchQueue.main.async {[weak self] in
                     
-                    writePin.seterror()
+                    self?.writePin.seterror()
+                }
+            case .error:
+                webOSModel.disconnect()
+                self.stopTimer2(webOSModel: webOSModel)
+                suc(Load_fail)
+                
+                DispatchQueue.main.async {[weak self] in
+                    self?.writePin.pinTextView.text = nil
+                    self?.writePin.removeFromSuperview()
                 }
                 
+                webOSModel.callBackStatus = {status,text in}
             default:
                 break
             }

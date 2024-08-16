@@ -12,7 +12,13 @@ let Roku:String = "Roku"
 let Fire:String = "Fire"
 let WebOS:String = "WebOS"
 
-class Device:NSObject,Codable {
+class Device:NSObject,Codable,NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        
+        let copy = Device(type: self.type, friendlyName: self.friendlyName, UDN: self.UDN, port: self.port, url: self.url, ip: self.ip, reName: self.reName, token: self.token, isVolum: self.isVolum)
+               return copy
+    }
+    
     
     var type:String = ""
     var friendlyName:String = ""
@@ -39,6 +45,12 @@ class Device:NSObject,Codable {
 
     enum CodingKeys: String, CodingKey{
         case friendlyName,UDN,url,ip,type,reName,port,token,isVolum
+    }
+    
+    init(type:String,friendlyName:String,UDN:String,port:String,url:String,ip:String,reName:String,token:String,isVolum:Bool) {
+        
+        self.url = url
+        self.ip = ip
     }
     
     init(url:String,ip:String) {
@@ -88,10 +100,17 @@ class Device:NSObject,Codable {
                 }else if softInfo.containsSubstring(substring: "WebOS") {
                     
                     device = Device.checkWebOS(url:newUrl , ip: ip, xmlStr: xmlString)
-                }else {
+                }else if softInfo.containsSubstring(substring: "linux") {
                     
                     device = Device.checkFire(url:newUrl , ip: ip, servece: servece, xmlStr: xmlString)
                 }
+                
+//                else {
+//                    
+//                    device = Device.checkFire(url:newUrl , ip: ip, servece: servece, xmlStr: xmlString)
+//                }
+                
+
                 
                 guard let typeDevice = device else  {
                     
@@ -116,14 +135,29 @@ class Device:NSObject,Codable {
         
         var device:Device?
         
-        for smodel in AmazonFlingMananger.mananger.discoveryModelArray {
+//        for smodel in AmazonFlingMananger.mananger.discoveryModelArray {
+//            
+//            if friendlyName == smodel.name {
+//                
+//                device = FireDevice(url: url,ip: ip)
+//                device?.friendlyName = friendlyName
+//                device?.reName = friendlyName
+//                device?.UDN = UDN
+//            }
+//        }
+        
+       
+        
+        if deviceType.containsSubstring(substring: "tvdevice") {
             
-            if friendlyName == smodel.name {
+            device = FireDevice(url: url,ip: ip)
+            device?.friendlyName = friendlyName
+            device?.reName = friendlyName
+            device?.UDN = UDN
+            
+            if !friendlyName.containsSubstring(substring: "fire") {
                 
-                device = FireDevice(url: url,ip: ip)
-                device?.friendlyName = friendlyName
-                device?.reName = friendlyName
-                device?.UDN = UDN
+                logEvent(eventId: search_device_result,param: ["name":friendlyName])
             }
         }
         

@@ -32,7 +32,7 @@ class SearchView:UIView {
         
         return smodel
     }()
-    
+     
     lazy var loadingAnimation:AnimationView = {
         
         let animationView = Lottie.AnimationView(name: "search_loading")
@@ -40,10 +40,23 @@ class SearchView:UIView {
         animationView.width = 100.RW()
         animationView.height = 100.RW()
         animationView.centerX = width / 2
-        animationView.y = 0
+        animationView.y = marginLR
         animationView.loopMode = .loop
         animationView.play()
         return animationView
+    }()
+    
+    lazy var loadingTipLabel : UILabel = {
+        
+        let sview:UILabel = UILabel()
+        sview.text = "Searching..."
+        sview.font = UIFont.systemFont(ofSize: 14.RW(), weight: .regular)
+        sview.textColor = UIColor.colorWithHex(hexStr: whiteColor)
+        sview.sizeToFit()
+        sview.centerX = width / 2
+        sview.y = loadingAnimation.y + loadingAnimation.height + 8.RW()
+        return sview
+        
     }()
     
     lazy var resultView:SearchResultView = {
@@ -114,6 +127,7 @@ class SearchView:UIView {
     func addViews() {
         
         addSubview(loadingAnimation)
+        addSubview(loadingTipLabel)
         addSubview(noWifiView)
         addSubview(noResultView)
         addSubview(resultView)
@@ -145,8 +159,8 @@ class SearchView:UIView {
             case .startLoading:
                 loadingAnimation.play()
                 loadingAnimation.isHidden = false
-                resultView.y = loadingAnimation.y + loadingAnimation.height
-                resultView.height = height - (loadingAnimation.y + loadingAnimation.height)
+                resultView.y = loadingTipLabel.y + loadingTipLabel.height + 20.RW()
+                resultView.height = height - resultView.y
                 resultView.isHidden = false
                 noWifiView.isHidden = true
                 noResultView.isHidden = true
@@ -173,6 +187,8 @@ class SearchView:UIView {
             default:
                 break
             }
+            
+            loadingTipLabel.isHidden = loadingAnimation.isHidden
         }
     }
 }

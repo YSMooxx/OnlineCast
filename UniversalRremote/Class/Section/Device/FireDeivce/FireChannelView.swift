@@ -14,7 +14,7 @@ class FireChannelView:DeviceChannelView {
         let smodel:AllTipLoadingViewModel = AllTipLoadingViewModel()
         
         smodel.maxWH = 104.RW()
-        smodel.title = "Loadinging"
+        smodel.title = "Loading"
         
         return smodel
     }()
@@ -43,13 +43,13 @@ class FireChannelView:DeviceChannelView {
         
         guard let smodel = self.deviceModel as? FireDevice else {return}
         
-        loadingView.isHidden = false
+        self.loadShowDiss(iSD: true)
         
         smodel.getALlChannel {[weak self] arr in
             
             guard let self else {return}
             
-            self.loadingView.isHidden = true
+            self.loadShowDiss(iSD: false)
             
             let arrString = JsonUtil.getJSONStringFromArray(array: arr)
             let modelArray = JsonUtil.jsonArrayToModel(arrString, FireChannelResultListDataModel.self) as? [FireChannelResultListDataModel]
@@ -100,5 +100,24 @@ class FireChannelView:DeviceChannelView {
         }
         
         self.resultView.model.collectModelArray = collectModelArray
+    }
+    
+    func loadShowDiss(iSD:Bool) {
+        
+        DispatchQueue.main.async {[weak self] in
+            
+            guard let self else {return}
+            
+            if iSD {
+                
+                self.loadingView.loadingAnimation.play()
+            }else {
+                
+                self.loadingView.loadingAnimation.pause()
+            }
+            
+            self.loadingView.isHidden = !iSD
+        }
+        
     }
 }

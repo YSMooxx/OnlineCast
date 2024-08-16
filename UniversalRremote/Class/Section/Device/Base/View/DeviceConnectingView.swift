@@ -34,13 +34,15 @@ class DeviceConnectingView:UIView {
     lazy var tipLabel:UILabel = {
         
         let sview:UILabel = UILabel()
-        sview.text = "Trying to connect to \"Roku Express Expres4K+\"..."
+        sview.text = "Trying to connect "
         sview.textColor = UIColor.colorWithHex(hexStr: whiteColor)
         sview.font = UIFont.systemFont(ofSize: 14.RW(), weight: .regular)
         sview.x = loadingAnimation.x + loadingAnimation.width + 8.RW()
         sview.width = width - sview.x - 12.RW()
         sview.numberOfLines = 1
         sview.sizeToFit()
+        sview.width = width - sview.x - 12.RW()
+        sview.centerY = height / 2
         
         return sview
     }()
@@ -71,11 +73,16 @@ class DeviceConnectingView:UIView {
     
     func changeTipLabel() {
         
-        tipLabel.text = "Trying to connect to \"\(deviceName ?? "")\""
-        tipLabel.width = width - tipLabel.x - 12.RW()
-        tipLabel.sizeToFit()
-        tipLabel.width = width - tipLabel.x - 12.RW()
-        tipLabel.centerY = height / 2
+        DispatchQueue.main.async {[weak self] in
+            
+            guard let self else {return}
+            
+            self.tipLabel.text = "Trying to connect to \"\(deviceName ?? "")\""
+            self.tipLabel.width = width - tipLabel.x - 12.RW()
+            self.tipLabel.sizeToFit()
+            self.tipLabel.width = width - tipLabel.x - 12.RW()
+            self.tipLabel.centerY = height / 2
+        }
     }
 }
 
@@ -145,6 +152,13 @@ class DeviceConnectFailView:UIView {
         addSubview(iconImage)
         addSubview(tipLabel)
         addSubview(nextBtn)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        super.touchesBegan(touches, with: event)
+        
+        callBack("gotosearch")
     }
     
     @objc func nextBtnClick() {

@@ -16,6 +16,7 @@ class WebOSDevice: Device {
         case didDisplayPin
         case didRegister
         case pinError
+        case pinCancel
         case error
     }
     
@@ -65,6 +66,8 @@ class WebOSDevice: Device {
         // The client responsible for communication with the WebOS service.
     var client: WebOSClientProtocol?
     
+    var isShowPin:Bool = false
+    
     var callBackStatus:(_ status:statusType,_ content:String) -> () = {status,content in}
     
     var hdmideviceCallBack:(_ array:[WebOSHDMIListModel]) -> () = {array in}
@@ -72,6 +75,11 @@ class WebOSDevice: Device {
     override init(device: Device) {
         
         super.init(device: device)
+    }
+    
+    override class func copy() -> Any {
+        
+        super.copy()
     }
     
     override init(url: String, ip: String) {
@@ -94,13 +102,15 @@ class WebOSDevice: Device {
         
         guard let url = URL(string: "wss://" + self.ip + ":3001") else {return}
         
-        client = WebOSClient(url: url, delegate: self, shouldLogActivity: true)
+        if client == nil {
+            
+            client = WebOSClient(url: url, delegate: self, shouldLogActivity: true)
+        }
         
         client?.connect()
                 
         // Send a registration request to the TV with the stored or nil registration token.
         // The PairingType option should be set to .pin for PIN-based pairing. The default value is .prompt.
-        client?.send(.register(pairingType: .pin, clientKey: self.token))
     }
     
     func sendKey(key:String) {
@@ -256,6 +266,14 @@ class WebOSDevice: Device {
         
         client?.send(.setPin(pin))
     }
+    
+    var isCancelPin:Bool = false
+    
+    func canCelPin() {
+        
+        isCancelPin = true
+        self.checkPin(pin: "")
+    }
 }
 
 extension WebOSDevice:WebOSClientDelegate {
@@ -265,6 +283,13 @@ extension WebOSDevice:WebOSClientDelegate {
     }
     
     func didConnect() {
+        
+        client?.send(.register(pairingType: .pin, clientKey: self.token))
+        
+        if isShowPin {
+            
+            self.callBackStatus(.didDisplayPin, "")
+        }
         
         self.callBackStatus(.didConnect, "")
     }
@@ -276,7 +301,12 @@ extension WebOSDevice:WebOSClientDelegate {
     
     func didDisplayPin() {
             // Send the correct PIN displayed on the TV screen to the TV here.
-        self.callBackStatus(.didDisplayPin, "")
+        
+        if !isShowPin {
+            
+            self.callBackStatus(.didDisplayPin, "")
+            isShowPin = true
+        }
     }
     
     func didRegister(with clientKey: String) {
@@ -324,22 +354,39 @@ extension WebOSDevice:WebOSClientDelegate {
                 print("No devices found.")
             }
         case .failure(let error):
-            print("Failed with error: \(error)")
-        }
-        
-        if case .failure(let error) = result {
+            
             let errorMessage = error.localizedDescription
 
             if errorMessage.contains("rejected pairing") {
+                
+                if !isCancelPin {
+                    
+                    callBackStatus(.pinError, "rejected pairing")
+                }else {
+                    
+                    isCancelPin = false
+                }
             // Pairing rejected by the user or invalid pin.
-                callBackStatus(.pinError, "rejected pairing")
+                
             }
             
+//            if errorMessage.contains("The operation couldn’t be completed") {
+//                
+//                callBackStatus(.error,errorMessage)
+//            }
+            
             if errorMessage.contains("cancelled") {
+                
             // Pairing cancelled due to a timeout.
-                callBackStatus(.pinError, "cancelled")
+                callBackStatus(.pinCancel, "cancelled")
+                isShowPin = false
+                isCancelPin = false
             }
         }
+//        
+//        if case .failure(let error) = result {
+//            
+//        }
     }
     
 }

@@ -18,7 +18,7 @@ let search_support_device:String = "search_support_device";
 
 func logEvent(eventId:String,param:[String:Any]? = nil) {
     
-    Print("Analytics--------\(eventId)")
+    Print("Analytics--------\(eventId),param-----\(param)")
     
     if param == nil {
         

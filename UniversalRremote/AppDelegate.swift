@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         
-        if LMLocalNetworkAuthorization.mananger.currentStatus != nil {
+        if UserDef.shard.locaNetwork ?? false {
             
             LMLocalNetworkAuthorization.mananger.requestAuthorization { text in
                 

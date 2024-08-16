@@ -131,8 +131,12 @@ class AllTipLoadingView:UIView {
     func dissMiss() {
         
 //        self.backView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-        self.loadingAnimation.pause()
-        self.removeFromSuperview()
+        DispatchQueue.main.async {[weak self] in
+            
+            self?.loadingAnimation.pause()
+            self?.removeFromSuperview()
+        }
+        
     }
 }
 

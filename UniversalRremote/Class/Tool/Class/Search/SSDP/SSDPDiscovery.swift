@@ -73,7 +73,9 @@ public class SSDPDiscovery {
     private func readResponses() {
         do {
             var data = Data()
-            let (bytesRead, address) = try self.socket!.readDatagram(into: &data)
+            
+            guard let scokect = self.socket else {self.stop(); return}
+            let (bytesRead, address) = try scokect.readDatagram(into: &data)
 
             if bytesRead > 0 {
                 let response = String(data: data, encoding: .utf8)

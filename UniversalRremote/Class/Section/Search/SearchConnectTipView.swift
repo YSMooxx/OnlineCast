@@ -72,48 +72,54 @@ class SearchConnectTipView:UIView {
     
     func showView(type:tipType) {
         
-        switch type {
-        case .suc:
-            backView.backgroundColor = UIColor.colorWithHex(hexStr: "#00DF4A")
-            tipLabel.text = "Connected"
-            iconImageView.image = UIImage(named: "search_connect_suc_icon")
-        case .fail:
-            backView.backgroundColor = UIColor.colorWithHex(hexStr: "#FF5A3D")
-            tipLabel.text = "Connect Failed"
-            iconImageView.image = UIImage(named: "search_connect_fail_icon")
-        }
-        
-        tipLabel.sizeToFit()
-        
-        backView.width = iconImageView.width + tipLabel.width + 32.RW()
-        backView.cornerCut(radius: 12.RW(), corner: .allCorners)
-        backView.centerX = width / 2
-        iconImageView.x = 12.RW()
-        iconImageView.centerY = backView.height / 2
-        tipLabel.x = iconImageView.x + 8.RW() + iconImageView.width
-        tipLabel.centerY = backView.height / 2
-        backView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-        
         DispatchQueue.main.async {[weak self] in
-            
             guard let self else {return}
-            cWindow?.addSubview(self)
-        }
-         
-         UIView.animate(withDuration: 0.25) {[weak self] in
-
-             guard let self else {return}
+            
+            switch type {
+            case .suc:
+                backView.backgroundColor = UIColor.colorWithHex(hexStr: "#00DF4A")
+                tipLabel.text = "Connected"
+                iconImageView.image = UIImage(named: "search_connect_suc_icon")
+            case .fail:
+                backView.backgroundColor = UIColor.colorWithHex(hexStr: "#FF5A3D")
+                tipLabel.text = "Connect Failed"
+                iconImageView.image = UIImage(named: "search_connect_fail_icon")
+            }
+            
+            tipLabel.sizeToFit()
+            
+            backView.width = iconImageView.width + tipLabel.width + 32.RW()
+            backView.cornerCut(radius: 12.RW(), corner: .allCorners)
+            backView.centerX = width / 2
+            iconImageView.x = 12.RW()
+            iconImageView.centerY = backView.height / 2
+            tipLabel.x = iconImageView.x + 8.RW() + iconImageView.width
+            tipLabel.centerY = backView.height / 2
+            backView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+            
+            DispatchQueue.main.async {[weak self] in
+                
+                guard let self else {return}
+                cWindow?.addSubview(self)
+            }
              
-             self.backView.transform = CGAffineTransformMakeScale(1, 1);
+             UIView.animate(withDuration: 0.25) {[weak self] in
 
-         } completion: { Bool in
-
-             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
-                 
                  guard let self else {return}
                  
-                 self.removeFromSuperview()
-             })
-         }
+                 self.backView.transform = CGAffineTransformMakeScale(1, 1);
+
+             } completion: { Bool in
+
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
+                     
+                     guard let self else {return}
+                     
+                     self.removeFromSuperview()
+                 })
+             }
+        }
+        
+        
      }
 }

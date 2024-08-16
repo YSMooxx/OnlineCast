@@ -16,16 +16,16 @@ class FireViewController:DeviceBaseViewController {
     lazy var fireView:FireView = {
         
         let cY:CGFloat = titleView.y + titleView.height
-        let sview:FireView = FireView(frame: CGRect(x: 0, y: cY, width: view.width, height: view.height - cY), titleArray: ["Remote","Channel"], model: self.model.smodel ?? Device(url: "", ip: ""))
+        let sview:FireView = FireView(frame: CGRect(x: 0, y: cY, width: view.width, height: view.height - cY), titleArray: ["Remote","Channel"], model: self.model.smodel ?? Device(url: "", ip: ""),isRconnect: isRConnet)
         
         
         sview.callBack = {[weak self] text in
             guard let self else {return}
             if text == "gotosearch" {
                 
-//                let vc:SearchViewController = SearchViewController()
-//                self.navigationController?.pushViewController(vc, animated: true)
-                self.connectStatus = .startConnect
+                let vc:SearchViewController = SearchViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+
             }else if text == "touch"{
                 
                 shock()
@@ -34,20 +34,27 @@ class FireViewController:DeviceBaseViewController {
                 shock()
             }else if text == "keyboard" {
                 
-                guard let dev = currentDevice else {return}
-                
-                let keyboardView:DeviceKeyboardView = DeviceKeyboardView()
-                
-                keyboardView.showView()
-                keyboardView.resultCallBack = {text in
+                if self.connectStatus == .sucConnect {
                     
-                    if text == "delete" {
+                    guard let dev = currentDevice else {return}
+                    
+                    let keyboardView:DeviceKeyboardView = DeviceKeyboardView()
+                    
+                    keyboardView.showView()
+                    keyboardView.resultCallBack = {text in
                         
-                        dev.sendKey(key: FireDevice.FireEventKey.Backspace.rawValue)
-                    }else {
-                        
-                        dev.searchWithString(content: text)
+                        if text == "delete" {
+                            
+                            dev.sendKey(key: FireDevice.FireEventKey.Backspace.rawValue)
+                        }else {
+                            
+                            dev.searchWithString(content: text)
+                        }
                     }
+                    
+                }else {
+                    
+                    AllTipView.shard.showViewWithView(content: "Device Disconnected")
                 }
                 
             }else {
@@ -59,7 +66,7 @@ class FireViewController:DeviceBaseViewController {
                     
                     if !dev.isVolum {
                         
-                        AllTipView.shard.showViewWithView(content: "Volume cannot e adjusted")
+                        AllTipView.shard.showViewWithView(content: "Volume cannot be adjusted")
                         return
                     }
                 }
@@ -150,7 +157,21 @@ class FireViewController:DeviceBaseViewController {
         
         currentDevice = smodel
         
-        self.connectStatus = .startConnect
+        self.fireView.connectingView.deviceName = currentDevice?.reName
+        
+        if isRConnet {
+            
+            if NetStatusManager.manager.currentStatus == .WIFI {
+                
+                self.connectStatus = .startConnect
+            }else {
+                
+                self.connectStatus = .failConnect
+            }
+        }else {
+            
+            self.connectStatus = .sucConnect
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: Notification.Name("collection_Fire_channgeArray"), object: nil)
     }
@@ -164,7 +185,6 @@ class FireViewController:DeviceBaseViewController {
     
     func connectDevice() {
         
-        self.fireView.connectingView.deviceName = currentDevice?.reName
         self.currentDevice?.connectDevice(suc: {[weak self] status in
             guard let self else {return}
             if status == Load_suc {

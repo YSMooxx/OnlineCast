@@ -82,4 +82,17 @@ class LDBaseViewController:UIViewController {
             navigationController?.dismiss(animated: animation)
         }
     }
+    
+    func removeViewControllerOfType<T: UIViewController>(type: T.Type) {
+        
+        guard var viewControllers = self.navigationController?.viewControllers else { return }
+
+            // 过滤掉特定类型的视图控制器
+            viewControllers.removeAll { $0 is T }
+
+            // 设置过滤后的视图控制器栈
+        self.navigationController?.setViewControllers(viewControllers, animated: true)
+    }
+    
+    
 }

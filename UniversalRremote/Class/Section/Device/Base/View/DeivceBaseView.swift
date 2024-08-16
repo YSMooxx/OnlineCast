@@ -69,8 +69,11 @@ class DeivceBaseView:UIView {
         return sview
     }()
     
-    init(frame: CGRect,titleArray:[String],model:Device) {
+    var isRconnect:Bool = true
+    
+    init(frame: CGRect,titleArray:[String],model:Device,isRconnect:Bool) {
         
+        self.isRconnect = isRconnect
         self.deviceModel = model
         self.titleArray = titleArray
         
@@ -123,13 +126,22 @@ class DeivceBaseView:UIView {
                 
             case .sucConnect:
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                if isRconnect {
                     
-                    guard let self else {return}
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {[weak self] in
+                        
+                        guard let self else {return}
+                        self.choiceView.isHidden = false
+                        self.connectingView.isHidden = true
+                        self.connectFailView.isHidden = true
+                    })
+                }else {
+                    
                     self.choiceView.isHidden = false
                     self.connectingView.isHidden = true
                     self.connectFailView.isHidden = true
-                })
+                    self.isRconnect = true
+                }
                 
             default:
                 break
