@@ -96,6 +96,10 @@ class WebOSDevice: Device {
     func disconnect() {
         
         client?.disconnect()
+        
+        self.client = nil
+        
+        self.callBackStatus = {status,text in}
     }
     
     func connectDevice(isShow:Bool = false) {

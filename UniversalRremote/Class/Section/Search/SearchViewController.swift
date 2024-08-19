@@ -694,7 +694,7 @@ class SearchViewController:LDBaseViewController {
                 let newDevice:WebOSDevice = WebOSDevice(device: webOSModel)
                 self.iscanWritet = true
                 newDevice.token = content
-                newDevice.client = webOSModel.client
+//                newDevice.client = webOSModel.client
                 RemoteDMananger.mananger.addDeviceArray(device: newDevice)
                 
                 DispatchQueue.main.async {[weak self] in
@@ -702,6 +702,8 @@ class SearchViewController:LDBaseViewController {
                     self?.writePin.pinTextView.text = nil
                     self?.writePin.removeFromSuperview()
                 }
+                
+                webOSModel.disconnect()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     
@@ -713,10 +715,9 @@ class SearchViewController:LDBaseViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {[weak self] in
 //                        
-                        let vc:WebOSViewController = WebOSViewController(model:newDevice,isRConnet: false)
+                        let vc:WebOSViewController = WebOSViewController(model:newDevice,isRConnet: true)
                         
                         self?.navigationController?.pushViewController(vc, animated: true)
-                        
                     })
                     
                 })
@@ -730,7 +731,7 @@ class SearchViewController:LDBaseViewController {
                     self?.writePin.seterror()
                 }
             case .error:
-                webOSModel.disconnect()
+                
                 self.stopTimer2(webOSModel: webOSModel)
                 suc(Load_fail)
                 
@@ -739,7 +740,8 @@ class SearchViewController:LDBaseViewController {
                     self?.writePin.removeFromSuperview()
                 }
                 
-                webOSModel.callBackStatus = {status,text in}
+                webOSModel.disconnect()
+                
             default:
                 break
             }
