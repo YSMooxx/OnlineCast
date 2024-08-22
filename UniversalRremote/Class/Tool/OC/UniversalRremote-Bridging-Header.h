@@ -3,6 +3,7 @@
 //
 
 #import "XMLDictionary.h"
+#import "BeamMedia.h"
 //#include <ifaddrs.h>
 #import <AmazonFling/DiscoveryController.h>
 #import <AmazonFling/MediaPlayerStatus.h>

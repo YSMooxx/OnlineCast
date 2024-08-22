@@ -15,6 +15,7 @@ target 'UniversalRremote' do
   pod 'lottie-ios', '~> 3.0.7'
   pod 'BlueSocket', '1.0.52'
   pod 'WebOSClient'
+  pod "ConnectSDK"
   
   target 'UniversalRremoteTests' do
     inherit! :search_paths

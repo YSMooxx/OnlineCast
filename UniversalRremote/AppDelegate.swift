@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let vc = LaunchVC()
+        let vc = ViewController()
         
         window?.rootViewController = LDBaseNavViewController(rootViewController: vc)
         
@@ -41,31 +41,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setConfig() {
         
+//        AmazonFlingMananger.mananger.startDiscovered()
+        ConnectSDKManager.manager.startDiscovery()
         startNetStatus()
-        
-        FirebaseApp.configure()
-        
-        getDefaulHeight()
-        
-        if !UserDef.shard.FirstOpen {
-            
-            logEvent(eventId: first_open)
-            UserDef.shard.FirstOpen = true
-            UserDef.shard.saveUserDefToSandBox()
-        }
-        
-        if UserDef.shard.lastOpenAppTime == 0 {
-            
-            logEvent(eventId: open_app,param: ["last_days_logon":0])
-        }else {
-            
-            let time:String =  String(format: "%.2f",  (getNowTimeInterval() - UserDef.shard.lastOpenAppTime) / Double(oneDay))
-            
-            logEvent(eventId: open_app,param: ["last_days_logon":time])
-        }
-        
-        UserDef.shard.lastOpenAppTime = getNowTimeInterval()
-        UserDef.shard.saveUserDefToSandBox()
+//        
+//        FirebaseApp.configure()
+//        
+//        getDefaulHeight()
+//        
+//        if !UserDef.shard.FirstOpen {
+//            
+//            logEvent(eventId: first_open)
+//            UserDef.shard.FirstOpen = true
+//            UserDef.shard.saveUserDefToSandBox()
+//        }
+//        
+//        if UserDef.shard.lastOpenAppTime == 0 {
+//            
+//            logEvent(eventId: open_app,param: ["last_days_logon":0])
+//        }else {
+//            
+//            let time:String =  String(format: "%.2f",  (getNowTimeInterval() - UserDef.shard.lastOpenAppTime) / Double(oneDay))
+//            
+//            logEvent(eventId: open_app,param: ["last_days_logon":time])
+//        }
+//        
+//        UserDef.shard.lastOpenAppTime = getNowTimeInterval()
+//        UserDef.shard.saveUserDefToSandBox()
     }
     
     func startNetStatus() {

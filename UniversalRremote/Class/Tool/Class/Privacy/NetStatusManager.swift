@@ -53,7 +53,6 @@ class NetStatusManager: NSObject {
                 }
             } else {
                 
-                
                 AmazonFlingMananger.mananger.stopDiscovered()
                 if self.currentStatus != .NoNet {
                     
